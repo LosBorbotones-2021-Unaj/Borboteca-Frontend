@@ -1,0 +1,348 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+}
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: url(../img/biblioteca.jpg) no-repeat center top;
+        background-size: cover;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        height: 100vh;
+        width: 100vw;
+        
+        
+      }
+
+.web_Container{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1,8% 1fr 1fr 1fr 100px);
+    background: white;
+}
+
+/*MAIN*/
+.main{
+    grid-row: 2/5;
+    background-color: rgb(229, 229, 229);
+    display: flex;
+    flex-flow: column wrap;
+    width: 80%;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.button_Volver_Menu{
+    color: rgb(107, 107, 107);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 17px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: start;
+}
+
+.button_Volver_Menu:hover{
+    color: rgb(235, 98, 98);
+    cursor: pointer;
+}
+
+.h2_Carrito{
+    
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.01em;
+    color: rgb(79, 98, 118);
+}
+
+/*NAV MENU DESPLEGABLE*/
+
+.Logged_Menu_Container{
+   transition: transform .5s;
+   padding-top: 18px;
+   
+}
+
+.Logged_Menu_Item{
+    position: relative;
+    margin-bottom:5px;
+    --clip : polygon(0 0, 100% 0, 100% 0, 0 0);
+    --transform : rotate(-90deg);
+}
+
+.Logged_Menu_Item:hover{
+    --clip : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    --transform : rotate(0deg);
+}
+
+.Logged_User_Container{
+    padding: 5px 10px;
+    border-radius: 3px 3px 3px 3px;
+    background-color: rgb(255, 105, 98);
+    transition: background-color .3s;
+}
+
+.Logged_User_Container:hover{
+    background-color:white;
+}
+
+.Logged_User_Container svg path{
+    fill:white;
+    
+}
+
+.change_background_Logged_User{
+    background-color:white ;
+}
+.change_icons_Logged_User{
+    fill:#676D73 !important; 
+}
+
+.Logged_User_Container:hover .userIcon path{
+    fill:#676D73;
+}
+.Logged_User_Container:hover .userMenuDownIcon path{
+    fill:#676D73;
+}
+.Logged_Menu_Links{
+    clip-path: var(--clip);
+    transition: clip-path .3s;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+    width: 250px;
+    transform: translateY(100%);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(232, 236, 238);
+    border-right: 1px solid rgb(219, 221, 221);
+    box-sizing: border-box;
+    box-shadow: rgb(0 0 0 / 40%) 0px 0px 8px;
+    border-radius: 3px 3px 8px 8px;;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.particular_Links{
+    padding: 25px 0px 25px 5px;
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    align-items: center;
+    color: #4F6276;
+}
+
+.particular_Links:hover{
+    color: rgb(235, 98, 98);
+}
+
+.userMenuDownIcon{
+    
+    transform: var(--transform);
+    transition: transform .3s;
+}
+
+.Logged_Menu_User{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Use_Logged_Menu{
+    padding-left: 6px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 17px;
+    letter-spacing: -0.01px;
+}
+.nombre_Usuario{
+    padding: 0px 5px;
+    color:#2a3138;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+}
+
+.Logged_User_Container:hover .nombre_Usuario{
+    color: #4F6276;
+}
+
+
+.carrito_Container{
+    width: 70%;   
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(255, 255, 255);
+    height: 60%;
+    border-radius: 9px;
+    
+}
+/*NAV*/
+.nav_flex_Container{
+    grid-row: 1/2;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+
+}
+
+.logo{
+    width: 10%;
+    font-size: 40px;
+    font-family: fantasy;
+    color: rgb(235, 98, 98);
+    align-self: center;
+    
+}
+.nav_Search{
+    width: 30%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgb(217, 218, 219);
+    position: relative;
+    align-self: center;
+}
+.search_Input{
+
+    top: 11px;
+    left: 18px;
+    width: 300px;
+    border-style: hidden;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgb(223, 228, 233);
+    outline: none;
+    position: absolute;
+    background: transparent;
+
+}
+.search_Input::placeholder{
+    color: rgb(235, 98, 98);;
+}
+.search_Button{
+    right: -1px;
+    top: -1px;
+    border: 0px;
+    height: 40px;
+    width: 53px;
+    background: rgb(255, 105, 98);
+    padding: 0px;
+    border-radius: 0px 6px 6px 0px;
+    outline: none;
+    position: absolute;
+
+}
+
+.search_Img{
+    color: white;
+    width: 18px;
+    height: 19px;
+    vertical-align: middle;
+}
+.footer{
+    background: rgb(240, 240, 243);
+    border-top: 1px solid #eee;
+    line-height: 1;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.footer__ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.footer__li{
+   padding: 10px 15px;
+   
+}
+/*MAIN*/
+.carrito_SubContainer{
+    width: 80%;
+}
+
+.carrito_Venta{
+    width: 20%;
+}
+.carrito_SubContainer{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1,50px);
+    grid-auto-rows: 100px;
+    height:100%;
+}
+
+.Libros_Grid_Item{
+   
+}
+
+.Libros_Info_General{
+    height: 10%;
+}
+
+.Libros_Info_Particular{
+    height: 100px;
+}
+
+.nombre_Libro_General{
+    font-family: sans-serif;
+    color: black;
+}
+
+.precio_Libro_General{
+    
+    font-family: sans-serif;
+    color: black;
+}
+
+@media screen and (max-width:1024px){
+
+    .web_Container{
+        grid-template-rows: repeat(1,13% 1fr 1fr 1fr 100px);
+    }
+    .nav_flex_Container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr 100%;
+    }
+    
+    .logo{
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+    .nav_Search{
+        grid-row: 2/3;
+        grid-column: 1/4;
+        width: 100%;
+    
+    }
+    .Logged_Menu_Container{
+        grid-row: 1/2;
+        grid-column: 3/4;
+        width: max-content;
+        justify-self: flex-end;
+    }
+}
+
