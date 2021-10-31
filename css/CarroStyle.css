@@ -25,12 +25,14 @@
     grid-template-columns: repeat(1,1fr);
     grid-template-rows: repeat(1,8% 1fr 1fr 1fr 100px);
     background: white;
+    
 }
 
 /*MAIN*/
 .main{
     grid-row: 2/5;
-    background-color: rgb(229, 229, 229);
+    background-color:rgb(182,168,168);
+    border: 1px solid black;
     display: flex;
     flex-flow: column wrap;
     width: 80%;
@@ -69,12 +71,17 @@
 /*NAV MENU DESPLEGABLE*/
 
 .Logged_Menu_Container{
+    
    transition: transform .5s;
    padding-top: 18px;
+   padding-bottom: 20px;
    
 }
-
+.web_Container{
+    background-image: url(../img/biblioteca.jpg);
+}
 .Logged_Menu_Item{
+   
     position: relative;
     margin-bottom:5px;
     --clip : polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -96,7 +103,21 @@
 .Logged_User_Container:hover{
     background-color:white;
 }
-
+.nav_Search{
+    background-color: rgb(182,168,168);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    height: 600px;
+}
+.Logged_Menu_Container{
+margin-bottom: 10px;
+}
+.main{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
 .Logged_User_Container svg path{
     fill:white;
     
@@ -202,6 +223,7 @@
     display: flex;
     justify-content: space-between;
     height: 70px;
+    align-items: initial;
 
 }
 
@@ -209,15 +231,16 @@
     width: 10%;
     font-size: 40px;
     font-family: fantasy;
-    color: rgb(235, 98, 98);
-    align-self: center;
+    color: rgb(184,15,34);
+    display: block;
+    align-items: flex-start;
     
 }
 .nav_Search{
     width: 30%;
     height: 40px;
     border-radius: 6px;
-    border: 1px solid rgb(217, 218, 219);
+    border: 1px solid black;
     position: relative;
     align-self: center;
 }
@@ -231,7 +254,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: rgb(223, 228, 233);
+    color: rgb(240, 86, 86);
     outline: none;
     position: absolute;
     background: transparent;
