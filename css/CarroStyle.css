@@ -14,8 +14,199 @@
     height: 100vh;
     width: 100vw;
     background: white;
+    
 }
 
+<<<<<<< HEAD
+/*MAIN*/
+.main{
+    grid-row: 2/5;
+    background-color:rgb(182,168,168);
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column wrap;
+    width: 80%;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.button_Volver_Menu{
+    color: rgb(107, 107, 107);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 17px;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    text-align: start;
+}
+
+.button_Volver_Menu:hover{
+    color: rgb(235, 98, 98);
+    cursor: pointer;
+}
+
+.h2_Carrito{
+    
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.01em;
+    color: rgb(79, 98, 118);
+}
+
+/*NAV MENU DESPLEGABLE*/
+
+.Logged_Menu_Container{
+    
+   transition: transform .5s;
+   padding-top: 18px;
+   padding-bottom: 20px;
+   
+}
+.web_Container{
+    background-image: url(../img/biblioteca.jpg);
+}
+.Logged_Menu_Item{
+   
+    position: relative;
+    margin-bottom:5px;
+    --clip : polygon(0 0, 100% 0, 100% 0, 0 0);
+    --transform : rotate(-90deg);
+}
+
+.Logged_Menu_Item:hover{
+    --clip : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    --transform : rotate(0deg);
+}
+
+.Logged_User_Container{
+    padding: 5px 10px;
+    border-radius: 3px 3px 3px 3px;
+    background-color: rgb(255, 105, 98);
+    transition: background-color .3s;
+}
+
+.Logged_User_Container:hover{
+    background-color:white;
+}
+.nav_Search{
+    background-color: rgb(182,168,168);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    height: 600px;
+}
+.Logged_Menu_Container{
+margin-bottom: 10px;
+}
+.main{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.Logged_User_Container svg path{
+    fill:white;
+    
+}
+
+.change_background_Logged_User{
+    background-color:white ;
+}
+.change_icons_Logged_User{
+    fill:#676D73 !important; 
+}
+
+.Logged_User_Container:hover .userIcon path{
+    fill:#676D73;
+}
+.Logged_User_Container:hover .userMenuDownIcon path{
+    fill:#676D73;
+}
+.Logged_Menu_Links{
+    clip-path: var(--clip);
+    transition: clip-path .3s;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+    width: 250px;
+    transform: translateY(100%);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(232, 236, 238);
+    border-right: 1px solid rgb(219, 221, 221);
+    box-sizing: border-box;
+    box-shadow: rgb(0 0 0 / 40%) 0px 0px 8px;
+    border-radius: 3px 3px 8px 8px;;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.particular_Links{
+    padding: 25px 0px 25px 5px;
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    align-items: center;
+    color: #4F6276;
+}
+
+.particular_Links:hover{
+    color: rgb(235, 98, 98);
+}
+
+.userMenuDownIcon{
+    
+    transform: var(--transform);
+    transition: transform .3s;
+}
+
+.Logged_Menu_User{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Use_Logged_Menu{
+    padding-left: 6px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 17px;
+    letter-spacing: -0.01px;
+}
+.nombre_Usuario{
+    padding: 0px 5px;
+    color:#2a3138;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: -0.01em;
+}
+
+.Logged_User_Container:hover .nombre_Usuario{
+    color: #4F6276;
+}
+
+
+.carrito_Container{
+    width: 70%;   
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(255, 255, 255);
+    height: 60%;
+    border-radius: 9px;
+    
+}
+=======
+>>>>>>> 25ecc57e4b392a77a3ad1bd3cede018793f401e7
 /*NAV*/
 .nav_flex_Container{
     width: 80%;
@@ -23,6 +214,7 @@
     display: flex;
     justify-content: space-between;
     height: 70px;
+    align-items: initial;
 
 }
 
@@ -30,15 +222,16 @@
     width: 10%;
     font-size: 40px;
     font-family: fantasy;
-    color: rgb(235, 98, 98);
-    align-self: center;
+    color: rgb(184,15,34);
+    display: block;
+    align-items: flex-start;
     
 }
 .nav_Search{
     width: 30%;
     height: 40px;
     border-radius: 6px;
-    border: 1px solid rgb(217, 218, 219);
+    border: 1px solid black;
     position: relative;
     align-self: center;
 }
@@ -52,7 +245,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: rgb(223, 228, 233);
+    color: rgb(240, 86, 86);
     outline: none;
     position: absolute;
     background: transparent;
