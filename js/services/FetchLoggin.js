@@ -1,18 +1,19 @@
 const urlGetUsuario = `https://localhost:44363/api/usuarios/getUsuario`;
-const resto = `?email=emajulio.ej%40gmail.com&contrase%C3%B1a=blablabla`;
-export async function getUsuario(email, contraseña) {
-  var elemento = [];
-  try {
-    await fetch(
-      urlGetUsuario + `?email=${email}&contrase%C3%B1a=${contraseña}`,
-      { method: "GET" }
-    )
-    .then((response) => response.json())
-    .then((data) => {
-      elemento = data.map((element) => element);
-    });
+export async function getUsuario(email, contraseña,callback) {
 
-  return elemento;
-} catch (error) {}
+    const url= urlGetUsuario + `?email=${email}&contrase%C3%B1a=${contraseña}`
+    console.log(url)
+await fetch (url,{method:'GET'})
+  .then(httpResponse => {
+      if(httpResponse.ok){
+        return httpResponse.json()
+      }
+      
+  })
+    
+  .then(body => {
+      console.log(body)
+    callback(body)
+  });
+
 }
-
