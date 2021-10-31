@@ -14,8 +14,8 @@ export const GetLibrosDelCarro = async (UsuarioId,callback) => {
 
     
 }
- export const GetLibros = async (Libros) => {
-    let respuesta = await fetch(`${UrlBaseLibros}${Libros[0]}`);
+ export const GetLibros = async (Libro) => {
+    let respuesta = await fetch(`${UrlBaseLibros}${Libro}`);
     let json = await respuesta.json();
     return json;
     
