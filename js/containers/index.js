@@ -18,7 +18,7 @@ import { GetLibros } from '../services/FetchServices.js'
    
 
     export const IndexRender = () => {
-        GetLibrosDelCarro(3,RenderLibros);
+        GetLibrosDelCarro(1,RenderLibros);
     }
 
     
