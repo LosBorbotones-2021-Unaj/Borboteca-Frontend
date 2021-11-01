@@ -18,3 +18,9 @@ export const LibrosDelCarroParticulares = (Titulo,Imagen,Autor,Precio) =>
     <i class="fas fa-trash"></i>
   
 `
+export const TotalYBotonComprar = (total)=>
+`<div class="div_Finalizar_Compra">
+    <hr>
+    <h2 class="TotalCompra">Total:<span>${total}</span></h2>
+    <button class="BotonCompra">Comprar</button>
+</div>`
