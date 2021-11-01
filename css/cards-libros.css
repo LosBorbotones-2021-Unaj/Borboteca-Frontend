@@ -26,19 +26,20 @@ body {
   margin: 0 auto;
 }
 
-h1 {
+.cards_item h1 {
     font-size: 24px;
     font-weight: 400;
     text-align: center;
 }
 
-img {
+.cards_item img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  align-items: center;
 }
 
-.btn {
+.btn_card {
   color: #ffffff;
   padding: 0.8rem;
   font-size: 14px;
