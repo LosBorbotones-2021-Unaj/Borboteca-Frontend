@@ -1,6 +1,6 @@
 import { CardComponent } from '../components/card-libros.js';
-import { pedirLibros } from '../services/libros-index.js';
-import { pedirPaginas} from '../services/libros-index.js';
+import { pedirLibros }   from '../services/libros-index.js';
+import { pedirPaginas}   from '../services/libros-index.js';
 
 let indexer = 1;
 let paginas = 1;
@@ -17,15 +17,19 @@ export const RenderLibros = (json) =>{
                     <div class="card_content">
                         <h2 class="card_title">${name}</h2>
                         <p class="card_text">${resenia}</p>
-                        <button class="btn_card card_btn" href="#">+ info</button>
-                        <button class="btn_card card_btn" href="#">Agregar al carro</button>
+                        <a style="text-decoration:none"href="http://127.0.0.1:5501/view/vistaInfoLibro.html"><button class="btn_card card_btn" id="libroId-${element.id}">+ info</button></a>
+                        <button class="btn_card card_btn" href="./vistaInfoLibro.html">Agregar al carro</button>
                     </div>
                     </div>
                 </li>
             `
         )
+        $(`#libroId-${element.id}`).click(function (e) { 
+            localStorage.setItem("idLibro",element.id)
+        });
     });
 }
+
 export const ChargeLibros = () => {
     pedirLibros(indexer,RenderLibros);
 }

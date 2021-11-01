@@ -21,7 +21,15 @@
     height: 70px;
 
 }
+.logo2 img{
+    width: 60px;
+    height: 60px;
+}
 
+.logo2{
+    display: flex;
+    align-self: center;
+}
 .logo{
     width: 10%;
     font-size: 40px;
@@ -358,6 +366,32 @@
     cursor: pointer;
     color: red;
     transform: perspective(1000px)translateZ(5rem)   
+}
+
+.div_Finalizar_Compra{
+    
+    grid-column: 1/5;
+    padding: 10px;
+}
+.TotalCompra{
+    font-weight: 300;
+    text-align: center;
+}
+
+.BotonCompra{
+    background-color:rgb(235, 98, 98);
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    margin: 0 auto;
+    width: 150px;
+    transition: all .3s;
+}
+
+.BotonCompra:hover{
+    cursor: pointer;
+    color: rgb(230, 216, 216);
 }
 @media screen and (max-width:1024px){
 
