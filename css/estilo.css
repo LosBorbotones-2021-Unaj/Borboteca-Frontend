@@ -15,7 +15,7 @@
 
     .content__main_grid {
         display: grid;
-        grid-template-columns: 230px 1fr 280px;
+        grid-template-columns: 1fr 1fr 1fr;
         background: #E5E5E5;
         width: 80%;
         border-radius: 20px;
