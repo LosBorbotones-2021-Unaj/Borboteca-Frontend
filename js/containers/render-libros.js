@@ -15,8 +15,8 @@ const RenderLibros = (json) =>{
                     <div class="card_content">
                         <h2 class="card_title">${name}</h2>
                         <p class="card_text">${resenia}</p>
-                        <button class="btn card_btn" href="#">+ info</button>
-                        <button class="btn card_btn" href="#">Agregar al carro</button>
+                        <button class="btn_card card_btn" href="#">+ info</button>
+                        <button class="btn_card card_btn" href="#">Agregar al carro</button>
                     </div>
                     </div>
                 </li>

@@ -163,7 +163,6 @@
      align-self: center;
  }
  .search_Input{
- 
      top: 11px;
      left: 18px;
      width: 300px;
@@ -176,7 +175,6 @@
      outline: none;
      position: absolute;
      background: transparent;
- 
  }
  .search_Input::placeholder{
      color: rgb(235, 98, 98);;
@@ -192,9 +190,7 @@
      border-radius: 0px 6px 6px 0px;
      outline: none;
      position: absolute;
- 
  }
- 
  .search_Img{
      color: white;
      width: 18px;
