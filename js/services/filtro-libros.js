@@ -1,5 +1,5 @@
 let _booklist;
-document.getElementById("myInput").onkeyup = function() {IsKeyUp()};
+document.getElementById("myInput").onkeyup = function() {IsEnterPressed()};
 
 
 // JavaScript code
@@ -56,7 +56,7 @@ const RenderNombreLibros = (json) =>{
 }
 
 
-function IsKeyUp() 
+function IsEnterPressed() 
 {
     // Declare variables
     _booklist = [];
@@ -79,5 +79,16 @@ function IsKeyUp()
         {
             li[i].style.display = "none";
         }
+    }
+}
+function EmptyValidation(inputtxt)
+{
+    if (inputtxt.value.length == 0)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
