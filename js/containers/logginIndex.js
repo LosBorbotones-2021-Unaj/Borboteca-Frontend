@@ -1,11 +1,14 @@
 import { getUsuario } from "../services/FetchLoggin.js"
 
+const GuardarEnLocalStorage=(json)=>{
+        console.log(json)
+        localStorage.setItem("IdUsuario",json[0].id)    
+       location.href="http://127.0.0.1:5501/Borboteca-Frontend/view/index.html"
+}
 
-export const  EnterUser= async()=>{
+export const  EnterUser= ()=>{
  const usuario = document.getElementById("Usuario").value
  const contraseña=document.getElementById("Contra").value
- var elemento = await getUsuario(usuario,contraseña)
- console.log(elemento)
- localStorage.setItem("IdUsuario",elemento.id)
+  getUsuario(usuario,contraseña,GuardarEnLocalStorage)
 
 }
