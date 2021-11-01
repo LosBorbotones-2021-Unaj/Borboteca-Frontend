@@ -6,31 +6,23 @@
     
 }
 
-    body {
-        margin: 0;
-        padding: 0;
-        background: url(../img/biblioteca.jpg) no-repeat center top;
-        background-size: cover;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        height: 100vh;
-        width: 100vw;
-        
-        
-      }
+/*body{
+    background-image: url(../img/Fondo.jpg);
+}*/
 
 .web_Container{
-    display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(1,8% 1fr 1fr 1fr 100px);
     background: white;
+    
 }
 
+<<<<<<< HEAD
 /*MAIN*/
 .main{
     grid-row: 2/5;
-    background-color: rgb(229, 229, 229);
+    background-color:rgb(182,168,168);
+    border: 1px solid black;
     display: flex;
     flex-flow: column wrap;
     width: 80%;
@@ -69,12 +61,17 @@
 /*NAV MENU DESPLEGABLE*/
 
 .Logged_Menu_Container{
+    
    transition: transform .5s;
    padding-top: 18px;
+   padding-bottom: 20px;
    
 }
-
+.web_Container{
+    background-image: url(../img/biblioteca.jpg);
+}
 .Logged_Menu_Item{
+   
     position: relative;
     margin-bottom:5px;
     --clip : polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -96,7 +93,21 @@
 .Logged_User_Container:hover{
     background-color:white;
 }
-
+.nav_Search{
+    background-color: rgb(182,168,168);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    height: 600px;
+}
+.Logged_Menu_Container{
+margin-bottom: 10px;
+}
+.main{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
 .Logged_User_Container svg path{
     fill:white;
     
@@ -194,14 +205,16 @@
     border-radius: 9px;
     
 }
+=======
+>>>>>>> 25ecc57e4b392a77a3ad1bd3cede018793f401e7
 /*NAV*/
 .nav_flex_Container{
-    grid-row: 1/2;
     width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     height: 70px;
+    align-items: initial;
 
 }
 
@@ -209,15 +222,16 @@
     width: 10%;
     font-size: 40px;
     font-family: fantasy;
-    color: rgb(235, 98, 98);
-    align-self: center;
+    color: rgb(184,15,34);
+    display: block;
+    align-items: flex-start;
     
 }
 .nav_Search{
     width: 30%;
     height: 40px;
     border-radius: 6px;
-    border: 1px solid rgb(217, 218, 219);
+    border: 1px solid black;
     position: relative;
     align-self: center;
 }
@@ -231,7 +245,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: rgb(223, 228, 233);
+    color: rgb(240, 86, 86);
     outline: none;
     position: absolute;
     background: transparent;
@@ -260,11 +274,186 @@
     height: 19px;
     vertical-align: middle;
 }
+
+
+/*NAV MENU DESPLEGABLE*/
+
+.Logged_Menu_Container{
+    transition: transform .5s;
+    padding-top: 18px;
+    
+ }
+ 
+ .Logged_Menu_Item{
+     position: relative;
+     margin-bottom:5px;
+     --clip : polygon(0 0, 100% 0, 100% 0, 0 0);
+     --transform : rotate(-90deg);
+ }
+ 
+ .Logged_Menu_Item:hover{
+     --clip : polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+     --transform : rotate(0deg);
+ }
+ 
+ .Logged_User_Container{
+     padding: 5px 10px;
+     border-radius: 3px 3px 3px 3px;
+     background-color: rgb(255, 105, 98);
+     transition: background-color .3s;
+ }
+ 
+ .Logged_User_Container:hover{
+     background-color:white;
+ }
+ 
+ .Logged_User_Container svg path{
+     fill:white;
+     
+ }
+ 
+ .change_background_Logged_User{
+     background-color:white ;
+ }
+ .change_icons_Logged_User{
+     fill:#676D73 !important; 
+ }
+ 
+ .Logged_User_Container:hover .userIcon path{
+     fill:#676D73;
+ }
+ .Logged_User_Container:hover .userMenuDownIcon path{
+     fill:#676D73;
+ }
+ .Logged_Menu_Links{
+     clip-path: var(--clip);
+     transition: clip-path .3s;
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     left: 0px;
+     width: 250px;
+     transform: translateY(100%);
+     background-color: rgb(255, 255, 255);
+     border: 1px solid rgb(232, 236, 238);
+     border-right: 1px solid rgb(219, 221, 221);
+     box-sizing: border-box;
+     box-shadow: rgb(0 0 0 / 40%) 0px 0px 8px;
+     border-radius: 3px 3px 8px 8px;;
+     padding-top: 0px;
+     padding-bottom: 0px;
+ }
+ 
+ .particular_Links{
+     padding: 25px 0px 25px 15px;
+     display: flex;
+     justify-content: flex-start;
+     text-decoration: none;
+     align-items: center;
+     color: #4F6276;
+ }
+ 
+ .particular_Links:hover{
+     color: rgb(235, 98, 98);
+ }
+ 
+ .userMenuDownIcon{
+     
+     transform: var(--transform);
+     transition: transform .3s;
+ }
+ 
+ .Logged_Menu_User{
+     text-decoration: none;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .Use_Logged_Menu{
+     padding-left: 6px;
+     font-family: Montserrat;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 550;
+     line-height: 17px;
+     letter-spacing: -0.01px;
+ }
+ .nombre_Usuario{
+     padding: 0px 5px;
+     color:#2a3138;
+     font-family: Montserrat;
+     font-size: 14px;
+     font-style: normal;
+     font-weight: 500;
+     line-height: 17px;
+     letter-spacing: -0.01em;
+ }
+ 
+ .Logged_User_Container:hover .nombre_Usuario{
+     color: #4F6276;
+ }
+ 
+
+/*MAIN*/
+.main{
+    height: 100%;
+    background-color: rgb(206, 192, 192);
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.button_Volver_Menu{
+    color: rgb(107, 107, 107);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 17px;
+    text-decoration: none;
+    padding: 30px;
+    border: none;
+    background: transparent;
+    text-align: start;
+    align-self: flex-start;
+}
+
+.button_Volver_Menu:hover{
+    color: rgb(235, 98, 98);
+    cursor: pointer;
+}
+
+.h2_Carrito{
+    align-self: center;
+    font-style: normal;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.01em;
+    color: rgb(79, 98, 118);
+}
+
+
+
+.carrito_Container{
+    width: 70%;   
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(255, 255, 255);
+    height: max-content;
+    border-radius: 9px;
+    
+}
+
 .footer{
     background: rgb(240, 240, 243);
     border-top: 1px solid #eee;
     line-height: 1;
     font-size: 13px;
+    height: 90px;
     font-weight: 400;
 }
 
@@ -288,44 +477,93 @@
 }
 .carrito_SubContainer{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(1,50px);
-    grid-auto-rows: 100px;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: max-content;
+    padding: 20px;
+    width: 100%;
     height:100%;
 }
 
-.Libros_Grid_Item{
-   
+
+.Libro_Info_General{
+    padding-bottom: 20px;
+    color: black;
+    font-size: 23px; 
+    font-family: 'Anton', sans-serif;
 }
 
-.Libros_Info_General{
-    height: 10%;
+.imagen_Autor_Libro_General{
+    font-family: sans-serif;
+    color: black;
+    padding-left:20px;
 }
-
-.Libros_Info_Particular{
-    height: 100px;
-}
-
-.nombre_Libro_General{
+.titulo_Libro_General{
     font-family: sans-serif;
     color: black;
 }
-
 .precio_Libro_General{
-    
+    padding-left: 20px;
     font-family: sans-serif;
     color: black;
+    grid-column: 3/5;
 }
+.carro_hr{
+    grid-column: 1/5;
+}
+.imagen_Libro_Particular{
+    width: 75px;
+    height: 105px;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 1px 2px);
+    object-fit: cover;
+}
+.Libro_Imagen_Autor{
+    padding: 10px 0px 20px 20px;
 
+}
+.autor_Libro_Particular{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.93rem;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: rgb(103, 109, 115);
+}
+.titulo_Libro_Particular{
+    align-self: center;
+    color: #414141;
+    font-size: 18px;
+    font-family: "Work Sans", sans-serif;
+}
+.precio_Libro_Particular{
+    align-self: center;
+    padding-left: 20px;
+    color: #0e0d0d;
+    line-height: 36px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.fa-trash{
+    align-self: center;
+    width:max-content;
+    transition: all .2s;
+    font-size: 20px;
+    transition: transform .1 ease-in-out;
+}
+.fa-trash:hover{
+    cursor: pointer;
+    color: red;
+    transform: perspective(1000px)translateZ(5rem)   
+}
 @media screen and (max-width:1024px){
 
-    .web_Container{
-        grid-template-rows: repeat(1,13% 1fr 1fr 1fr 100px);
-    }
+    
     .nav_flex_Container{
         display: grid;
         grid-template-columns: repeat(3,1fr);
-        grid-template-rows: 1fr 100%;
+        height: 150px;
+        grid-template-rows: 1fr;
     }
     
     .logo{
@@ -336,13 +574,14 @@
         grid-row: 2/3;
         grid-column: 1/4;
         width: 100%;
-    
+        margin-bottom: 20px;
     }
     .Logged_Menu_Container{
         grid-row: 1/2;
         grid-column: 3/4;
         width: max-content;
         justify-self: flex-end;
+        align-self: center;
     }
 }
 
