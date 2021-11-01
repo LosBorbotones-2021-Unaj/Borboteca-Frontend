@@ -11,8 +11,6 @@ function obtenerLocalStorage(){
     let idLibro = localStorage.getItem("libroId");
 }
 
-InfoLibro(idLibro);
-
 function InfoLibro(idLibro){
     fetch(url + idLibro)
     .then(response => response.json())
