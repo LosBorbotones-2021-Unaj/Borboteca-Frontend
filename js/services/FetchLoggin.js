@@ -1,16 +1,25 @@
-const urlGetUsuario = `https://localhost:44363/api/usuarios/getUsuario`;
-export  const getUsuario=(email, contraseña,callback)=> {
-   fetch(urlGetUsuario + `?email=${email}&contrase%C3%B1a=${contraseña}`)
+const urlGetUsuario = `https://localhost:44343/api/login`;
+export  const getUsuario=(email, contraseña,callback,badRequest) => {
+   fetch(urlGetUsuario,
+    {
+      method:`POST`,
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify({Email:email ,Password:contraseña})
+    })
     .then((httpresponse)=>{
       if(httpresponse.ok){
         return httpresponse.json()
       }
-        
-
     })  
     .then(body => {
-      console.log(body)
-      callback(body)
+      if (body==undefined){
+        badRequest()
+      }else{
+        callback(body)
+      }
+      
     })
   } 
 
