@@ -33,7 +33,7 @@ body {
 }
 
 .cards_item img {
-  height: auto;
+  height: 100%;
   max-width: 100%;
   vertical-align: middle;
   align-items: center;
