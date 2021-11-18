@@ -1,4 +1,4 @@
-const urlPostUsuario = `https://localhost:44343/api/Usuariohttps://localhost:44343/api/Usuario`;
+const urlPostUsuario = `https://localhost:44343/api/Usuario`;
 export  const PostUsuario=(nombre,apellido,email, contraseña,callback,badRequest) => {
    fetch(urlPostUsuario,
     {
