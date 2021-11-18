@@ -24,3 +24,9 @@ export const TotalYBotonComprar = (total)=>
     <h2 class="TotalCompra">Total:<span>${total}</span></h2>
     <button class="BotonCompra">Comprar</button>
 </div>`
+
+export const SinLibros = ()=> 
+    `<div class="carrito_Vacio">
+        <p>EL CARRITO AUN ESTA VACIO</p>
+        <img src="../img/carrito.png" alt="">
+    </div>`
