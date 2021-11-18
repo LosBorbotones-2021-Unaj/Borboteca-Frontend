@@ -6,7 +6,7 @@ export  const PostUsuario=(nombre,apellido,email, contraseña,callback,badReques
       headers:{
         "Content-Type": "application/json",
       },
-      body:JSON.stringify({nommbre:nombre,apellido:apellido, email:email ,contraseña:contraseña})
+      body:JSON.stringify({nombre:nombre,apellido:apellido, email:email ,contraseña:contraseña})
     })
     .then((httpresponse)=>{
       if(httpresponse.ok){
