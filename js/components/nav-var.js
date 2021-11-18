@@ -25,7 +25,7 @@ export const genericNavVar = () => {
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
         console.log(decoded);
-        renderLoggeo();
+        renderLoggeo(decoded);
     }
     else{
 
@@ -43,7 +43,7 @@ function parseJwt (token) {
 };
 
 
-const renderLoggeo = () => {
+const renderLoggeo = (tokensito) => {
     divlogg.innerHTML = 
         `
             <div class="Logged_Menu_Item">
@@ -53,7 +53,7 @@ const renderLoggeo = () => {
                             <path class="userIconPath" d="M9.688 4.563a3.751 3.751 0 000 7.5 3.751 3.751 0 000-7.5zm0 5.625a1.851 1.851 0 01-1.876-1.876c0-1.015.82-1.874 1.875-1.874 1.016 0 1.876.859 1.876 1.875 0 1.054-.86 1.874-1.876 1.874zm0-9.376A9.686 9.686 0 000 10.5a9.686 9.686 0 009.688 9.688 9.686 9.686 0 009.687-9.688A9.686 9.686 0 009.687.812zm0 17.5a7.846 7.846 0 01-5.118-1.875c.586-.898 1.602-1.523 2.735-1.523.82.234 1.601.352 2.383.352.742 0 1.523-.118 2.343-.352a3.402 3.402 0 012.735 1.524 7.819 7.819 0 01-5.079 1.875zm6.328-3.28C15.078 13.82 13.594 13 11.914 13c-.39 0-1.016.39-2.226.39-1.25 0-1.876-.39-2.266-.39-1.68 0-3.164.82-4.102 2.031-.937-1.25-1.445-2.812-1.445-4.531 0-4.297 3.477-7.813 7.813-7.813 4.296 0 7.812 3.516 7.812 7.813 0 1.719-.547 3.281-1.484 4.531z" >
                             </path>
                         </svg>
-                        <p class="nombre_Usuario">tomas</p>
+                        <p class="nombre_Usuario">${tokensito.nombre}</p>
                         <svg width="24px" height="24px"  class="userMenuDownIcon">
                             <path class="userMenuDownIconPath" d="M18.881 8.75l-.6-.632c-.159-.157-.412-.157-.539 0l-5.726 5.712-5.758-5.712c-.127-.157-.38-.157-.538 0l-.601.632c-.159.126-.159.378 0 .536l6.612 6.596c.158.157.38.157.538 0l6.612-6.596c.159-.158.159-.41 0-.536z">
                             </path>
