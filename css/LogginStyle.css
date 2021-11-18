@@ -110,7 +110,7 @@ body {
 
 .login-box {
   width: 320px;
-  height: 420px;
+  height: max-content;
   background: rgb(182, 168, 168);
   color: #fff;
   top: 50%;
@@ -185,4 +185,8 @@ body {
 .login-box a:hover {
   color: rgb(255, 0, 0);
 }
-  
+
+#informacion{
+  color: red;
+  text-align: center;
+}
