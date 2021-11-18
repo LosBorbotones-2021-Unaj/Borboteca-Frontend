@@ -1,4 +1,4 @@
-const urlBase = "https://localhost:44331/api/Libro/";
+const urlBase = "https://localhost:44363/api/Libro/";
 
 export const pedirLibros = (indice,callback) => {
 
