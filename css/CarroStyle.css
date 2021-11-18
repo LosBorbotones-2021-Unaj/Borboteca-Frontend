@@ -393,6 +393,17 @@
     cursor: pointer;
     color: rgb(230, 216, 216);
 }
+
+.carrito_Vacio{
+    color: rgb(216, 48, 42);
+    grid-column: 1/5;
+    font-weight: bold;
+    justify-self: center;
+}
+.carrito_Vacio img{
+    width: 200px;
+    height: 200px;
+}
 @media screen and (max-width:1024px){
 
     
