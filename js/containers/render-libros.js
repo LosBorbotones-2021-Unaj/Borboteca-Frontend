@@ -10,19 +10,31 @@ export const RenderLibros = (json) =>{
         let resenia = element.resenia;
         let img = element.imagen;
         $("#root").append(
+            `    <div class="cards grid-item " id="root">
+            <div class="card" style="width: 18rem;">
+                <img src="${img}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${name}</h5>
+                  <p class="card-text">${resenia}</p>
+                  <a href="#" class="btn btn-primary">agregar a carrito</a>
+                  <a href="#" class="btn btn-primary">agregar a favorito</a>
+                  <a href="#" class="btn btn-primary">mas infor</a>
+                </div>
+              </div>
+
+             
             `
-                <li class="cards_item">
-                    <div class="card">
-                    <div class="card_image"><img src="${img}"></div>
-                    <div class="card_content">
-                        <h2 class="card_title">${name}</h2>
-                        <p class="card_text">${resenia}</p>
-                        <a style="text-decoration:none"href="http://127.0.0.1:5501/view/vistaInfoLibro.html"><button class="btn_card card_btn" id="libroId-${element.id}">+ info</button></a>
-                        <button class="btn_card card_btn" href="./vistaInfoLibro.html">Agregar al carro</button>
-                    </div>
-                    </div>
-                </li>
-            `
+        //     <li class="cards_item">
+        //     <div class="card">
+        //     <div class="card_image"><img src="${img}"></div>
+        //     <div class="card_content">
+        //         <h2 class="card_title">${name}</h2>
+        //         <p class="card_text">${resenia}</p>
+        //         <a style="text-decoration:none"href="http://127.0.0.1:5501/view/vistaInfoLibro.html"><button class="btn_card card_btn" id="libroId-${element.id}">+ info</button></a>
+        //         <button class="btn_card card_btn" href="./vistaInfoLibro.html">Agregar al carro</button>
+        //     </div>
+        //     </div>
+        // </li>
         )
         $(`#libroId-${element.id}`).click(function (e) { 
             localStorage.setItem("idLibro",element.id)
