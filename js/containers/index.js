@@ -28,9 +28,9 @@ const RenderLibros = async (json) => {
         btn = document.querySelector(".BotonCompra");
 
             btn.addEventListener('click',()=>{
-                 
-                 CompraFinalizada(27);
-                 CerrarCarroActual(27);
+                 var decoded = parseJwt(localStorage.getItem("token"));
+                 CompraFinalizada(decoded.id);
+                 CerrarCarroActual(decoded.id);
             }) 
         
     }
@@ -40,7 +40,17 @@ const RenderLibros = async (json) => {
     }
 }
 export const IndexRender = () => {
-    
-    GetLibrosDelCarro(27,RenderLibros);
+    var decoded = parseJwt(localStorage.getItem("token"));
+    GetLibrosDelCarro(decoded.id,RenderLibros);
 }
+
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
 
