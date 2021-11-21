@@ -19,8 +19,8 @@ export const RenderLibros = (json) =>{
                  <h5 class="card-title">${name}</h5>
                 <p class="card-text">${resenia}</p>
                 <div class="mt-auto">
-                <a href="#" class="btn btn-primary mt-2">Comprar</a>
-                <a href="#" class="btn btn-primary mt-2">+ info</a>
+                <a href="#" class="btn btn-primary mt-2">Agregar a carrito</a>
+                <a href="#" class="btn btn-primary mt-2"><button class="btn_card card_btn" id="libroId-${element.id}">+ info</button></a>
                 
                 </div>
                 
@@ -35,13 +35,14 @@ export const RenderLibros = (json) =>{
         
         $(`#libroId-${element.id}`).click(function (e) { 
             localStorage.setItem("idLibro",element.id)
-        });
+        })
+        
     });
 }
 export const cambiarColor =( )=>{
     let elemento = document.getElementById("linkFavorito");
     elemento.addEventListener("click",()=>{
-        elemento.style.backgroundColor="black"
+        elemento.style.color="red"
     })
    
 }
@@ -69,3 +70,7 @@ $("#anterior").click(function (e) {
         pedirLibros(indexer,RenderLibros);
     }
 });
+export const CambiarColor=()=>{
+    const favorito = document.getElementById("linkFavorito")
+    favorito.style.color="red";
+}
