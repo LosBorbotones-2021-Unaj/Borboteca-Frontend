@@ -1,4 +1,6 @@
 import { CardComponent } from '../components/card-libros.js';
+import { parseJwt } from '../components/nav-var.js';
+import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import { pedirLibros }   from '../services/libros-index.js';
 import { pedirPaginas}   from '../services/libros-index.js';
 
@@ -9,35 +11,69 @@ export const RenderLibros = (json) =>{
         let name = element.titulo;
         let resenia = element.resenia;
         let img = element.imagen;
+        let precio=element.precio;
         $("#root").append(
             `
              
-                <div class="card" style="width: 16rem;">
-                <a id="linkFavorito"class="linkFav" href="#" ><i class="Favorito far fa-heart"></i></a>
-                <img src="${img}" class="card-img-top" alt="...">
-                 <div class="card-body">
-                 <h5 class="card-title">${name}</h5>
-                <p class="card-text">${resenia}</p>
-                <div class="mt-auto">
-                <a href="#" class="btn btn-primary mt-2">Agregar a carrito</a>
-                <a href="#" class="btn btn-primary mt-2"><button class="btn_card card_btn" id="libroId-${element.id}">+ info</button></a>
-                
+            <div class="wrapper">
+            <div class="container">
+                <img class="top" src="${img}" alt="">
+                <div class="bottom">
+                    <div class="left">
+                        <div class="details">
+                            <h2 class="txt_products">${name}</h2>
+                         
+                        </div>
+                        <div id="libroId-${element.id}" class="buy">
+                            <a href="#">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        </div>
+                        
+                    </div>
                 </div>
-                
-                 </div>
-                </div>
-
-
+            </div>
+            <div class="inside">
+            <div class="icon">
+                <i class="far fa-eye"></i>
+            </div>
+            <div class="contents">
+                <h1>${name}</h1>
+                <p>${resenia}</p>
+                <p> $${precio}</p>
+            </div>
+        </div>
+   </div>
 
 
             `
         )
         
         $(`#libroId-${element.id}`).click(function (e) { 
+        
             localStorage.setItem("idLibro",element.id)
+            AgregarAfavoritos();
         })
         
     });
+}
+const AgregarAfavoritos=()=>{
+    if(verificarSeccion){
+       var usuario= parseJwt(localStorage.getItem("token"))
+         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoExitoso)
+    }
+}
+const AgregadoExitoso=()=>{
+    alert("Se agrego")
+}
+
+const verificarSeccion=()=>{
+    if (localStorage.getItem("token")==undefined){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 export const cambiarColor =( )=>{
     let elemento = document.getElementById("linkFavorito");
