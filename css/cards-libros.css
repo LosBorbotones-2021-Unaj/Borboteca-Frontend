@@ -106,3 +106,25 @@ body {
   margin-bottom: 1.25rem;    
   font-weight: 400;
 }
+.card img{
+  max-height: 300px;
+  min-height: 300px;
+}
+.card{
+  position: relative;
+  margin: 10px 10px 10px 10px;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+}
+.Favorito{
+  margin: 8px;
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+  color: red;
+}
+.linkFav{
+  list-style: none;
+}
