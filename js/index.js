@@ -5,4 +5,5 @@ window.onload = () =>{
     genericNavVar();
     IndexRenderer();
     
+    
 }
