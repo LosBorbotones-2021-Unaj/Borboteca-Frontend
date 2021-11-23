@@ -2,7 +2,8 @@ import { SinLibros } from "../components/LibrosDelCarro.js";
 
 const UrlBaseCarro = "https://localhost:44381/api/Carro";
 const UrlBaseVentas = "https://localhost:44381/api/Ventas";
-const UrlBaseLibros = "https://localhost:44331/api/Libro?id=";
+const UrlBaseLibros = "https://localhost:44331/api/Libro/PedirLibroId?id=";
+const UrlBaseCarroLibro = "https://localhost:44381/api/CarroLibro";
 
 
 export const GetLibrosDelCarro = async (UsuarioId,callback) => {
@@ -33,7 +34,7 @@ export const CompraFinalizada = async (UsuarioId) => {
         headers : {"Content-type":"application/json"}
     });
     let xjson = await respuesta.json();
-    console.log(xjson);
+   
 }
 
 export const CerrarCarroActual = async (UsuarioId) =>{
@@ -46,4 +47,15 @@ export const CerrarCarroActual = async (UsuarioId) =>{
     
     
 
+}
+
+export const DeleteLibroFromCarro = async (datos) => {
+
+     await fetch(`${UrlBaseCarroLibro}/EliminarLibro`,{
+        method : "DELETE",
+        body : datos,
+        headers : {"Content-type":"application/json"}
+    })
+   
+    
 }
