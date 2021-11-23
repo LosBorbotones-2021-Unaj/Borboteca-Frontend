@@ -2,7 +2,7 @@ import {parseJwt} from "../components/nav-var.js";
 
 let decoded = parseJwt(localStorage.getItem('token'));
 
-function InfoLibro () {
+export function InfoLibro() {
     fetch(url + localStorage.getItem('idLibro'))
         .then(response => response.json())
         .then(libro => {
@@ -178,6 +178,7 @@ function InfoLibro () {
             newButtonGC3.appendChild(newContentButtonGC3);
             newButtonGC3.addEventListener("click", function(e){
                 clickedFav();
+
             },false);
 
             let newButtonGC3_2 = document.createElement("button");

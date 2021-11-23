@@ -2,10 +2,14 @@
     display: flex;
     flex-wrap: wrap;
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 90%;
 =======
 >>>>>>> main
     width: 80vw;
+=======
+    /* width: 80vw; */
+>>>>>>> main
     margin: 5px auto;
     flex-grow: 1;
 }
@@ -23,10 +27,14 @@
     .content__main_grid {
         display: grid;
 <<<<<<< HEAD
+<<<<<<< HEAD
         grid-template-columns: 300px 1fr 300px;
         grid-template-rows: 1fr 1fr;
 =======
         grid-template-columns: 350px 1fr 350px;
+=======
+        grid-template-columns:  350px 1fr 350px;
+>>>>>>> main
         grid-template-rows: 800px 1fr 400px;
 >>>>>>> main
         background: #E5E5E5;
