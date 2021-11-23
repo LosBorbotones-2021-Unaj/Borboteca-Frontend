@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <title>Login borboteca</title>
     <link rel="stylesheet" href="../css/LogginStyle.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   </head>
   <body>
     <img id="ImagenFondo" src="" alt="">
     <div class="login-box">
-      <img src="../img/AvatarPersona.png" class="avatar" alt="Avatar Image">
+      <img src="../img/Logo.png" class="avatar" alt="Avatar Image">
       <h1>Borboteca Digital</h1>
       <form>
         <!-- USERNAME INPUT -->
@@ -17,9 +21,10 @@
         <!-- PASSWORD INPUT -->
         <label for="password">Contraseña</label>
         <input id="Contra" type="password" placeholder="Ingresa tu contraseña">
-        <input id="BtnRegistrar" type="submit" value="Ingresar a borboteca">
+        <input id="BtnRegistrar"  type="button" value="Ingresar a borboteca">
+        <label id="informacion" class="animate__animated animate__backInLeft"></label>
+        <a  class="animate__animated animate__backInLeft" href="http://127.0.0.1:5501/view/Registrar.html">No tienes cuenta? Registrate!</a>
         
-        <a href="http://127.0.0.1:5501/Borboteca-Frontend/view/Registrar.html">Registrarse</a>
       </form>
     </div>
     <script src="../js/InitLoggin.js" type="module"></script>

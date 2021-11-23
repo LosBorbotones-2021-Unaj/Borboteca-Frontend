@@ -1,7 +1,10 @@
 .content__main_grid{
     display: flex;
     flex-wrap: wrap;
+<<<<<<< HEAD
     height: 90%;
+=======
+>>>>>>> main
     width: 80vw;
     margin: 5px auto;
     flex-grow: 1;
@@ -19,8 +22,13 @@
 
     .content__main_grid {
         display: grid;
+<<<<<<< HEAD
         grid-template-columns: 300px 1fr 300px;
         grid-template-rows: 1fr 1fr;
+=======
+        grid-template-columns: 350px 1fr 350px;
+        grid-template-rows: 800px 1fr 400px;
+>>>>>>> main
         background: #E5E5E5;
         width: 80%;
         border-radius: 10px;
@@ -35,7 +43,11 @@
 
     #gridChild {
         display: grid;
+<<<<<<< HEAD
         grid-template-rows: 48% 1fr;
+=======
+        grid-template-rows: 60% 1fr;
+>>>>>>> main
         justify-content: center;
         justify-items: center;
         border-top-left-radius: 10px;
@@ -127,11 +139,16 @@
     }
 
     #titulo {
+<<<<<<< HEAD
         font-size: 1.8vw;
+=======
+        font-size: 1.7vw;
+>>>>>>> main
         font-family: Verdana;
         background: #E5E5E5;
         padding: 10px 0 5px 0;
         margin: 0;
+<<<<<<< HEAD
     }
 
     hr {
@@ -140,6 +157,16 @@
         margin: 10px 0 10px 0;
     }
 
+=======
+    }
+
+    hr {
+        width: 100%;
+        height: 80px;
+        margin: 10px 0 10px 0;
+    }
+
+>>>>>>> main
     #libroAutor {
         font-size: 1.1vw;
         font-family: Verdana;
@@ -197,6 +224,7 @@
         border-radius: 10px;
         justify-items: center;
         align-items: center;
+<<<<<<< HEAD
     }
 
     #libroPrecio {
@@ -228,6 +256,61 @@
 
     #gridChild4 {
         grid-column: 1 / 4;
+=======
+    }
+
+    #libroPrecio {
+        font-size:1.5vw;
+        font-family: cursive;
+        background: #E5E5E5;
+        padding: 30px;
+        margin: 0;
+        padding: 10px 10px 0 10px;
+        color: #EB6262;
+    }
+
+    #cuotas{
+        font-size: 1.1vw;
+        font-family: Verdana;
+        margin: 10px;
+        padding: 0 10px 20px 10px;
+    }
+
+    #libroBoton {
+        font-size:20px;
+        background: #FFFFFF;
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        align-self: center;
+        margin: 8px;
+    }
+
+    /* gridChild4 */
+
+    #gridChild4 {
+        display: grid;
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+    }
+
+    #gridChild4 h1{
+        margin: 20px;
+    }
+
+    /* gridChild5 */
+
+    #gridChild5 {
+        display: grid;
+        grid-column: 1 / 4;
+        grid-row: 3 / 4;
+        grid-template-columns: repeat(auto-fill, 200px);
+        height: 310px;
+        justify-content: center;
+        grid-gap: 30px;
+        margin: 5px;
+        background-color: grey;
+>>>>>>> main
     }
     
     .footer{
