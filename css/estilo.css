@@ -1,7 +1,9 @@
 .content__main_grid{
     display: flex;
     flex-wrap: wrap;
+    height: 90%;
     width: 80vw;
+    /* width: 80vw; */
     margin: 5px auto;
     flex-grow: 1;
 }
@@ -34,7 +36,11 @@
 
     #gridChild {
         display: grid;
+<<<<<<< HEAD
+        grid-template-rows: 48% 1fr;
+=======
         grid-template-rows: 60% 1fr;
+>>>>>>> main
         justify-content: center;
         justify-items: center;
         border-top-left-radius: 10px;
@@ -126,11 +132,16 @@
     }
 
     #titulo {
+<<<<<<< HEAD
+        font-size: 1.8vw;
+=======
         font-size: 1.7vw;
+>>>>>>> main
         font-family: Verdana;
         background: #E5E5E5;
         padding: 10px 0 5px 0;
         margin: 0;
+<<<<<<< HEAD
     }
 
     hr {
@@ -139,6 +150,16 @@
         margin: 10px 0 10px 0;
     }
 
+=======
+    }
+
+    hr {
+        width: 100%;
+        height: 80px;
+        margin: 10px 0 10px 0;
+    }
+
+>>>>>>> main
     #libroAutor {
         font-size: 1.1vw;
         font-family: Verdana;
@@ -196,6 +217,39 @@
         border-radius: 10px;
         justify-items: center;
         align-items: center;
+<<<<<<< HEAD
+    }
+
+    #libroPrecio {
+        font-size:35px;
+        font-family: cursive;
+        background: #E5E5E5;
+        padding: 30px;
+        margin: 0;
+        color: #EB6262;
+    }
+
+    #metodoPago{
+        font-size:20px;
+        font-family: Verdana;
+        margin: 10px;
+    }
+
+    #libroBoton {
+        font-size:20px;
+        background: #FFFFFF;
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        align-self: center;
+        margin: 5px;
+    }
+
+    /* gridChild4 */
+
+    #gridChild4 {
+        grid-column: 1 / 4;
+=======
     }
 
     #libroPrecio {
@@ -249,6 +303,7 @@
         grid-gap: 30px;
         margin: 5px;
         background-color: grey;
+>>>>>>> main
     }
     
     .footer{

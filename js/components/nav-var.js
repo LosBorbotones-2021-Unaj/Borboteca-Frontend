@@ -1,5 +1,4 @@
 
-
 var div = document.querySelector("#index-nav");
 var divlogg;
 
