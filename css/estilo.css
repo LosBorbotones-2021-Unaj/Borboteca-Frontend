@@ -1,7 +1,7 @@
 .content__main_grid{
     display: flex;
     flex-wrap: wrap;
-    width: 80vw;
+    /* width: 80vw; */
     margin: 5px auto;
     flex-grow: 1;
 }
@@ -18,7 +18,7 @@
 
     .content__main_grid {
         display: grid;
-        grid-template-columns: 350px 1fr 350px;
+        grid-template-columns:  350px 1fr 350px;
         grid-template-rows: 800px 1fr 400px;
         background: #E5E5E5;
         width: 80%;
