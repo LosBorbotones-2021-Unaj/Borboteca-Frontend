@@ -44,8 +44,8 @@ const RenderLibros = async (json) => {
             btn.addEventListener('click',()=>{
                  var decoded = parseJwt(localStorage.getItem("token"));
                  CarritoContainer.innerHTML = SinLibros();
-                 CompraFinalizada(95/*decoded.id*/);
-                 CerrarCarroActual(95/*decoded.id*/);
+                 CompraFinalizada(decoded.id);
+                 CerrarCarroActual(decoded.id);
                  
             }) 
             
@@ -58,7 +58,7 @@ const RenderLibros = async (json) => {
 
                     let divList = document.querySelectorAll(".container_Libro");
                     let Usuario = parseJwt(localStorage.getItem("token"));
-                    let datos ={ libroid : divList[i].classList.item(1) , usuarioid : 95/*Usuario.id*/ };
+                    let datos ={ libroid : divList[i].classList.item(1) , usuarioid : Usuario.id };
 
                     DeleteLibroFromCarro(JSON.stringify(datos));         
 
@@ -92,7 +92,7 @@ const RenderLibros = async (json) => {
 }
 export const IndexRender = () => {
     var decoded = parseJwt(localStorage.getItem("token"));
-    GetLibrosDelCarro(95/*decoded.id*/,RenderLibros);
+    GetLibrosDelCarro(decoded.id,RenderLibros);
 }
 
 
@@ -110,8 +110,8 @@ const PromiseToLibro = async (divList,total,ContainerComprar) => {
             btn.addEventListener('click',()=>{
                  var decoded = parseJwt(localStorage.getItem("token"));
                  CarritoContainer.innerHTML = SinLibros();
-                 CompraFinalizada(95/*decoded.id*/);
-                 CerrarCarroActual(95/*decoded.id*/);
+                 CompraFinalizada(decoded.id);
+                 CerrarCarroActual(decoded.id);
                  
             }) 
 }
