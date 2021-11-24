@@ -9,7 +9,8 @@ export const AgregarQuitarFav=(idLibro,userId,token,callback)=>{
         body:JSON.stringify({libro:idLibro ,idUsuario:userId})
       })
       .then((httpresponse)=>{
-        if(httpresponse.ok){
+        console.log(httpresponse);
+        if(httpresponse.status = 200){
           return httpresponse.json()
         }
       })  
