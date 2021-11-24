@@ -14,25 +14,25 @@ export const RenderLibros = (json) =>{
         let precio=element.precio;
         $("#root").append(
             `
-             
-            <div class="wrapper">
-            <div class="container">
-                <img class="top" src="${img}" alt="">
-                <div class="bottom">
-                    <div class="left">
-                        <div class="details">
-                            <h2 class="txt_products">${name}</h2>
-                         
-                        </div>
-                        <div id="libroId-${element.id}" class="buy">
-                            <a href="#">
-                                <i class="fas fa-heart"></i>
-                            </a>
-                        </div>
-                        
+            
+    <div class="wrapper">
+        <div class="container">
+            <img class="top" src="${img}" alt="">
+            <div class="bottom">
+                <div class="left">
+                    <div class="details">
+                        <h2 class="txt_products">${name}</h2>
+                                
                     </div>
+                    <div id="libroId-${element.id}" class="buy">
+                        <a href="#">
+                            <i class="fas fa-heart"></i>
+                        </a>
+                    </div>
+                                
                 </div>
             </div>
+                    
             <div class="inside">
             <div class="icon">
                 <i class="far fa-eye"></i>

@@ -6,11 +6,12 @@
     
 }
 
-.web_Container{
-    height: 100vh;
-    width: 100vw;
+/*.web_Container{
+    height: 100%;
+    width: 100%;
+    display: flex;
     background: white;
-}
+}*/
 
 /*NAV*/
 .nav_flex_Container{
