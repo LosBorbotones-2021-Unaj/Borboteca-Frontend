@@ -49,24 +49,27 @@ const RenderLibros = async (json) => {
                  
             }) 
             
-            let btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
-            
-            btnDeleteLibros.forEach((cadaButton,i)=>{
-                btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
+            var btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
+            var divList = document.querySelectorAll(".container_Libro");
 
+            btnDeleteLibros.forEach((cadaButton,i)=>{
+                
+                
                 btnDeleteLibros[i].addEventListener('click',()=>{
 
-                    let divList = document.querySelectorAll(".container_Libro");
+                    
+                    console.log(divList);
+                   
                     let Usuario = parseJwt(localStorage.getItem("token"));
                     let datos ={ libroid : divList[i].classList.item(1) , usuarioid : Usuario.id };
 
-                    DeleteLibroFromCarro(JSON.stringify(datos));         
-
+                    DeleteLibroFromCarro(JSON.stringify(datos));    
+                        
                     CarritoContainer.removeChild(divList[i]);
-                    divList = document.querySelectorAll(".container_Libro");
 
 
-                    if(divList.length == 0)
+
+                    if(CarritoContainer.childElementCount <= 3)
                     {
                         CarritoContainer.innerHTML = SinLibros();
                     }
