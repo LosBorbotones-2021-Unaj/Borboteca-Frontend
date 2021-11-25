@@ -17,7 +17,7 @@ body {
     height: max-content;
     background: rgb(182,168,168);
     border-radius: 15px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255,105,98);
     color: #fff;
     top: 50%;
     left: 50%;
@@ -66,7 +66,7 @@ body {
     background: transparent;
     outline: none;
     height: 40px;
-    color: #fff;
+    color: rgb(255,105,98);
     font-size: 16px;
   }
   
@@ -74,8 +74,8 @@ body {
     border: none;
     outline: none;
     height: 40px;
-    background: #b80f22;
-    color: #fff;
+    background: #FF6962;
+    color: rgb(255,105,98);
     font-size: 18px;
     border-radius: 50px;
   }
@@ -90,7 +90,7 @@ body {
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
-    color: rgb(255, 255, 255);
+    color: rgb(255,105,98);
   }
   
   .login-box a:hover {
@@ -111,8 +111,8 @@ body {
 .login-box {
   width: 320px;
   height: max-content;
-  background: rgb(182, 168, 168);
-  color: #fff;
+  background: rgb(253, 253, 253);
+  color: rgb(255,105,98);
   top: 50%;
   left: 50%;
   position: absolute;
@@ -151,11 +151,11 @@ body {
 
 .login-box input[type="text"], .login-box input[type="password"] {
   border: none;
-  border-bottom: 1px solid rgb(255, 254, 254);
+  border-bottom: 1px solid rgb(255,105,98);
   background: transparent;
   outline: none;
   height: 40px;
-  color: rgb(255, 255, 255);
+  color: rgb(255,105,98);
   font-size: 16px;
 }
 
@@ -163,7 +163,7 @@ body {
   border: none;
   outline: none;
   height: 40px;
-  background: #b80f22;
+ 
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
@@ -171,7 +171,7 @@ body {
 
 .login-box input[type="button"]:hover {
   cursor: pointer;
-  background: #a3a19f;
+  background: #e2deda;
   color: #000;
 }
 

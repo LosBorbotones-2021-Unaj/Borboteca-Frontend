@@ -10,13 +10,16 @@ export const AgregarQuitarFav=(idLibro,userId,token,callback)=>{
       })
       .then((httpresponse)=>{
         console.log(httpresponse);
-        if(httpresponse.status = 200){
+        if(httpresponse.status==200){
           return httpresponse.json()
         }
+        else{
+          alert("Fue borrado de favoritos")
+        }
+
       })  
       .then(body => {
         if(body==undefined){
-            alert("No se agrego una mierda")
         }else{
             callback()
       
