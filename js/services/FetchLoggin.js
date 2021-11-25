@@ -14,6 +14,7 @@ export  const getUsuario=(email, contraseña,callback,badRequest) => {
       }
     })  
     .then(body => {
+      console.log(body);
       if (body==undefined){
         badRequest()
       }else{
