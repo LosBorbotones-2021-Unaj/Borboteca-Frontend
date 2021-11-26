@@ -1,6 +1,6 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
-import { GetLibros } from "../services/FetchServices.js";
+import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro } from "../services/FetchServices.js";
 import { FavoritoParticular,SinFavoritos } from "../components/PerfilComponents.js";
 
 const tab2 = document.querySelector(".tab2");
@@ -27,17 +27,19 @@ const RenderFavoritos = async (json) => {
 
         var btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
         var divList = document.querySelectorAll(".container_Favoritos");
+        var btn_Agregar_Carrito = document.querySelectorAll(".btn_Agregar_Carrito");
+        let Usuario = parseJwt(localStorage.getItem("token"));
 
         btnDeleteLibros.forEach((cadaButton,i)=>{
                     
                     
-            btnDeleteLibros[i].addEventListener('click',()=>{
+            btnDeleteLibros[i].addEventListener('click',async ()=>{
 
                         
                     
-                let Usuario = parseJwt(localStorage.getItem("token"));
+                
 
-                AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);    
+                await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);    
                             
                 tab2.removeChild(divList[i]);
 
@@ -54,6 +56,23 @@ const RenderFavoritos = async (json) => {
             
                         
             });
+
+            btn_Agregar_Carrito[i].addEventListener('click',async ()=>{
+                await CreateCarro(Usuario.id);
+                await CreateVenta(Usuario.id);
+                await CreateCarroLibro(divList[i].classList.item(1),Usuario.id);
+                await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);
+                tab2.removeChild(divList[i]);
+
+                if(tab2.childElementCount <= 0)
+                {
+                    
+                    tab2.innerHTML = SinFavoritos();
+                    content2.style.height = "100%";
+                    tab2.style.height= "100%";
+    
+                }
+            })
                 
         })
     }

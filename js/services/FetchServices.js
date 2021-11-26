@@ -59,3 +59,57 @@ export const DeleteLibroFromCarro = async (datos) => {
    
     
 }
+
+export const DeleteVenta = async (UsuarioId) => {
+    await fetch(`${UrlBaseVentas}/${UsuarioId}`,{
+        method : "DELETE",
+        headers : {"Content-type":"application/json"}
+    })
+}
+
+export const CreateCarro = async (UsuarioId) => {
+    await fetch(`${UrlBaseCarro}?UsuarioId=${UsuarioId}`,{
+        method : "POST",
+        body : JSON.stringify({
+            "UsuarioId" : UsuarioId
+        }),
+        headers: {"Content-type" : "application/json"}
+    })
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => console.log(err));
+}
+
+export const CreateVenta = async (UsuarioId) => {
+    await fetch(`${UrlBaseVentas}?UsuarioId=${UsuarioId}`,{
+        method : "POST",
+        body : JSON.stringify({
+            "UsuarioId" : UsuarioId
+        }),
+        headers: {"Content-type" : "application/json"}
+    })
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => console.log(err));
+}
+
+export const CreateCarroLibro = async (LibroId,UsuarioId) => {
+
+    await fetch(`${UrlBaseCarroLibro}`,{
+        method : "POST",
+        body : JSON.stringify({
+            "libroid" : LibroId,
+            "usuarioid" : UsuarioId
+        }),
+        headers: {"Content-type" : "application/json"}
+    })
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+    })
+    .catch(err => console.log(err));
+}

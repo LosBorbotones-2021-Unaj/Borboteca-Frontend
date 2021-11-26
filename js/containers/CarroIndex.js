@@ -1,7 +1,7 @@
 import { LibrosDelCarro,TotalYBotonComprar } from '../components/LibrosDelCarro.js'
 import { LibrosDelCarroParticulares,SinLibros } from '../components/LibrosDelCarro.js'
 import { GetLibrosDelCarro,CompraFinalizada, DeleteLibroFromCarro } from '../services/FetchServices.js'
-import { GetLibros,CerrarCarroActual } from '../services/FetchServices.js'
+import { GetLibros,CerrarCarroActual,DeleteVenta } from '../services/FetchServices.js'
 import {parseJwt} from '../components/nav-var.js'
 
 
@@ -47,7 +47,7 @@ const RenderLibros = async (json) => {
             
             var btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
             var divList = document.querySelectorAll(".container_Libro");
-
+            let Usuario = parseJwt(localStorage.getItem("token"));
             btnDeleteLibros.forEach((cadaButton,i)=>{
                 
                 
@@ -56,7 +56,7 @@ const RenderLibros = async (json) => {
                     
                     console.log(divList);
                    
-                    let Usuario = parseJwt(localStorage.getItem("token"));
+                    
                     let datos ={ libroid : divList[i].classList.item(1) , usuarioid : Usuario.id };
 
                     DeleteLibroFromCarro(JSON.stringify(datos));    
@@ -68,6 +68,7 @@ const RenderLibros = async (json) => {
                     if(CarritoContainer.childElementCount <= 3)
                     {
                         CarritoContainer.innerHTML = SinLibros();
+                        DeleteVenta(Usuario.id);
                     }
                     else
                     {
