@@ -25,7 +25,7 @@ export const RenderLibros = (json) =>{
                                 <h2 class="txt_products">${name}</h2>
                                         
                             </div>
-                            <div  class="buy">
+                            <div class="libroId-${element.id} buy">
                                 <a href="#">
                                     <i class="fas fa-heart"></i>
                                 </a>
@@ -52,9 +52,13 @@ export const RenderLibros = (json) =>{
         $(`#libroId-${element.id}`).click(function (e) { 
         
             localStorage.setItem("idLibro",element.id)
+    
+        })
+
+        $(`.libroId-${element.id}`).click(function (e) { 
+            localStorage.setItem("idLibro",element.id)
             AgregarAfavoritos();
         })
-        
     });
 }
 const AgregarAfavoritos=()=>{

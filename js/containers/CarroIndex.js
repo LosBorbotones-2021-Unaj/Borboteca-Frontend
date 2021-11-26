@@ -4,10 +4,6 @@ import { GetLibrosDelCarro,CompraFinalizada, DeleteLibroFromCarro } from '../ser
 import { GetLibros,CerrarCarroActual } from '../services/FetchServices.js'
 import {parseJwt} from '../components/nav-var.js'
 
-/*
-let UsuarioId =parseInt(localStorage.getItem("UsuarioId"));
-let LibroId = parseInt(localStorage.getItem("idLibro"));
-*/
 
 let CarritoContainer = document.querySelector(".carrito_SubContainer");
 let div = document.createElement("DIV");

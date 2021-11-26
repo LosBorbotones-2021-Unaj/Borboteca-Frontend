@@ -7,7 +7,7 @@ export const LibrosDelCarro = () =>
   
 `
 
-export const LibrosDelCarroParticulares = (Titulo,Imagen,Autor,Precio,LibroId) => 
+export const LibrosDelCarroParticulares = (Titulo,Imagen,Autor,Precio) => 
 `
 
     <div class="Libro_Imagen_Autor">
