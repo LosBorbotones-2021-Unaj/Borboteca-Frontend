@@ -1,7 +1,7 @@
 import {parseJwt} from "../components/nav-var.js";
 
 let decoded = parseJwt(localStorage.getItem('token'));
-
+let token = localStorage.getItem("token");
 export function  InfoLibro() {
     fetch(url + localStorage.getItem('idLibro'))
         .then(response => response.json())
@@ -252,12 +252,16 @@ window.onload= () => {
 }
 
 async function crearCarro(){
+    
    await fetch(urlAgregarCarro + decoded.id,{
         method : "POST",
         body : JSON.stringify({
             "UsuarioId" : decoded.id
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {
@@ -272,7 +276,10 @@ async function crearVenta(){
         body : JSON.stringify({
             "UsuarioId" : decoded.id
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {
@@ -288,7 +295,10 @@ async function crearCarroLibro(){
             "libroid" : localStorage.getItem('idLibro'),
             "usuarioid" : decoded.id
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {

@@ -4,7 +4,8 @@ import { GetLibrosDelCarro,CompraFinalizada, DeleteLibroFromCarro } from '../ser
 import { GetLibros,CerrarCarroActual,DeleteVenta } from '../services/FetchServices.js'
 import {parseJwt} from '../components/nav-var.js'
 
-
+let token = localStorage.getItem("token");
+let Usuario = parseJwt(token);
 let CarritoContainer = document.querySelector(".carrito_SubContainer");
 let div = document.createElement("DIV");
 let hr = document.createElement("HR");
@@ -38,28 +39,24 @@ const RenderLibros = async (json) => {
         let btn = document.querySelector(".BotonCompra");
         
             btn.addEventListener('click',()=>{
-                 var decoded = parseJwt(localStorage.getItem("token"));
+                
                  CarritoContainer.innerHTML = SinLibros();
-                 CompraFinalizada(decoded.id);
-                 CerrarCarroActual(decoded.id);
+                 CompraFinalizada(Usuario.id,token);
+                 CerrarCarroActual(Usuario.id,token);
                  
             }) 
             
             var btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
             var divList = document.querySelectorAll(".container_Libro");
-            let Usuario = parseJwt(localStorage.getItem("token"));
             btnDeleteLibros.forEach((cadaButton,i)=>{
                 
                 
                 btnDeleteLibros[i].addEventListener('click',()=>{
-
-                    
-                    console.log(divList);
                    
                     
                     let datos ={ libroid : divList[i].classList.item(1) , usuarioid : Usuario.id };
 
-                    DeleteLibroFromCarro(JSON.stringify(datos));    
+                    DeleteLibroFromCarro(JSON.stringify(datos),token);    
                         
                     CarritoContainer.removeChild(divList[i]);
 
@@ -68,7 +65,7 @@ const RenderLibros = async (json) => {
                     if(CarritoContainer.childElementCount <= 3)
                     {
                         CarritoContainer.innerHTML = SinLibros();
-                        DeleteVenta(Usuario.id);
+                        DeleteVenta(Usuario.id,token);
                     }
                     else
                     {
@@ -91,8 +88,8 @@ const RenderLibros = async (json) => {
     }
 }
 export const IndexRender = () => {
-    var decoded = parseJwt(localStorage.getItem("token"));
-    GetLibrosDelCarro(decoded.id,RenderLibros);
+    
+    GetLibrosDelCarro(Usuario.id,RenderLibros);
 }
 
 
@@ -108,10 +105,10 @@ const PromiseToLibro = async (divList,total,ContainerComprar) => {
     let btn = document.querySelector(".BotonCompra");
         
             btn.addEventListener('click',()=>{
-                 var decoded = parseJwt(localStorage.getItem("token"));
+                 
                  CarritoContainer.innerHTML = SinLibros();
-                 CompraFinalizada(decoded.id);
-                 CerrarCarroActual(decoded.id);
+                 CompraFinalizada(Usuario.id,token);
+                 CerrarCarroActual(Usuario.id,token);
                  
             }) 
 }

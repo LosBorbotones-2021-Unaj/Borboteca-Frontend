@@ -63,3 +63,15 @@ export const SinFavoritos = () =>
     </svg>
     <p class="mensaje_Sin_Favoritos">Aún no tenés productos en Favoritos</p>
 </div>`
+
+
+export const MiLibroParticular = (Titulo,Imagen) => 
+    	`
+        <button class="button_MiLibro">
+            <div class="Libro_Imagen_Perfil">
+                <img class="imagen_Libro_Particular" src="${Imagen}" alt="${Titulo}">
+            </div>
+            <p class="titulo_Libro_Particular titulo_Perfil">${Titulo}</p>
+        </button>
+        `
+

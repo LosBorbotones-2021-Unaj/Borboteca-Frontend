@@ -19,6 +19,21 @@ export const GetLibrosDelCarro = async (UsuarioId,callback) => {
     })
     
 }
+
+export const GetLibrosComprados = async (UsuarioId,callback) => {
+    await fetch(`${UrlBaseCarro}/Mislibros/${UsuarioId}`)
+    .then((httpResponse) => {
+        if(httpResponse.ok)
+            return httpResponse.json()
+    })
+    .then(body => {
+        console.log(body);
+        callback(body);
+        
+    })
+    
+}
+
  export const GetLibros = async (Libro) => {
     let respuesta = await fetch(`${UrlBaseLibros}${Libro}`);
     let json = await respuesta.json();
@@ -26,54 +41,69 @@ export const GetLibrosDelCarro = async (UsuarioId,callback) => {
     
  }
 
-export const CompraFinalizada = async (UsuarioId) => {
+export const CompraFinalizada = async (UsuarioId,token) => {
 
     let respuesta = await fetch(`${UrlBaseVentas}/${UsuarioId}`,{
         method : "PUT",
         body : "",
-        headers : {"Content-type":"application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     });
     let xjson = await respuesta.json();
    
 }
 
-export const CerrarCarroActual = async (UsuarioId) =>{
-
+export const CerrarCarroActual = async (UsuarioId,token) =>{
+  
     await fetch(`${UrlBaseCarro}/${UsuarioId}`,{
         method : "PUT",
         body : "",
-        headers : {"Content-type":"application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     
     
 
 }
 
-export const DeleteLibroFromCarro = async (datos) => {
+export const DeleteLibroFromCarro = async (datos,token) => {
 
      await fetch(`${UrlBaseCarroLibro}/EliminarLibro`,{
         method : "DELETE",
         body : datos,
-        headers : {"Content-type":"application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
    
     
 }
 
-export const DeleteVenta = async (UsuarioId) => {
+export const DeleteVenta = async (UsuarioId,token) => {
     await fetch(`${UrlBaseVentas}/${UsuarioId}`,{
         method : "DELETE",
-        headers : {"Content-type":"application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
 }
 
-export const CreateCarro = async (UsuarioId) => {
+export const CreateCarro = async (UsuarioId,token) => {
     await fetch(`${UrlBaseCarro}?UsuarioId=${UsuarioId}`,{
         method : "POST",
         body : JSON.stringify({
             "UsuarioId" : UsuarioId
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {
@@ -82,13 +112,16 @@ export const CreateCarro = async (UsuarioId) => {
     .catch(err => console.log(err));
 }
 
-export const CreateVenta = async (UsuarioId) => {
+export const CreateVenta = async (UsuarioId,token) => {
     await fetch(`${UrlBaseVentas}?UsuarioId=${UsuarioId}`,{
         method : "POST",
         body : JSON.stringify({
             "UsuarioId" : UsuarioId
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {
@@ -97,7 +130,7 @@ export const CreateVenta = async (UsuarioId) => {
     .catch(err => console.log(err));
 }
 
-export const CreateCarroLibro = async (LibroId,UsuarioId) => {
+export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
 
     await fetch(`${UrlBaseCarroLibro}`,{
         method : "POST",
@@ -105,7 +138,10 @@ export const CreateCarroLibro = async (LibroId,UsuarioId) => {
             "libroid" : LibroId,
             "usuarioid" : UsuarioId
         }),
-        headers: {"Content-type" : "application/json"}
+        headers : {
+            'Authorization': `Bearer ${token}`,
+            "Content-type":"application/json"
+        }
     })
     .then(response => response.json())
     .then(response => {
