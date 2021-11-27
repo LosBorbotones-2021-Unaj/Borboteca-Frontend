@@ -443,7 +443,7 @@
     height: 200px;
 }
 
-@media screen and (max-width:1024px){
+@media screen and (max-width:1024px)and (min-width:545px){
 
     
     .nav_flex_Container{

@@ -1,7 +1,7 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
-import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados } from "../services/FetchServices.js";
-import { FavoritoParticular,MiLibroParticular,SinFavoritos } from "../components/PerfilComponents.js";
+import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid } from "../services/FetchServices.js";
+import { FavoritoParticular,InfoUsuario,MiLibroParticular,SinFavoritos } from "../components/PerfilComponents.js";
 
 const tab1 = document.querySelector(".tab1");
 const content1 = document.querySelector(".content1");
@@ -11,8 +11,14 @@ const content2 = document.querySelector(".content2");
 
 export const RenderPerfil = () => {
     var decoded = parseJwt(localStorage.getItem("token"));
+    GetUsuarioByid(decoded.id,RenderInfoUsuario);
     GetFavoritosById(decoded.id,localStorage.getItem("token"),RenderFavoritos);
     GetLibrosComprados(decoded.id,RenderMisLibros);
+}
+
+const RenderInfoUsuario = (UsuarioActual) => {
+    const header = document.querySelector(".header");
+    header.innerHTML = InfoUsuario(UsuarioActual.nombre,UsuarioActual.apellido,UsuarioActual.email);
 }
 
 const RenderFavoritos = async (json) => {

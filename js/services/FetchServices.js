@@ -4,6 +4,7 @@ const UrlBaseCarro = "https://localhost:44381/api/Carro";
 const UrlBaseVentas = "https://localhost:44381/api/Ventas";
 const UrlBaseLibros = "https://localhost:44331/api/Libro/PedirLibroId?id=";
 const UrlBaseCarroLibro = "https://localhost:44381/api/CarroLibro";
+const UrlBaseUsuarios = "https://localhost:44343/api/Usuario";
 
 
 export const GetLibrosDelCarro = async (UsuarioId,callback) => {
@@ -148,4 +149,17 @@ export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
         console.log(response);
     })
     .catch(err => console.log(err));
+}
+
+export const GetUsuarioByid = async (UsuarioId,callback) => {
+    await fetch(`${UrlBaseUsuarios}/FindById?id=${UsuarioId}`)
+    .then((httpResponse) => {
+        if(httpResponse.ok)
+            return httpResponse.json()
+    })
+    .then(body => {
+        console.log(body);
+        callback(body);
+        
+    })
 }
