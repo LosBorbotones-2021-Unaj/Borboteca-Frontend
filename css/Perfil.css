@@ -326,33 +326,11 @@
     }
 }
 @media screen and (max-width:545px){
-    .nav_flex_Container{
-        height: max-content;
-    }
+
     .main_Perfil{
         flex-direction: column;
     }
-    .nav_flex_Container{
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-    }
-   
-    .nav_Search{
-        width: 100%;
-    } 
-   .Carrito_Icon{
-       margin-top: 10px;
-   }
-   .Logged_Menu_Links{
-       width: 100%;
-       border: 1px solid rgb(207, 213, 216);
-       border-right: 1px solid rgb(219, 221, 221);
-       box-sizing: border-box;
-       border-top: transparent;
-       box-shadow: rgb(0 0 0 / 40%) 1px 1px 2px 1px;
-       border-radius: 3px 3px 8px 8px;
-   }
+    
 }
 /*ACTIVE ELEMENTS CONFIG*/
 .activo{
