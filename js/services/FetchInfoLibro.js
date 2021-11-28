@@ -1,6 +1,12 @@
 import {parseJwt} from "../components/nav-var.js";
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
-let decoded = parseJwt(localStorage.getItem('token'));
+import {CreateCarro} from "../services/FetchServices.js";
+import {CreateVenta} from "../services/FetchServices.js";
+import {CreateCarroLibro} from "../services/FetchServices.js";
+
+let token = localStorage.getItem('token');
+let idLibro = localStorage.getItem("idLibro");
+let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const url2 = 'https://localhost:44381/api/CarroLibro';
@@ -207,13 +213,14 @@ export const getInfoLibro = () =>{
         newButtonGC3.id = "libroBoton";
         let newContentButtonGC3 = document.createTextNode("Descargar");
         newButtonGC3.appendChild(newContentButtonGC3);
-        newButtonGC3.addEventListener("click", function(e){
+        newButtonGC3.addEventListener("click", async function(e){
             //fijarce si el usuario esta logueado y si tiene carro activo
-            await crearCarro();
+            await CreateCarro(decoded.id,token);
                 
-            await crearVenta(); 
+            await CreateVenta(decoded.id,token); 
                           
-            await crearCarroLibro();
+            await CreateCarroLibro(idLibro,decoded.id,token);
+
             setTimeout(function(){
                 window.location.href = "../view/Carro.html"; 
             }, 200);
@@ -223,13 +230,13 @@ export const getInfoLibro = () =>{
         newButtonGC3_2.id = "libroBoton";
         let newContentButtonGC3_2 = document.createTextNode("Agregar al carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
-        newButtonGC3_2.addEventListener("click", function(e){
+        newButtonGC3_2.addEventListener("click",async function(e){
             //fijarce si el usuario esta logueado y si tiene carro activo
-            await crearCarro();
+            await CreateCarro(decoded.id,token);
                 
-            await crearVenta(); 
+            await CreateVenta(decoded.id,token); 
                           
-            await crearCarroLibro();
+            await CreateCarroLibro(idLibro,decoded.id,token);
         },false);
 
         newDiv3.appendChild(precio);
@@ -343,51 +350,6 @@ function traerLibrosGenero(generoId){
     .catch(err => console.log(err));
 }
 
-function crearCarro(){
-    await fetch(urlAgregarCarro + decoded.id,{
-        method : "POST",
-        body : JSON.stringify({
-            "UsuarioId" : decoded.id
-        }),
-        headers: {"Content-type" : "application/json"}
-    })
-    .then(response => response.json())
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => console.log(err));
-}
-
-function crearVenta(){
-    await fetch(urlCrearVenta + decoded.id,{
-        method : "POST",
-        body : JSON.stringify({
-            "UsuarioId" : decoded.id
-        }),
-        headers: {"Content-type" : "application/json"}
-    })
-    .then(response => response.json())
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => console.log(err));
-}
-
-function crearCarroLibro(){
-    await fetch(urlCrearCarroLibro,{
-        method : "POST",
-        body : JSON.stringify({
-            "libroid" : localStorage.getItem('idLibro'),
-            "usuarioid" : decoded.id
-        }),
-        headers: {"Content-type" : "application/json"}
-    })
-    .then(response => response.json())
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => console.log(err));
-}
 
 function toggleText(hideText, hideText_btn){
     hideText.classList.toggle('show');
