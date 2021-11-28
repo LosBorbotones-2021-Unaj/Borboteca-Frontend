@@ -10,13 +10,16 @@ export const AgregarQuitarFav=(idLibro,userId,token,callback)=>{
       })
       .then((httpresponse)=>{
         console.log(httpresponse);
-        if(httpresponse.status = 200){
+        if(httpresponse.status==200){
           return httpresponse.json()
         }
+        else{
+          alert("Fue borrado de favoritos")
+        }
+
       })  
       .then(body => {
         if(body==undefined){
-            alert("No se agrego una mierda")
         }else{
             callback()
       
@@ -24,4 +27,24 @@ export const AgregarQuitarFav=(idLibro,userId,token,callback)=>{
           
         
       })
+}
+
+export const GetFavoritosById  = async (idUsuario,token,callback) => {
+    await fetch(`${url}/${idUsuario}`,{
+        method: 'GET',
+        headers: new Headers({
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json'
+        })
+        
+    })
+    .then((httpResponse) => {
+        if(httpResponse.ok)
+            return httpResponse.json()
+    })
+    .then(body => {
+        console.log(body);
+        callback(body);
+        
+    })
 }

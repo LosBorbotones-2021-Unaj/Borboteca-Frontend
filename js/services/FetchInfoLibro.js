@@ -1,12 +1,14 @@
 import {parseJwt} from "../components/nav-var.js";
-// let decoded = parseJwt(localStorage.getItem('token'));
+import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
+let decoded = parseJwt(localStorage.getItem('token'));
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const url2 = 'https://localhost:44381/api/CarroLibro';
 const urlAgregarCarro = 'https://localhost:44381/api/Carro?UsuarioId=';
 const urlCrearVenta = 'https://localhost:44381/api/Ventas?UsuarioId=';
 const urlCrearCarroLibro = 'https://localhost:44381/api/CarroLibro';
-const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros?busqueda=';
+const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros/autor?busqueda=';
+const urlLibroGenero = 'https://localhost:44331/api/Libro/PedirLibroGenero?LibroGuid=';
 
 const aplicacion = document.querySelector('.content__main_grid div');
 const gc2 = document.querySelector('.content__main_grid #gridChild2');
@@ -14,7 +16,7 @@ const gc3 = document.querySelector('.content__main_grid #gridChild3');
 const gc5 = document.querySelector('.content__main_grid #gridChild5');
 
 export const getInfoLibro = () =>{
-    fetch(url + '2948CEA7-6D8F-4CC4-A2F3-4EDDDA910329') //localStorage.getItem('idLibro')
+    fetch(url + localStorage.getItem('idLibro')) //localStorage.getItem('idLibro')
     .then(response => response.json())
     .then(libro => {
         console.log(libro);
@@ -27,20 +29,20 @@ export const getInfoLibro = () =>{
         let newImage = document.createElement("img");
         newImage.id = "libroImagen";
         newImage.src = libro.imagen;
+        newImage.setAttribute("data-bs-toggle","modal");
+        newImage.setAttribute("data-bs-target","#exampleModal");
         newImage.addEventListener("click", function(e){
-            getFullscreen(this);
+            let bodyModal = document.getElementById("modalId");
+            bodyModal.appendChild(newImage2);
         },false);
         newDiv.appendChild(newImage);
 
+        let newImage2 = document.createElement("img");
+        newImage2.id = "libroImagenModal";
+        newImage2.src = libro.imagen;
+
         let newDivButtons = document.createElement("div");
         newDivButtons.id = "contentButtons";
-
-        let newButton = document.createElement("button");
-        let newContentButton = document.createTextNode("Agregar a favoritos");
-        newButton.appendChild(newContentButton);
-        newButton.addEventListener("click", function(e){
-            clickedFav();
-        },false);
 
         let newButton3 = document.createElement("button");
         let newContentButton3 = document.createTextNode("Marcar como leído");
@@ -72,18 +74,36 @@ export const getInfoLibro = () =>{
         let ig = document.createElement("i");
         ig.className = "fab fa-instagram";
         instagram.appendChild(ig);
+
+        let favorito = document.createElement("a");
+        favorito.id = "favoritoBtn";
+        let fav = document.createElement("i");
+        fav.className = "fas fa-heart";
+        favorito.appendChild(fav);
+        favorito.addEventListener("click", function(e){
+            AgregarAfavoritos();
+        },false);
+
+        let newDivVolver = document.createElement("div");
+        newDivVolver.id = "contentVolver";
+
+        let volver = document.createElement("a");
+        volver.href = "/view/index.html";
+        volver.appendChild(document.createTextNode("Volver"));
+
         
-        newDivButtons.appendChild(newButton);
         newDivButtons.appendChild(newButton3);
         newDivButtons.appendChild(newDivSN);
         newDivSN.appendChild(facebook);
         newDivSN.appendChild(twitter);
         newDivSN.appendChild(instagram);
-        
+        newDivSN.appendChild(favorito);
+        newDivVolver.appendChild(volver);
 
         let currentDiv = document.getElementById("gridChild");
         currentDiv.appendChild(newDiv);
         currentDiv.appendChild(newDivButtons);
+        currentDiv.appendChild(newDivVolver);
 
         //gridChild2
 
@@ -151,7 +171,7 @@ export const getInfoLibro = () =>{
         //Género
         let genero = document.createElement("h1");
         genero.id = "generoLibro";
-        genero.appendChild(document.createTextNode("Genero: " + libro.generos));
+        traerGenero(genero);
 
         //ISBN
         let isbn = document.createElement("h1");
@@ -189,13 +209,11 @@ export const getInfoLibro = () =>{
         newButtonGC3.appendChild(newContentButtonGC3);
         newButtonGC3.addEventListener("click", function(e){
             //fijarce si el usuario esta logueado y si tiene carro activo
-            crearCarro();
-            setTimeout(function(){
-                crearVenta(); 
-            }, 100);
-            setTimeout(function(){
-                crearCarroLibro(); 
-            }, 100);
+            await crearCarro();
+                
+            await crearVenta(); 
+                          
+            await crearCarroLibro();
             setTimeout(function(){
                 window.location.href = "../view/Carro.html"; 
             }, 200);
@@ -207,13 +225,11 @@ export const getInfoLibro = () =>{
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click", function(e){
             //fijarce si el usuario esta logueado y si tiene carro activo
-            crearCarro();
-            setTimeout(function(){
-                crearVenta(); 
-            }, 100);
-            setTimeout(function(){
-                crearCarroLibro(); 
-            }, 100);
+            await crearCarro();
+                
+            await crearVenta(); 
+                          
+            await crearCarroLibro();
         },false);
 
         newDiv3.appendChild(precio);
@@ -226,38 +242,112 @@ export const getInfoLibro = () =>{
 
         //gridChild4
         traerLibrosAutor(libro.nombreAutor);
-
     })
     .catch(err => console.log(err));
 }
 
+const AgregarAfavoritos=()=>{
+    if(verificarSeccion){
+       var usuario= parseJwt(localStorage.getItem("token"))
+         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoExitoso)
+    }
+}
+
+const AgregadoExitoso=()=>{
+    alert("Se agrego a favoritos")
+}
+
+const verificarSeccion=()=>{
+    if (localStorage.getItem("token")==undefined){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 function traerLibrosAutor(nombreAutor){
-    fetch(urlLibrosAutor + nombreAutor)
+    fetch(urlLibrosAutor + nombreAutor + '&LibroGuid=' + localStorage.getItem('idLibro'))
         .then(response => response.json())
         .then(response => {
+            if(response.length != 0){
+                const texto = document.createElement("p");
+                texto.appendChild(document.createTextNode("Otros libros del autor:"));
+
+                const newDiv = document.createElement("div");
+                newDiv.id = "contenedorLibrosAutor";
+
+                gc5.appendChild(texto);
+                gc5.appendChild(newDiv);
+
+                response.forEach(libro => {
+                    console.log(response);
+                    const newImage = document.createElement("img");
+                    newImage.src = libro.imagen;
+                    newImage.id = "libroImagen";
+                    const newLink = document.createElement("a");
+                    newLink.id = "pelicula";
+                    newLink.href = "vistaInfoLibro.html";
+                    newLink.addEventListener("click", function(e){
+                        guardarLocalStorageLibro(libro.id);
+                    },false);
+                    newLink.appendChild(newImage);
+                    newDiv.appendChild(newLink);
+                });
+            }
+            
+        })
+        .catch(err => console.log(err));
+}
+
+function traerGenero(genero){
+    fetch(urlLibroGenero + localStorage.getItem('idLibro'))
+        .then(response => response.json())
+        .then(response => {
+            genero.appendChild(document.createTextNode("Genero: " + response.descripcion));
+            traerLibrosGenero(response.descripcion);
+        })
+        .catch(err => console.log(err));
+}
+
+function traerLibrosGenero(generoId){
+    fetch(urlLibrosAutor + generoId + '&LibroGuid=' + localStorage.getItem('idLibro'))
+    .then(response => response.json())
+    .then(response => {
+        if(response.length != 0){
+            const texto = document.createElement("p");
+            texto.appendChild(document.createTextNode("Otros libros del género " + generoId + ":"));
+
+            const newDiv = document.createElement("div");
+            newDiv.id = "contenedorLibrosAutor";
+
+            gc5.appendChild(texto);
+            gc5.appendChild(newDiv);
+
             response.forEach(libro => {
                 const newImage = document.createElement("img");
                 newImage.src = libro.imagen;
                 newImage.id = "libroImagen";
                 const newLink = document.createElement("a");
                 newLink.id = "pelicula";
-                newLink.href = "#";
+                newLink.href = "vistaInfoLibro.html";
                 newLink.addEventListener("click", function(e){
-                    clickedFav();
+                    guardarLocalStorageLibro(libro.id);
                 },false);
-                
                 newLink.appendChild(newImage);
-                gc5.appendChild(newLink);
+                newDiv.appendChild(newLink);
             });
-        })
-        .catch(err => console.log(err));
+        }
+        
+    })
+    .catch(err => console.log(err));
 }
 
 function crearCarro(){
-    fetch(urlAgregarCarro + 1,{ //decoded.id
+    await fetch(urlAgregarCarro + decoded.id,{
         method : "POST",
         body : JSON.stringify({
-            "UsuarioId" : 1 //decoded.id
+            "UsuarioId" : decoded.id
         }),
         headers: {"Content-type" : "application/json"}
     })
@@ -269,10 +359,10 @@ function crearCarro(){
 }
 
 function crearVenta(){
-    fetch(urlCrearVenta + 1,{ //decoded.id
+    await fetch(urlCrearVenta + decoded.id,{
         method : "POST",
         body : JSON.stringify({
-            "UsuarioId" : 1 //decoded.id
+            "UsuarioId" : decoded.id
         }),
         headers: {"Content-type" : "application/json"}
     })
@@ -284,11 +374,11 @@ function crearVenta(){
 }
 
 function crearCarroLibro(){
-    fetch(urlCrearCarroLibro,{
+    await fetch(urlCrearCarroLibro,{
         method : "POST",
         body : JSON.stringify({
-            "libroid" : '2948CEA7-6D8F-4CC4-A2F3-4EDDDA910329', //localStorage.getItem('idLibro')
-            "usuarioid" : 1 //decoded.id
+            "libroid" : localStorage.getItem('idLibro'),
+            "usuarioid" : decoded.id
         }),
         headers: {"Content-type" : "application/json"}
     })
@@ -297,10 +387,6 @@ function crearCarroLibro(){
         console.log(response);
     })
     .catch(err => console.log(err));
-}
-
-function clickedFav(){
-    alert('Se agregó el libro a favoritos');
 }
 
 function toggleText(hideText, hideText_btn){
@@ -324,17 +410,6 @@ function clickedRead(object){
     }
 }
 
-//Para imagen en pantalla completa
-function getFullscreen(element){
-    if(element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if(element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if(element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-      } else if(element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-      }
+function guardarLocalStorageLibro(libroId){
+    localStorage.setItem("idLibro", libroId);
 }
-
-

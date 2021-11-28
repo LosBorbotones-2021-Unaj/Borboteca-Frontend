@@ -9,6 +9,82 @@ body{
    background-color: white;
 
 }
+
+/*NAV*/
+.nav_flex_Container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+
+}
+.logo2 img{
+    width: 60px;
+    height: 60px;
+}
+
+.logo2{
+    display: flex;
+    align-self: center;
+}
+.logo{
+    width: 10%;
+    font-size: 40px;
+    font-family: fantasy;
+    color: rgb(235, 98, 98);
+    align-self: center;
+    
+}
+.nav_Search{
+    width: 30%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgb(217, 218, 219);
+    position: relative;
+    align-self: center;
+}
+.search_Input{
+
+    top: 11px;
+    left: 18px;
+    width: 300px;
+    border-style: hidden;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgb(223, 228, 233);
+    outline: none;
+    position: absolute;
+    background: transparent;
+
+}
+.search_Input::placeholder{
+    color: rgb(235, 98, 98);;
+}
+.search_Button{
+    right: -1px;
+    top: -1px;
+    border: 0px;
+    height: 40px;
+    width: 53px;
+    background: rgb(255, 105, 98);
+    padding: 0px;
+    border-radius: 0px 6px 6px 0px;
+    outline: none;
+    position: absolute;
+
+}
+
+.search_Img{
+    color: white;
+    width: 18px;
+    height: 19px;
+    vertical-align: middle;
+}
+
+
 /*NAV MENU DESPLEGABLE*/
 
 .Logged_Menu_Container{
@@ -59,7 +135,6 @@ body{
      fill:#676D73;
  }
  .Logged_Menu_Links{
-     z-index: 100;
      clip-path: var(--clip);
      transition: clip-path .3s;
      position: absolute;
@@ -79,7 +154,7 @@ body{
  }
  
  .particular_Links{
-     padding: 25px 0px 25px 5px;
+     padding: 25px 0px 25px 15px;
      display: flex;
      justify-content: flex-start;
      text-decoration: none;
@@ -128,78 +203,46 @@ body{
      color: #4F6276;
  }
  
- 
- .carrito_Container{
-     width: 70%;   
-     display: flex;
-     flex-flow: row wrap;
-     background-color: rgb(255, 255, 255);
-     height: 60%;
-     border-radius: 9px;
-     
- }
- /*NAV*/
- .nav_flex_Container{
-     grid-row: 1/2;
-     width: 80%;
-     margin: 0 auto;
-     display: flex;
-     justify-content: space-between;
-     height: 70px;
- 
- }
- 
- .logo{
-     width: 10%;
-     font-size: 40px;
-     font-family: fantasy;
-     color: rgb(235, 98, 98);
-     align-self: center;
-     
- }
- .nav_Search{
-     width: 30%;
-     height: 40px;
-     border-radius: 6px;
-     border: 1px solid rgb(217, 218, 219);
-     position: relative;
-     align-self: center;
- }
- .search_Input{
-     top: 11px;
-     left: 18px;
-     width: 300px;
-     border-style: hidden;
-     font-style: normal;
-     font-weight: normal;
-     font-size: 14px;
-     line-height: 17px;
-     color: rgb(223, 228, 233);
-     outline: none;
-     position: absolute;
-     background: transparent;
- }
- .search_Input::placeholder{
-     color: rgb(235, 98, 98);;
- }
- .search_Button{
-     right: -1px;
-     top: -1px;
-     border: 0px;
-     height: 40px;
-     width: 53px;
-     background: rgb(255, 105, 98);
-     padding: 0px;
-     border-radius: 0px 6px 6px 0px;
-     outline: none;
-     position: absolute;
- }
- .search_Img{
-     color: white;
-     width: 18px;
-     height: 19px;
-     vertical-align: middle;
- }
+.Carrito_Icon{
+    align-self: center;
+    font-size: 30px;
+}
+
+@media screen and (max-width:1024px){
+
+    
+    .nav_flex_Container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        height: 150px;
+        grid-template-rows: 1fr;
+    }
+    
+    .logo{
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+    .nav_Search{
+        grid-row: 2/3;
+        grid-column: 1/4;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .Logged_Menu_Container{
+        grid-row: 1/2;
+        grid-column: 3/4;
+        width: max-content;
+        justify-self: flex-end;
+        align-self: center;
+    }
+
+    .Carrito_Icon{
+        grid-row: 1/2;
+        grid-column: 2/3;
+        justify-self: center;
+        align-self: center;
+    }
+}
 
 .footer{
     background: rgb(240, 240, 243);

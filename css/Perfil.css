@@ -1,0 +1,155 @@
+/*MAIN*/
+
+.main_Perfil{
+    width: 80%;
+    margin: 0 auto;
+    background: #e5e5e5;
+    display: flex;
+    min-height: 70vh;
+    padding-top: 30px;
+}
+
+.container_Info_Usuario{
+    width: 70%;
+}
+
+.container_Temas_Usuario{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 20%;
+}
+.tema{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+
+}
+
+.label_Tab{
+   padding-left: 5px;
+   width: max-content;
+   height: max-content;
+   cursor: pointer;
+   transition: all 400ms ease;
+}
+
+.label_Tab p{
+
+    font-size: 14px;
+    color: rgb(79, 98, 118);
+    font-weight: normal;
+    cursor: pointer;
+}
+.label_Tab p:hover{
+    color:rgb(235, 98, 98);
+   
+}
+
+
+
+
+
+/*TAB CONFIGURATION*/
+.tab2{
+    width: 100%;
+
+}
+.container_Favoritos{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    
+}
+.Libro_Imagen_Perfil{
+    justify-self: center;
+}
+
+.titulo_Perfil{
+    justify-self: flex-start;
+    padding-left: 10px;
+}
+
+.btn_Agregar_Carrito{
+
+    border: 2px solid rgb(255, 105, 98);
+    border-radius: 30px;
+    width: 164px;
+    height: 42px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: rgb(255, 105, 98);
+    background-color: rgb(255, 255, 255);
+    justify-self: center;
+}
+
+.btn_Delete_favorito{
+    justify-self: center;
+}
+
+.content{
+    display: none;
+}
+
+.content1{
+    position: relative;
+}
+.content2{
+    position: relative;
+}
+.content3{
+    position: relative;
+}
+
+.tab{
+    position: absolute;
+    transform: scale(0.90);
+    transition: all 600ms linear; 
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container_Sin_Favoritos{
+    height : 100%;
+    display : flex;
+    align-items : center;
+    flex-direction: column;
+    justify-content : center;
+}
+
+.mensaje_Sin_Favoritos{
+    padding-top: 10px;
+    color: rgba(0,0,0,.55);
+    font-size: 14px;
+    font-weight: 400;
+}
+/*ACTIVE ELEMENTS CONFIG*/
+.activo{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+}
+.contentActivo{
+    display: block;
+}
+
+.labelActivo p{
+    color: rgb(235, 98, 98);
+}
+
+#radio1,#radio2,#radio3{
+    display: none;
+}
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2,
+#radio3:checked ~ .tab3{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+
+}

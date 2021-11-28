@@ -1,4 +1,4 @@
-import { IndexRender } from './containers/index.js'
+import { IndexRender } from './containers/CarroIndex.js'
 
 window.onload = () =>{
     IndexRender();
