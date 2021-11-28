@@ -1,46 +1,42 @@
+.grid-container {
+    display: grid;
+    /* justify-content: center; */
+}
+
 .content__main_grid{
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
-    width: 80vw;
+    height: 100%;
     /* width: 80vw; */
-    margin: 5px auto;
+    /* width: 80vw; */
+    /* margin: 5px auto; */
     flex-grow: 1;
 }
 
 @media screen and (min-width: 700px){
-    
-    .web_Container{
-        display: flex;
-    }
-
     #root {
-        background: #FFFFFF;
     }
 
     .content__main_grid {
         display: grid;
-        grid-template-columns: 350px 1fr 350px;
-        grid-template-rows: 800px 1fr 400px;
+        grid-template-columns: 300px 1fr 300px;
+        grid-template-rows: 650px 1fr;
         background: #E5E5E5;
-        width: 80%;
-        border-radius: 10px;
+        /* width: 100%; */
+        margin: 0;
     }
 
     .content__main_grid div{
         background: #E5E5E5;
-        
     }
 
     /* gridChild */
 
     #gridChild {
         display: grid;
-        grid-template-rows: 60% 1fr;
+        grid-template-rows: 55% 1fr 1fr;
         justify-content: center;
         justify-items: center;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
         padding: 8%;
     }
     
@@ -50,6 +46,19 @@
         justify-self: center;
         border-radius: 20px;
         cursor: pointer;
+    }
+
+    #libroImagenModal {
+        width: 80%;
+    }
+
+    #modalId {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #botonCerrar {
+        background: #FF6962;
     }
 
     #contentButtons{
@@ -65,6 +74,7 @@
         height: 40px;
         margin: 5px;
         border-radius: 20px;
+        border: #000000 solid 1px;
     }
 
     #RedesSociales {
@@ -84,6 +94,7 @@
         text-decoration: none;
         border-radius: 50%;
         margin: 0 6px;
+        font-size: 20px;
     }
 
     #RedesSociales a :hover {
@@ -102,6 +113,23 @@
 
     #RedesSociales #instagramBtn {
         background-color: #bb7171;
+    }
+
+    #RedesSociales #favoritoBtn {
+        background-color: #FFFFFF;
+        color: #FF6962;
+        cursor: pointer;
+    }
+
+    #contentVolver {
+        display: inline-flex;
+        justify-self: flex-start;
+    }
+
+    #contentVolver a{
+        height: 28px;
+        font-size: 20px;
+        margin-left: 20px;
     }
 
     /* gridChild2 */
@@ -219,9 +247,11 @@
 
     #libroBoton {
         font-size:20px;
-        background: #FFFFFF;
+        background: #FF6962;
+        color: #FFFFFF;
         width: 220px;
         height: 40px;
+        border: 0;
         border-radius: 20px;
         align-self: center;
         margin: 8px;
@@ -229,7 +259,7 @@
 
     /* gridChild4 */
 
-    #gridChild4 {
+    /* #gridChild4 {
         display: grid;
         grid-column: 1 / 4;
         grid-row: 2 / 3;
@@ -237,20 +267,32 @@
 
     #gridChild4 h1{
         margin: 20px;
-    }
+    } */
 
     /* gridChild5 */
 
     #gridChild5 {
-        display: grid;
         grid-column: 1 / 4;
-        grid-row: 3 / 4;
+        grid-row: 2 / 2;
+        margin: 10px;
+    }
+
+    #gridChild5 p {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    #contenedorLibrosAutor {
+        display: grid;
         grid-template-columns: repeat(auto-fill, 200px);
-        height: 310px;
-        justify-content: center;
         grid-gap: 30px;
-        margin: 5px;
-        background-color: grey;
+        padding: 10px 20px 30px 20px;
+        border-radius: 5px;
+        transition: all 300ms;
+    }
+
+    #contenedorLibrosAutor :hover{
+        transform: scale(1.01);
     }
     
     .footer{
@@ -270,7 +312,6 @@
     }
     .footer__li{
        padding: 10px 15px;
-       
     }
 
 
