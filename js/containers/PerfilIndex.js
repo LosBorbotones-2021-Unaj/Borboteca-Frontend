@@ -1,19 +1,51 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid } from "../services/FetchServices.js";
-import { FavoritoParticular,InfoUsuario,MiLibroParticular,SinFavoritos } from "../components/PerfilComponents.js";
+import { FavoritoParticular,InfoUsuario,MiLibroParticular,SinFavoritos,UsuarioSinLibros } from "../components/PerfilComponents.js";
 
 const tab1 = document.querySelector(".tab1");
 const content1 = document.querySelector(".content1");
+const label1 = document.querySelector(".label1");
 
 const tab2 = document.querySelector(".tab2");
 const content2 = document.querySelector(".content2");
+const label2 = document.querySelector(".label2");
 
-export const RenderPerfil = () => {
+
+
+export const RenderPerfil = (section) => {
     var decoded = parseJwt(localStorage.getItem("token"));
     GetUsuarioByid(decoded.id,RenderInfoUsuario);
     GetFavoritosById(decoded.id,localStorage.getItem("token"),RenderFavoritos);
     GetLibrosComprados(decoded.id,RenderMisLibros);
+
+    if(section == "libros")
+    {
+        tab1.classList.add("activo");
+        content1.classList.add("activo");
+        content1.classList.add("contentActivo");
+        label1.classList.add("labelActivo");
+
+    }
+    else if(section == "favoritos")
+    {
+        tab2.classList.add("activo");
+        content2.classList.add("activo");
+        content2.classList.add("contentActivo");
+        label2.classList.add("labelActivo");
+
+    }
+    else if(section == "compras")
+    {
+        tab3.classList.add("activo");
+        content3.classList.add("activo");
+        content3.classList.add("contentActivo");
+        label3.classList.add("labelActivo");
+
+    }
+    else{
+
+    }
 }
 
 const RenderInfoUsuario = (UsuarioActual) => {
@@ -110,6 +142,10 @@ const RenderMisLibros = async (MisLibros) => {
             container_MiLibro.innerHTML += MiLibroParticular(libro.titulo,libro.imagen);
             tab1.appendChild(container_MiLibro);
         }
+    }
+    else
+    {
+        tab1.innerHTML = UsuarioSinLibros();
     }
 }
 

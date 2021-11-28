@@ -1,9 +1,9 @@
 import { RenderPerfil } from "./containers/PerfilIndex.js"
+import { genericNavVar } from './components/nav-var.js';
 
 window.onload = () =>{
     let n = new URLSearchParams(window.location.search);
     let section = n.get("section");
-    console.log(section);
-    console.log(n);
-    RenderPerfil();
+    genericNavVar();
+    RenderPerfil(section);
 };

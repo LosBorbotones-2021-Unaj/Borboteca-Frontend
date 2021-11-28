@@ -102,3 +102,8 @@ export const InfoUsuario = (nombre,apellido,email) =>
             </ul>
         </div>
     </div>`
+
+
+export const UsuarioSinLibros = () => 
+    `No tiene libros para leer`
+

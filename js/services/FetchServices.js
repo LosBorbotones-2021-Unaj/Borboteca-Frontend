@@ -14,7 +14,7 @@ export const GetLibrosDelCarro = async (UsuarioId,callback) => {
             return httpResponse.json()
     })
     .then(body => {
-        console.log(body);
+        
         callback(body);
         
     })
@@ -28,7 +28,7 @@ export const GetLibrosComprados = async (UsuarioId,callback) => {
             return httpResponse.json()
     })
     .then(body => {
-        console.log(body);
+       
         callback(body);
         
     })
@@ -108,9 +108,9 @@ export const CreateCarro = async (UsuarioId,token) => {
     })
     .then(response => response.json())
     .then(response => {
-        console.log(response);
+        
     })
-    .catch(err => console.log(err));
+    
 }
 
 export const CreateVenta = async (UsuarioId,token) => {
@@ -126,9 +126,9 @@ export const CreateVenta = async (UsuarioId,token) => {
     })
     .then(response => response.json())
     .then(response => {
-        console.log(response);
+       
     })
-    .catch(err => console.log(err));
+   
 }
 
 export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
@@ -146,9 +146,9 @@ export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
     })
     .then(response => response.json())
     .then(response => {
-        console.log(response);
+        
     })
-    .catch(err => console.log(err));
+    
 }
 
 export const GetUsuarioByid = async (UsuarioId,callback) => {
@@ -158,7 +158,7 @@ export const GetUsuarioByid = async (UsuarioId,callback) => {
             return httpResponse.json()
     })
     .then(body => {
-        console.log(body);
+        
         callback(body);
         
     })
