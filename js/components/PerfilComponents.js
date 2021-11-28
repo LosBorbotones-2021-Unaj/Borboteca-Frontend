@@ -63,8 +63,6 @@ export const SinFavoritos = () =>
     </svg>
     <p class="mensaje_Sin_Favoritos">Aún no tenés productos en Favoritos</p>
 </div>`
-<<<<<<< HEAD
-=======
 
 
 export const MiLibroParticular = (Titulo,Imagen) => 
@@ -109,4 +107,3 @@ export const InfoUsuario = (nombre,apellido,email) =>
 export const UsuarioSinLibros = () => 
     `No tiene libros para leer`
 
->>>>>>> main

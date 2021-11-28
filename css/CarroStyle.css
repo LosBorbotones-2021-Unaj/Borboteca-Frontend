@@ -14,7 +14,6 @@
 }*/
 
 
-
 /*MAIN*/
 .mainCarro{
     max-height: max-content;
@@ -232,39 +231,5 @@
     height: 200px;
 }
 
-@media screen and (max-width:1024px)and (min-width:545px){
 
-    
-    .nav_flex_Container{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        height: 150px;
-        grid-template-rows: 1fr;
-    }
-    
-    .logo{
-        grid-row: 1/2;
-        grid-column: 2/3;
-    }
-    .nav_Search{
-        grid-row: 2/3;
-        grid-column: 1/4;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .Logged_Menu_Container{
-        grid-row: 1/2;
-        grid-column: 3/4;
-        width: max-content;
-        justify-self: flex-end;
-        align-self: center;
-    }
-
-    .Carrito_Icon{
-        grid-row: 1/2;
-        grid-column: 2/3;
-        justify-self: center;
-        align-self: center;
-    }
-}
 
