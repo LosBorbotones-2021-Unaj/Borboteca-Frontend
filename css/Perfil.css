@@ -160,6 +160,7 @@
 .tab3{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -258,7 +259,7 @@
 /*MIS COMPRAS*/
 .container_Search_Compra{
     display: flex;
-    width: max-content;
+    width: 100%;
     justify-content: space-around;
     height: 150px;
     align-items: center;
@@ -275,12 +276,45 @@
     height: max-content;
 }
 
+.Compras_Cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 40px 0px;
+    border: 1px solid rgb(250, 139, 133);
+}
+
+.Compras_Cards p{
+    text-align: center;
+    
+}
+.separador{
+    width: 100%;
+    height: 10px;
+    grid-column: 1/5;
+    
+}
+.info_General_Hr{
+    grid-column: 1/5;
+    margin: 20px 0px;
+}
+
+.divLibroInfo{
+    grid-column: 4/5;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.separadorLibros{
+    grid-column: 1/3;
+    padding: 4px;
+}
 @media screen and (max-width:1020px){
 
-   
+    .tab3{
+        align-items: center;
+    }
     .container_Search_Compra{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         width: max-content;
         box-shadow: none;
         border-radius: 0px;
@@ -295,6 +329,8 @@
     }
 
 }
+
+
 /*MIS COMPRAS*/
 
 

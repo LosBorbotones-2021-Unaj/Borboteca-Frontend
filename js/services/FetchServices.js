@@ -178,6 +178,7 @@ export const GetAllVentas = async (UsuarioId,callback) => {
 }
 
 export const GetVentaByFechaEstado = async (UsuarioId,xFecha,xEstado,callback) => {
+    let parameters = {};
     if(xFecha != "" && xEstado != "")
     {
         parameters = {
