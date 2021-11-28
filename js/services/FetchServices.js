@@ -163,3 +163,57 @@ export const GetUsuarioByid = async (UsuarioId,callback) => {
         
     })
 }
+
+export const GetAllVentas = async (UsuarioId,callback) => {
+    await fetch(`${UrlBaseVentas}/Compras/${UsuarioId}`)
+    .then((httpResponse) => {
+        if(httpResponse.ok)
+            return httpResponse.json()
+    })
+    .then(body => {
+        
+        callback(body);
+        
+    })
+}
+
+export const GetVentaByFechaEstado = async (UsuarioId,xFecha,xEstado,callback) => {
+    if(xFecha != "" && xEstado != "")
+    {
+        parameters = {
+            Fecha : xFecha,
+            estado : xEstado
+        };
+    }
+    else if( xEstado != "" && xFecha == "")
+    {
+        parameters = {
+            estado : xEstado,
+            Fecha : ""
+        };
+    }
+    else if(xEstado == "" && xFecha != "")
+    {
+        parameters = {
+            Fecha : xFecha,
+            estado : ""
+        };
+    }
+    else if(xEstado == "" && xFecha == "")
+    {
+        parameters = {
+            Fecha : "",
+            estado : ""
+        };
+    }
+    await fetch(`${UrlBaseVentas}/MiCompra/${UsuarioId}?Fecha=${parameters?.Fecha}&estado=${parameters?.estado}`)
+    .then((httpResponse) => {
+        if(httpResponse.ok)
+            return httpResponse.json()
+    })
+    .then(body => {
+        
+        callback(body);
+        
+    })
+}

@@ -1,7 +1,9 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
-import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid } from "../services/FetchServices.js";
+import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
 import { FavoritoParticular,InfoUsuario,MiLibroParticular,SinFavoritos,UsuarioSinLibros } from "../components/PerfilComponents.js";
+
+var decoded = parseJwt(localStorage.getItem("token"));
 
 const tab1 = document.querySelector(".tab1");
 const content1 = document.querySelector(".content1");
@@ -11,14 +13,16 @@ const tab2 = document.querySelector(".tab2");
 const content2 = document.querySelector(".content2");
 const label2 = document.querySelector(".label2");
 
-
+const tab3 = document.querySelector(".tab3");
+const content3 = document.querySelector(".content3");
+const label3 = document.querySelector(".label3");
 
 export const RenderPerfil = (section) => {
-    var decoded = parseJwt(localStorage.getItem("token"));
+    
     GetUsuarioByid(decoded.id,RenderInfoUsuario);
     GetFavoritosById(decoded.id,localStorage.getItem("token"),RenderFavoritos);
     GetLibrosComprados(decoded.id,RenderMisLibros);
-
+    GetAllVentas(decoded.id,RenderMisCompras);
     if(section == "libros")
     {
         tab1.classList.add("activo");
@@ -149,9 +153,57 @@ const RenderMisLibros = async (MisLibros) => {
     }
 }
 
-const RenderMisCompras = () => {
+const RenderMisCompras = (Fechas) => {
+        if(Fechas.length != 0 )
+        {
+            const FechaSelection = document.querySelector("#fecha_Selection");
+            const EstadoSelection = document.querySelector("#estado_Selection");
+            let ListaNoRepetirFechas = [];
+            let fragment = document.createDocumentFragment();
+            for (let Fecha of Fechas) 
+            {
+                let Fecha1 = Fecha.split("/");
+                let Date1 = new Date(Fecha1[0],Fecha1[1],Fecha1[2]);
+               
+                if(ListaNoRepetirFechas.filter(xfecha => SonIguales(Date1,xfecha)).length == 0 || ListaNoRepetirFechas.length == 0)
+                {
+                    
+                    let OptionFecha = document.createElement("OPTION");
+                    OptionFecha.classList.add("fecha_Option");
+                    OptionFecha.innerHTML = Fecha;
+                    OptionFecha.value = Fecha;      
+                    fragment.appendChild(OptionFecha);
+                    ListaNoRepetirFechas.push(Fecha);
+                    
+                }
+                
+            }
+            FechaSelection.appendChild(fragment);
 
+            const ButtonSearchFunction = document.querySelector(".Button_Search_Compras");
+            ButtonSearchFunction.addEventListener('click',()=>{
+                
+                GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);
+            });
+        }
+
+       
 }
+
+const RenderComprasCards = (ResponseCompras) => {
+    tab3.innerHTML += ComprasCards();
+}
+
+const SonIguales = (Date1,fecha2) => {
+    let fecha2Nueva = fecha2.split("/");
+    let Date2 = new Date(fecha2Nueva[0],fecha2Nueva[1],fecha2Nueva[2]);
+    if(Date1.getTime() == Date2.getTime())
+        return true;
+
+    return false;
+}
+
+
 
 
 const label = document.querySelectorAll(".label_Tab");

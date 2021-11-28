@@ -31,14 +31,16 @@
     width: max-content;
     list-style: none;
     padding: 10px;
+    margin-left: 9px;
     
 }
 .ul_Info_Usuario li{
     display: flex;
-    min-width: 375px;
-    padding: 8px;
+    min-width: 360px;
+    padding: 8px 8px 8px 0px;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(235, 98, 98);
   
     
 }
@@ -49,7 +51,6 @@
     font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
     font-weight: 300;
     line-height: 1.35;
-    margin-left: 5px;
 }
 
 .ul_Info_Usuario li span{
@@ -156,11 +157,16 @@
     padding: 10px;
 }
 
+.tab3{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 /*MILIBRO*/
 .container_MiLibro{
     width:max-content;
     
-   
 }
 .container_Favoritos{
     width: 100%;
@@ -247,6 +253,50 @@
 .btn_Delete_favorito{
     justify-self: center;
 }
+/*FAVORITOS*/
+
+/*MIS COMPRAS*/
+.container_Search_Compra{
+    display: flex;
+    width: max-content;
+    justify-content: space-around;
+    height: 150px;
+    align-items: center;
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
+    border-radius: 6px;
+    
+}
+.fecha_Selection_Container,
+.estado_Selection_Container,
+.Button_Search_Compras{
+    margin: 0px 20px;
+}
+.Button_Search_Compras{
+    height: max-content;
+}
+
+@media screen and (max-width:1020px){
+
+   
+    .container_Search_Compra{
+        flex-direction: column;
+        align-items: flex-start;
+        width: max-content;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+
+    .estado_Selection_Container,
+    .Button_Search_Compras,
+    .fecha_Selection_Container,
+    #estado_Selection{
+        width: 100%;
+        margin: 0;
+    }
+
+}
+/*MIS COMPRAS*/
+
 
 .content{
     display: none;
