@@ -1,6 +1,6 @@
 const url=`https://localhost:44343/api/Favorito`
-export const AgregarQuitarFav=(idLibro,userId,token,callback)=>{
-    fetch(url, { 
+export const AgregarQuitarFav= async (idLibro,userId,token,callback)=>{
+    await fetch(url, { 
         method: 'post', 
         headers: new Headers({
           'Authorization': `Bearer ${token}`, 

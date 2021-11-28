@@ -63,3 +63,50 @@ export const SinFavoritos = () =>
     </svg>
     <p class="mensaje_Sin_Favoritos">Aún no tenés productos en Favoritos</p>
 </div>`
+<<<<<<< HEAD
+=======
+
+
+export const MiLibroParticular = (Titulo,Imagen) => 
+    	`
+        <button class="button_MiLibro">
+            <div class="Libro_Imagen_MiLibro">
+                <img class="imagen_MiLibro_Particular" src="${Imagen}" alt="${Titulo}">
+            </div>
+            <p class="titulo_MiLibro_Particular">${Titulo}</p>
+        </button>
+        `
+
+
+export const InfoUsuario = (nombre,apellido,email) =>
+    `
+    
+    
+    <div class="perfil">
+        <h1 class="info_Personal">Cuenta</h1>
+        <div class="container_Icon_Info_Usuario">
+            <div class="userIconPerfil_Container">
+                <i class="fas fa-user"></i>
+            </div>
+            <ul class="ul_Info_Usuario">
+                <li class="li_nombre_Usuario">
+                    <p>Nombre de Usuario</p>
+                    <span>${nombre}</span>
+                </li>
+                <li class="li_Apellido_Usuario">
+                    <p>Apellido</p>
+                    <span>${apellido}</span>       
+                </li>
+                <li class="li_Email_Usuario">
+                    <p>Email</p>
+                    <span>${email}</span>       
+                </li>
+            </ul>
+        </div>
+    </div>`
+
+
+export const UsuarioSinLibros = () => 
+    `No tiene libros para leer`
+
+>>>>>>> main
