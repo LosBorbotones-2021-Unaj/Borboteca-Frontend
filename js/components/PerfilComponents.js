@@ -63,3 +63,77 @@ export const SinFavoritos = () =>
     </svg>
     <p class="mensaje_Sin_Favoritos">Aún no tenés productos en Favoritos</p>
 </div>`
+
+
+export const MiLibroParticular = (Titulo,Imagen) => 
+    	`
+        <button class="button_MiLibro">
+            <div class="Libro_Imagen_MiLibro">
+                <img class="imagen_MiLibro_Particular" src="${Imagen}" alt="${Titulo}">
+            </div>
+            <p class="titulo_MiLibro_Particular">${Titulo}</p>
+        </button>
+        `
+
+
+export const InfoUsuario = (nombre,apellido,email) =>
+    `
+    
+    
+    <div class="perfil">
+        <h1 class="info_Personal">Cuenta</h1>
+        <div class="container_Icon_Info_Usuario">
+            <div class="userIconPerfil_Container">
+                <i class="fas fa-user"></i>
+            </div>
+            <ul class="ul_Info_Usuario">
+                <li class="li_nombre_Usuario">
+                    <p>Nombre de Usuario</p>
+                    <span>${nombre}</span>
+                </li>
+                <li class="li_Apellido_Usuario">
+                    <p>Apellido</p>
+                    <span>${apellido}</span>       
+                </li>
+                <li class="li_Email_Usuario">
+                    <p>Email</p>
+                    <span>${email}</span>       
+                </li>
+            </ul>
+        </div>
+    </div>`
+
+
+export const UsuarioSinLibros = () => 
+    `No tiene libros para leer`
+
+
+export const InfoVentaGeneral = () => 
+    `
+    <p class="fecha_Info_Venta Venta_Info_General">Fecha</p>
+    <p class="comprobante_Info_Venta Venta_Info_General">Comprobante</p>
+    <p class="estado_Info_Venta Venta_Info_General">Estado</p>
+    <p class="libros_Comprados">Libros Comprados</p>
+    <hr class="info_General_Hr">
+    `
+
+export const InfoVentaParticular = (Fecha,Comprobante,Estado) =>
+    `
+        <p class="fecha_Venta">${Fecha}</p>
+        <p class="comprobante_Venta">${Comprobante}</p>
+        <p class="estado_Venta">${Estado}</p>
+        
+    `
+
+export const libroCompradoInfoGeneral = () =>
+    `
+        <p class="titulo_Libro_General_Perfil">Titulo</p>
+        <p class="precio_Libro_General_Perfil">Precio</p>
+    
+    `
+export const libroCompradoInfo = (titulo,precio) =>
+    `
+        <p class="titulo_Libro_Particular_Perfil">${titulo}</p>
+        <p class="precio_Libro_Particular_Perfil">$${precio}</p>
+    
+    `

@@ -1,9 +1,9 @@
 *{
-    margin: 0;
-    padding: 0;
+    
     box-sizing: border-box;
     font-family: sans-serif;
-    
+    margin: 0;
+    padding: 0;
 }
 
 /*.web_Container{
@@ -13,6 +13,7 @@
     background: white;
 }*/
 
+<<<<<<< HEAD
 /*NAV*/
 .nav_flex_Container{
     width: 80%;
@@ -232,9 +233,11 @@
     transform: perspective(1000px)translateZ(5rem); 
     
 }
+=======
+>>>>>>> a50dcb225630cf3e7a60f582610688e07914f469
 
 /*MAIN*/
-.main{
+.mainCarro{
     max-height: max-content;
     min-height: 80vh;
     background-color: rgb(206, 192, 192);
@@ -450,39 +453,5 @@
     height: 200px;
 }
 
-@media screen and (max-width:1024px){
 
-    
-    .nav_flex_Container{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        height: 150px;
-        grid-template-rows: 1fr;
-    }
-    
-    .logo{
-        grid-row: 1/2;
-        grid-column: 2/3;
-    }
-    .nav_Search{
-        grid-row: 2/3;
-        grid-column: 1/4;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .Logged_Menu_Container{
-        grid-row: 1/2;
-        grid-column: 3/4;
-        width: max-content;
-        justify-self: flex-end;
-        align-self: center;
-    }
-
-    .Carrito_Icon{
-        grid-row: 1/2;
-        grid-column: 2/3;
-        justify-self: center;
-        align-self: center;
-    }
-}
 
