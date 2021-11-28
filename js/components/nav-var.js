@@ -27,7 +27,16 @@ export const genericNavVar = () => {
         renderLoggeo(decoded);
     }
     else{
-
+        divlogg.innerHTML = 
+        `
+        <div class="Logged_Menu_Item">
+            <div class="Logged_User_Container">
+                <a href="#" class="Logged_Menu_User">
+                    <p class="nombre_Usuario">Log-in</p>
+                </a>
+            </div>
+        </div>
+        `
     }
 }
 
