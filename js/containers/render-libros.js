@@ -1,6 +1,7 @@
 import { CardComponent } from '../components/card-libros.js';
 import { parseJwt } from '../components/nav-var.js';
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
+import { GetLibros } from '../services/FetchServices.js';
 import { pedirLibros }   from '../services/libros-index.js';
 import { pedirPaginas}   from '../services/libros-index.js';
 
@@ -17,7 +18,7 @@ export const RenderLibros = (json) =>{
     
     <div class="wrapper">
             <div class="container">
-            <a href="vistaInfoLibro.html" class="link_InfoLibro">      
+            <a href="/view/vistaInfoLibro.html" class="link_InfoLibro">      
                     <img class="top" id="libroId-${element.id}" src="${img}" alt="">
                     <div class="bottom">
                         <div class="left">
@@ -64,11 +65,57 @@ export const RenderLibros = (json) =>{
 const AgregarAfavoritos=()=>{
     if(verificarSeccion){
        var usuario= parseJwt(localStorage.getItem("token"))
-         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoExitoso)
+         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
     }
 }
-const AgregadoExitoso=()=>{
-    alert("Se agrego")
+export const AgregadoEliminadoExitoso=async (statusCode,json)=>{
+    
+
+    let libroFavorito = await GetLibros(json[0].libro);
+    
+    if(statusCode == 201)
+    {
+        toastr.info("",`Se agrego ${libroFavorito.titulo} de tus Favoritos`,{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            
+        })
+    }
+    else
+    {
+            toastr.info("",`Se quito ${libroFavorito.titulo} de tus Favoritos`,{
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+                
+            })
+    }
+    
 }
 
 const verificarSeccion=()=>{
