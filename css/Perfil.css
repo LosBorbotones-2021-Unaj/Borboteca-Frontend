@@ -88,7 +88,7 @@
 /*MAIN*/
 
 .main_Perfil{
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     background: #e5e5e5;
     display: flex;
@@ -98,7 +98,7 @@
 }
 
 .container_Info_Usuario{
-    width: 70%;
+    width: 80%;
     padding-top: 10px;
 }
 
