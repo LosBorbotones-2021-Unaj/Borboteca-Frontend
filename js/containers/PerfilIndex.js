@@ -3,6 +3,7 @@ import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
 import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada } from "../components/PerfilComponents.js";
 import { AgregadoEliminadoExitoso } from "./render-libros.js";
+import { AgregarAlCarroMessage } from "./CarroIndex.js";
 
 var decoded = parseJwt(localStorage.getItem("token"));
 
@@ -110,7 +111,7 @@ const RenderFavoritos = async (json) => {
             btn_Agregar_Carrito[i].addEventListener('click',async ()=>{
                 await CreateCarro(Usuario.id,token);
                 await CreateVenta(Usuario.id,token);
-                await CreateCarroLibro(divList[i].classList.item(1),Usuario.id,token);
+                await CreateCarroLibro(divList[i].classList.item(1),Usuario.id,token,AgregarAlCarroMessage);
                 await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);
                 tab2.removeChild(divList[i]);
 
