@@ -98,7 +98,7 @@
 }
 
 .container_Info_Usuario{
-    width: 70%;
+    width: 80%;
     padding-top: 10px;
 }
 
@@ -279,8 +279,9 @@
 .Compras_Cards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    padding: 40px 0px;
-    border: 1px solid rgb(250, 139, 133);
+    padding: 40px 0px 0px 0px;
+    margin-top: 10px;
+    
 }
 
 .Compras_Cards p{
@@ -291,6 +292,7 @@
     width: 100%;
     height: 10px;
     grid-column: 1/5;
+    padding: 8px 0px;
     
 }
 .info_General_Hr{
@@ -305,7 +307,7 @@
 }
 .separadorLibros{
     grid-column: 1/3;
-    padding: 4px;
+    padding: 4px 0px;
 }
 @media screen and (max-width:1020px){
 
@@ -330,12 +332,17 @@
 
 }
 
+.div_Sin_Compras h1{
+    color: red;
 
+}
 /*MIS COMPRAS*/
 
 
 .content{
     display: none;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .content1{
