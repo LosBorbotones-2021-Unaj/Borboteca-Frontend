@@ -3,6 +3,7 @@ import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import {CreateCarro} from "../services/FetchServices.js";
 import {CreateVenta} from "../services/FetchServices.js";
 import {CreateCarroLibro} from "../services/FetchServices.js";
+import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
@@ -215,7 +216,7 @@ export const getInfoLibro = () =>{
                 
             await CreateVenta(decoded.id,token); 
                           
-            await CreateCarroLibro(idLibro,decoded.id,token);
+            await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
             setTimeout(function(){
                 window.location.href = "../view/Carro.html"; 
@@ -232,7 +233,7 @@ export const getInfoLibro = () =>{
                 
             await CreateVenta(decoded.id,token); 
                           
-            await CreateCarroLibro(idLibro,decoded.id,token);
+            await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
         },false);
 
         newDiv3.appendChild(precio);
