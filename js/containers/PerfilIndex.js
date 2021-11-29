@@ -1,7 +1,7 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
-import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral } from "../components/PerfilComponents.js";
+import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras } from "../components/PerfilComponents.js";
 
 var decoded = parseJwt(localStorage.getItem("token"));
 
@@ -184,11 +184,12 @@ const RenderMisCompras = (Fechas) => {
             FechaSelection.appendChild(fragment);
 
             const ButtonSearchFunction = document.querySelector(".Button_Search_Compras");
-            ButtonSearchFunction.addEventListener('click',()=>{
-
+            ButtonSearchFunction.addEventListener('click',async ()=>{
+        
                 tab3.removeChild(ComprasCards); 
                 ComprasCards = document.createElement("DIV");
-                ComprasCards.classList.add("Compras_Cards");
+                await ComprasCards.classList.add("Compras_Cards");
+                ComprasCards.style.border="1px solid rgb(250, 139, 133)";
                 tab3.appendChild(ComprasCards);
                 GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);
                 
@@ -199,31 +200,39 @@ const RenderMisCompras = (Fechas) => {
 }
 
 const RenderComprasCards = async (ResponseCompras) => {
-    let divSeparador = document.createElement("DIV");
-    let hr = document.createElement("HR");
-    divSeparador.classList.add("separador");
-    ComprasCards.innerHTML += InfoVentaGeneral();
 
-    for (const Compra of ResponseCompras) {
-        let div_libro_Info = document.createElement("DIV");
-        div_libro_Info.classList.add("divLibroInfo");
-        div_libro_Info.innerHTML += libroCompradoInfoGeneral();
-        ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado);
+    if(ResponseCompras.length != 0)
+    {
+        let divSeparador = document.createElement("DIV");
+        let hr = document.createElement("HR");
+        divSeparador.classList.add("separador");
+        ComprasCards.innerHTML += InfoVentaGeneral();
 
-        for (const libroComprado of Compra.librosId) {
-            let libro = await GetLibros(libroComprado);
-            let divSeparadorLibros = document.createElement("DIV");
-            divSeparadorLibros.classList.add("separadorLibros");
-            let hrLibros = document.createElement("HR");
-            divSeparadorLibros.appendChild(hrLibros);
-            div_libro_Info.appendChild(divSeparadorLibros);
-            div_libro_Info.innerHTML += libroCompradoInfo(libro.titulo,libro.precio);
-            ComprasCards.appendChild(div_libro_Info);
+        for (const Compra of ResponseCompras) {
+            let div_libro_Info = document.createElement("DIV");
+            div_libro_Info.classList.add("divLibroInfo");
+            div_libro_Info.innerHTML += libroCompradoInfoGeneral();
+            ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado);
+
+            for (const libroComprado of Compra.librosId) {
+                let libro = await GetLibros(libroComprado);
+                let divSeparadorLibros = document.createElement("DIV");
+                divSeparadorLibros.classList.add("separadorLibros");
+                let hrLibros = document.createElement("HR");
+                divSeparadorLibros.appendChild(hrLibros);
+                div_libro_Info.appendChild(divSeparadorLibros);
+                div_libro_Info.innerHTML += libroCompradoInfo(libro.titulo,libro.precio);
+                ComprasCards.appendChild(div_libro_Info);
+            }
+            
+            ComprasCards.appendChild(divSeparador);
+            divSeparador.appendChild(hr);
+
         }
-        
-        ComprasCards.appendChild(divSeparador);
-        divSeparador.appendChild(hr);
-
+    }
+    else
+    {
+        ComprasCards.innerHTML = SinCompras();    
     }
     
 }
