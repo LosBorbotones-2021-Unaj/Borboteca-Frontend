@@ -68,12 +68,12 @@ const AgregarAfavoritos=()=>{
          AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
     }
 }
-export const AgregadoEliminadoExitoso=async (statusCode,json)=>{
+export const AgregadoEliminadoExitoso=async (statusCode,libroId)=>{
     
 
-    let libroFavorito = await GetLibros(json[0].libro);
+    let libroFavorito = await GetLibros(libroId);
     
-    if(statusCode == 201)
+    if(statusCode == 200)
     {
         toastr.info("",`Se agrego ${libroFavorito.titulo} de tus Favoritos`,{
             "closeButton": false,

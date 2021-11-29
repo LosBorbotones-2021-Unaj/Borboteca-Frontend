@@ -2,7 +2,8 @@
 
 const url=`https://localhost:44343/api/Favorito`
 export const AgregarQuitarFav= async (idLibro,userId,token,callback)=>{
-    let respueta = await fetch(url, { 
+  let statusCode;
+     await fetch(url, { 
                   method: 'post', 
                   headers: new Headers({
                     'Authorization': `Bearer ${token}`, 
@@ -10,10 +11,12 @@ export const AgregarQuitarFav= async (idLibro,userId,token,callback)=>{
                   }), 
                   body:JSON.stringify({libro:idLibro ,idUsuario:userId})
                 })
-      let statusCode = respueta.status;
-      let convertJson = await respueta.json();
+                .then(respueta =>  { return statusCode = respueta.status;})
 
-      callback(statusCode,convertJson);
+      
+      
+
+      callback(statusCode,idLibro);
 
         
 }
