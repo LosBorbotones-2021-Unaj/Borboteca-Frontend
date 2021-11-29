@@ -166,6 +166,7 @@ body {
   width: 100%;
   background-size: 100%;
 }
+
 .wrapper .container .bottom{
   width: 100%;
   height: 20%;
@@ -182,12 +183,15 @@ body {
 
 .wrapper .container .bottom .left .details{
   padding-left: 20px;
+  
   float: left;
-  width: calc(70% - 40px);
+  width: calc(80% - 10px);
 }
 
 .wrapper .container .bottom .left .details .txt_products{
   font-size: 25px;
+  color: #EF8D9C;
+
 }
 
 .wrapper .container .bottom .left .buy{

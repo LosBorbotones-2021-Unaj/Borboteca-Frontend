@@ -31,14 +31,16 @@
     width: max-content;
     list-style: none;
     padding: 10px;
+    margin-left: 9px;
     
 }
 .ul_Info_Usuario li{
     display: flex;
-    min-width: 375px;
-    padding: 8px;
+    min-width: 360px;
+    padding: 8px 8px 8px 0px;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(235, 98, 98);
   
     
 }
@@ -49,7 +51,6 @@
     font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
     font-weight: 300;
     line-height: 1.35;
-    margin-left: 5px;
 }
 
 .ul_Info_Usuario li span{
@@ -97,7 +98,7 @@
 }
 
 .container_Info_Usuario{
-    width: 70%;
+    width: 80%;
     padding-top: 10px;
 }
 
@@ -156,11 +157,17 @@
     padding: 10px;
 }
 
+.tab3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*MILIBRO*/
 .container_MiLibro{
     width:max-content;
     
-   
 }
 .container_Favoritos{
     width: 100%;
@@ -247,9 +254,95 @@
 .btn_Delete_favorito{
     justify-self: center;
 }
+/*FAVORITOS*/
+
+/*MIS COMPRAS*/
+.container_Search_Compra{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 150px;
+    align-items: center;
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
+    border-radius: 6px;
+    
+}
+.fecha_Selection_Container,
+.estado_Selection_Container,
+.Button_Search_Compras{
+    margin: 0px 20px;
+}
+.Button_Search_Compras{
+    height: max-content;
+}
+
+.Compras_Cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 40px 0px 0px 0px;
+    margin-top: 10px;
+    
+}
+
+.Compras_Cards p{
+    text-align: center;
+    
+}
+.separador{
+    width: 100%;
+    height: 10px;
+    grid-column: 1/5;
+    padding: 8px 0px;
+    
+}
+.info_General_Hr{
+    grid-column: 1/5;
+    margin: 20px 0px;
+}
+
+.divLibroInfo{
+    grid-column: 4/5;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.separadorLibros{
+    grid-column: 1/3;
+    padding: 4px 0px;
+}
+@media screen and (max-width:1020px){
+
+    .tab3{
+        align-items: center;
+    }
+    .container_Search_Compra{
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+
+    .estado_Selection_Container,
+    .Button_Search_Compras,
+    .fecha_Selection_Container,
+    #estado_Selection{
+        width: 100%;
+        margin: 0;
+    }
+
+}
+
+.div_Sin_Compras h1{
+    color: red;
+
+}
+/*MIS COMPRAS*/
+
 
 .content{
     display: none;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .content1{
