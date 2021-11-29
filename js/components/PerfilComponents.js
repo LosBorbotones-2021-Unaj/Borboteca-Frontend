@@ -137,3 +137,6 @@ export const libroCompradoInfo = (titulo,precio) =>
         <p class="precio_Libro_Particular_Perfil">$${precio}</p>
     
     `
+
+export const SinCompras = () => 
+    `<div class="div_Sin_Compras"><h1 class ="h1_Sin_Compra">No ha realizado ninguna compra</h1></div>`
