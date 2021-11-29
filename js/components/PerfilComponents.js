@@ -139,4 +139,7 @@ export const libroCompradoInfo = (titulo,precio) =>
     `
 
 export const SinCompras = () => 
-    `<div class="div_Sin_Compras"><h1 class ="h1_Sin_Compra">No ha realizado ninguna compra</h1></div>`
+    `<div class="div_Sin_Compras">
+        <img src="../img/Sin-Compras.jpg" alt="SinCompras">
+        <h1 class ="h1_Sin_Compra">No ha realizado ninguna compra</h1>
+    </div>`

@@ -232,7 +232,8 @@ const RenderComprasCards = async (ResponseCompras) => {
     }
     else
     {
-        ComprasCards.innerHTML = SinCompras();    
+        ComprasCards.innerHTML = SinCompras();
+        ComprasCards.style.border="none";    
     }
     
 }
