@@ -17,7 +17,7 @@ export const RenderLibros = (json) =>{
     
     <div class="wrapper">
             <div class="container">
-            <a href="/view/vistaInfoLibro.html" class="link_InfoLibro">      
+            <a href="vistaInfoLibro.html" class="link_InfoLibro">      
                     <img class="top" id="libroId-${element.id}" src="${img}" alt="">
                     <div class="bottom">
                         <div class="left">
