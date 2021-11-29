@@ -26,10 +26,17 @@ export const genericNavVar = () => {
             </section>
         
     `;
+
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
-        
+        if(decoded.roll == 2){
+            $("#boton1").append(
+                `
+                    <a href="/view/CargaLibros.html" class="btn-flotante">Cargar Libros</a>
+                `);
+            console.log(decoded);
+        }
         renderLoggeo(decoded);
     }
     else{
@@ -58,6 +65,7 @@ export function parseJwt (token) {
 
 
 const renderLoggeo = (tokensito) => {
+    
     divlogg.innerHTML = 
         `
             <div class="Logged_Menu_Item">
@@ -120,7 +128,7 @@ const renderLoggeo = (tokensito) => {
                         </a>
                     </li>
                     <li class="Logged_Menu_Item">
-                        <a href="#" class="Logged_Menu_CerrarSesion particular_Links">
+                        <a  id="cerrar-secion" href="/view/Loggin.html" class="Logged_Menu_CerrarSesion particular_Links">
                             <svg width="20" height="15"  class="LogoutIcon">
                                 <path d="M6.25 5.977v3.046c0 .157.04.313.156.43.117.156.274.195.469.195H12.5v3.672c0 .157.04.235.195.274.117.078.235.039.352-.078l5.508-5.586c.117-.078.195-.235.195-.43a.627.627 0 00-.195-.43l-5.508-5.586c-.117-.078-.235-.117-.352-.078-.156.078-.195.157-.195.274v3.672H6.875a.647.647 0 00-.469.195.65.65 0 00-.156.43zm-1.25 0c0-.508.156-.938.547-1.329a1.795 1.795 0 011.328-.546h4.375V1.68c0-.43.156-.782.469-1.094.312-.273.664-.43 1.094-.43.39 0 .78.117 1.093.43l5.547 5.586c.352.39.547.82.547 1.328 0 .547-.195.977-.547 1.328l-5.547 5.586a1.542 1.542 0 01-1.094.469c-.43 0-.78-.156-1.093-.469-.313-.273-.469-.625-.469-1.094v-2.422H6.875c-.547 0-.977-.156-1.328-.546C5.157 10 5 9.57 5 9.023V5.977zM0 1.875C0 1.367.156.937.547.547A1.795 1.795 0 011.875 0h5.156c.117 0 .235.078.313.156.078.078.156.196.156.313V.78a.495.495 0 01-.156.352.444.444 0 01-.313.117H1.875a.647.647 0 00-.469.195.587.587 0 00-.156.43v11.25c0 .195.04.352.156.469.117.117.274.156.469.156h5.156c.117 0 .235.078.313.156.078.078.156.196.156.313v.312a.495.495 0 01-.156.352.444.444 0 01-.313.117H1.875c-.547 0-.977-.156-1.328-.547-.39-.351-.547-.781-.547-1.328V1.875z" fill="#4F6276">
                                 </path>
@@ -133,7 +141,8 @@ const renderLoggeo = (tokensito) => {
                 </ul>
             </div>
         `;
-
+ 
+        var boton = document.getElementById("cerrar-secion").onclick= CerrarSecion;
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
@@ -150,5 +159,9 @@ const renderLoggeo = (tokensito) => {
             UserIconPath.classList.remove("change_icons_Logged_User");
             UserMenuDownIconPath.classList.remove("change_icons_Logged_User");
         })
+}
+
+const CerrarSecion = () =>{
+    localStorage.removeItem("token");
 }
 

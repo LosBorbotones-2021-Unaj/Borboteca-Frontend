@@ -5,6 +5,7 @@ const UrlBaseVentas = "https://localhost:44381/api/Ventas";
 const UrlBaseLibros = "https://localhost:44331/api/Libro/PedirLibroId?id=";
 const UrlBaseCarroLibro = "https://localhost:44381/api/CarroLibro";
 const UrlBaseUsuarios = "https://localhost:44343/api/Usuario";
+const UrlLibroDescargas = "https://localhost:44331/api/Libro/";
 
 
 export const GetLibrosDelCarro = async (UsuarioId,callback) => {
@@ -216,5 +217,24 @@ export const GetVentaByFechaEstado = async (UsuarioId,xFecha,xEstado,callback) =
         
         callback(body);
         
+    })
+}
+
+export const DescargarLibro = (libroid) =>{
+    fetch((UrlLibroDescargas +`${libroid}`),{
+        method : 'GET',
+        headers: new Headers({
+            'Authorization':`Bearer ${localStorage.getItem("token")}`,
+            'Content-Type': 'application/json'
+        })
+    })
+    .then((httpResponse)=>{
+        if(httpResponse.ok == 200){
+            console.log("Hola");
+            return httpResponse.json();
+        }
+        else{
+            console.log(libro);
+        }
     })
 }
