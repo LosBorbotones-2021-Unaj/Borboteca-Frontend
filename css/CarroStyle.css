@@ -13,10 +13,14 @@
     background: white;
 }*/
 
+.web_Container{
+    min-width: 460px;
+}
 
 /*MAIN*/
 .mainCarro{
     max-height: max-content;
+
     min-height: 80vh;
     background-color: rgb(206, 192, 192);
     display: flex;
@@ -107,11 +111,12 @@
 .container_Info_Libro{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-
+    min-width: 450px;
 }
 .container_Libro{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    min-width: 450px;
 }
 .Libro_Info_General{
     padding-bottom: 20px;
@@ -232,4 +237,13 @@
 }
 
 
-
+@media screen and (max-width:860px){
+    .mainCarro{
+        background-color: transparent;
+        
+    }
+    .carrito_Flex_Container{
+        box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
+        min-width: 460.75px;
+    }
+}

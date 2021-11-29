@@ -131,7 +131,7 @@ export const CreateVenta = async (UsuarioId,token) => {
    
 }
 
-export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
+export const CreateCarroLibro = async (LibroId,UsuarioId,token,callback) => {
 
     await fetch(`${UrlBaseCarroLibro}`,{
         method : "POST",
@@ -146,7 +146,7 @@ export const CreateCarroLibro = async (LibroId,UsuarioId,token) => {
     })
     .then(response => response.json())
     .then(response => {
-        
+        callback(response);
     })
     
 }

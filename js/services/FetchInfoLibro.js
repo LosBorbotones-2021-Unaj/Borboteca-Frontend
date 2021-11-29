@@ -3,22 +3,16 @@ import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import {CreateCarro} from "../services/FetchServices.js";
 import {CreateVenta} from "../services/FetchServices.js";
 import {CreateCarroLibro} from "../services/FetchServices.js";
+import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-// let decoded = parseJwt(token);
+let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
-const url2 = 'https://localhost:44381/api/CarroLibro';
-const urlAgregarCarro = 'https://localhost:44381/api/Carro?UsuarioId=';
-const urlCrearVenta = 'https://localhost:44381/api/Ventas?UsuarioId=';
-const urlCrearCarroLibro = 'https://localhost:44381/api/CarroLibro';
 const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros/autor?busqueda=';
 const urlLibroGenero = 'https://localhost:44331/api/Libro/PedirLibroGenero?LibroGuid=';
 
-const aplicacion = document.querySelector('.content__main_grid div');
-const gc2 = document.querySelector('.content__main_grid #gridChild2');
-const gc3 = document.querySelector('.content__main_grid #gridChild3');
 const gc5 = document.querySelector('.content__main_grid #gridChild5');
 
 export const getInfoLibro = () =>{
@@ -86,9 +80,10 @@ export const getInfoLibro = () =>{
         let fav = document.createElement("i");
         fav.className = "fas fa-heart";
         favorito.appendChild(fav);
-        favorito.addEventListener("click", function(e){
-            AgregarAfavoritos();
-        },false);
+        // favorito.addEventListener("click", function(e){
+        //     AgregarAfavoritos();
+        // },false);
+        agregadoFavorito(favorito);
 
         //VolverBtn
         let volver = document.getElementById("botonVolver");
@@ -210,16 +205,21 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3 = document.createTextNode("Comprar");
         newButtonGC3.appendChild(newContentButtonGC3);
         newButtonGC3.addEventListener("click", async function(e){
-            //fijarce si el usuario esta logueado y si tiene carro activo
-            await CreateCarro(decoded.id,token);
+            if(verificarSeccion){
+                await CreateCarro(decoded.id,token);
                 
-            await CreateVenta(decoded.id,token); 
+                await CreateVenta(decoded.id,token); 
                           
-            await CreateCarroLibro(idLibro,decoded.id,token);
+                await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
-            setTimeout(function(){
-                window.location.href = "../view/Carro.html"; 
-            }, 200);
+                setTimeout(function(){
+                    window.location.href = "../view/Carro.html"; 
+                }, 200);
+            }
+            else{
+                alert("El usuario No está logueado");
+            }
+            
         },false);
 
         let newButtonGC3_2 = document.createElement("button");
@@ -227,12 +227,18 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3_2 = document.createTextNode("Agregar al carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
-            //fijarce si el usuario esta logueado y si tiene carro activo
-            await CreateCarro(decoded.id,token);
+            if(verificarSeccion){
+                await CreateCarro(decoded.id,token);
                 
-            await CreateVenta(decoded.id,token); 
+                await CreateVenta(decoded.id,token); 
                           
-            await CreateCarroLibro(idLibro,decoded.id,token);
+                await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
+
+                alert("Se agrego el libro al carrito");
+            }
+            else{
+                alert("El usuario No está logueado");
+            }
         },false);
 
         newDiv3.appendChild(precio);
@@ -257,7 +263,8 @@ const AgregarAfavoritos=()=>{
 }
 
 const AgregadoExitoso=()=>{
-    alert("Se agrego a favoritos")
+    alert("Se agregó el libro a favoritos");
+    // agregadoFavorito(document.getElementById("favoritoBtn"));
 }
 
 const verificarSeccion=()=>{
@@ -266,6 +273,23 @@ const verificarSeccion=()=>{
     }
     else{
         return true;
+    }
+}
+
+function agregadoFavorito(boton){
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+    function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+    alertPlaceholder.append(wrapper)
+    }
+
+    if (boton) {
+        boton.addEventListener('click', function () {
+        alert('Se agregó el libro a favoritos')
+    })
     }
 }
 
@@ -370,7 +394,6 @@ function traerLibrosGenero(generoId){
     })
     .catch(err => console.log(err));
 }
-
 
 function toggleText(hideText, hideText_btn){
     hideText.classList.toggle('show');
