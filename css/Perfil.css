@@ -331,9 +331,25 @@
     }
 
 }
-
+.div_Sin_Compras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    grid-column: 1/5;
+}
+.div_Sin_Compras img{
+    width: 200px;
+    height: 120px;
+}
 .div_Sin_Compras h1{
-    color: red;
+
+    padding-top: 10px;
+    color: rgba(221, 34, 34, 0.55);
+    font-size: 19px;
+    font-weight: 400;
 
 }
 /*MIS COMPRAS*/
