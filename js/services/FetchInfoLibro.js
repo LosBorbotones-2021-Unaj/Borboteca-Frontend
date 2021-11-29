@@ -6,7 +6,7 @@ import {CreateCarroLibro} from "../services/FetchServices.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-// let decoded = parseJwt(token);
+let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const url2 = 'https://localhost:44381/api/CarroLibro';
