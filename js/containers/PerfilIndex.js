@@ -1,7 +1,9 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
-import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras } from "../components/PerfilComponents.js";
+import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada } from "../components/PerfilComponents.js";
+import { AgregadoEliminadoExitoso } from "./render-libros.js";
+import { AgregarAlCarroMessage } from "./CarroIndex.js";
 
 var decoded = parseJwt(localStorage.getItem("token"));
 
@@ -88,7 +90,7 @@ const RenderFavoritos = async (json) => {
                     
                 
 
-                await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);    
+                await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso);    
                             
                 tab2.removeChild(divList[i]);
 
@@ -109,7 +111,7 @@ const RenderFavoritos = async (json) => {
             btn_Agregar_Carrito[i].addEventListener('click',async ()=>{
                 await CreateCarro(Usuario.id,token);
                 await CreateVenta(Usuario.id,token);
-                await CreateCarroLibro(divList[i].classList.item(1),Usuario.id,token);
+                await CreateCarroLibro(divList[i].classList.item(1),Usuario.id,token,AgregarAlCarroMessage);
                 await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);
                 tab2.removeChild(divList[i]);
 
@@ -152,12 +154,14 @@ const RenderMisLibros = async (MisLibros) => {
     }
     else
     {
+        tab1.style.alignItems="center";
         tab1.innerHTML = UsuarioSinLibros();
     }
 }
 
 const RenderMisCompras = (Fechas) => {
-        if(Fechas.length != 0 )
+    console.log(Fechas);
+        if(Fechas[0] != null)
         {
             const FechaSelection = document.querySelector("#fecha_Selection");
             const EstadoSelection = document.querySelector("#estado_Selection");
@@ -189,11 +193,17 @@ const RenderMisCompras = (Fechas) => {
                 tab3.removeChild(ComprasCards); 
                 ComprasCards = document.createElement("DIV");
                 await ComprasCards.classList.add("Compras_Cards");
-                ComprasCards.style.border="1px solid rgb(250, 139, 133)";
+                /*ComprasCards.style.border="1px solid rgb(250, 139, 133)";*/
+                ComprasCards.style.boxShadow ="0px 1px 2px 1px rgb(0 0 0 / 24%)";
                 tab3.appendChild(ComprasCards);
                 GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);
                 
             });
+        }
+        else{
+            content3.style.height = "100%";
+            tab3.style.height = "100%";
+            tab3.innerHTML = SinCompras();
         }
 
        
@@ -209,6 +219,8 @@ const RenderComprasCards = async (ResponseCompras) => {
         ComprasCards.innerHTML += InfoVentaGeneral();
 
         for (const Compra of ResponseCompras) {
+            ComprasCards.appendChild(divSeparador);
+            divSeparador.appendChild(hr);
             let div_libro_Info = document.createElement("DIV");
             div_libro_Info.classList.add("divLibroInfo");
             div_libro_Info.innerHTML += libroCompradoInfoGeneral();
@@ -225,14 +237,14 @@ const RenderComprasCards = async (ResponseCompras) => {
                 ComprasCards.appendChild(div_libro_Info);
             }
             
-            ComprasCards.appendChild(divSeparador);
-            divSeparador.appendChild(hr);
+            
 
         }
     }
     else
     {
-        ComprasCards.innerHTML = SinCompras();    
+        ComprasCards.innerHTML = CompraNoEncontrada();
+        ComprasCards.style.border="none";    
     }
     
 }

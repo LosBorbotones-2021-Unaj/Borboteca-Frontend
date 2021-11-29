@@ -3,10 +3,11 @@ import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import {CreateCarro} from "../services/FetchServices.js";
 import {CreateVenta} from "../services/FetchServices.js";
 import {CreateCarroLibro} from "../services/FetchServices.js";
+import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-// let decoded = parseJwt(token);
+let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros/autor?busqueda=';
@@ -204,13 +205,12 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3 = document.createTextNode("Comprar");
         newButtonGC3.appendChild(newContentButtonGC3);
         newButtonGC3.addEventListener("click", async function(e){
-            //fijarce si el usuario esta logueado y si tiene carro activo
             if(verificarSeccion){
                 await CreateCarro(decoded.id,token);
                 
                 await CreateVenta(decoded.id,token); 
-                            
-                await CreateCarroLibro(idLibro,decoded.id,token);
+                          
+                await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
                 setTimeout(function(){
                     window.location.href = "../view/Carro.html"; 
@@ -227,13 +227,12 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3_2 = document.createTextNode("Agregar al carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
-            //fijarce si el usuario esta logueado y si tiene carro activo
             if(verificarSeccion){
                 await CreateCarro(decoded.id,token);
                 
                 await CreateVenta(decoded.id,token); 
-                            
-                await CreateCarroLibro(idLibro,decoded.id,token);
+                          
+                await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
                 alert("Se agrego el libro al carrito");
             }

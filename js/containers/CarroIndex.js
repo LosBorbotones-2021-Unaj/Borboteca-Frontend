@@ -38,8 +38,26 @@ const RenderLibros = async (json) => {
         CarritoContainer.appendChild(ContainerComprar);
         let btn = document.querySelector(".BotonCompra");
         
-            btn.addEventListener('click',()=>{
+            btn.addEventListener('click', ()=>{
                 
+                 toastr["success"]("Compra realizada exitosamente", "Felicidades!",{
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    
+                })
                  CarritoContainer.innerHTML = SinLibros();
                  CompraFinalizada(Usuario.id,token);
                  CerrarCarroActual(Usuario.id,token);
@@ -105,10 +123,64 @@ const PromiseToLibro = async (divList,total,ContainerComprar) => {
     let btn = document.querySelector(".BotonCompra");
         
             btn.addEventListener('click',()=>{
-                 
+                
+                toastr["success"]("Compra realizada exitosamente", "Felicidades!",{
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    
+                })
                  CarritoContainer.innerHTML = SinLibros();
                  CompraFinalizada(Usuario.id,token);
                  CerrarCarroActual(Usuario.id,token);
                  
             }) 
+}
+
+export const AgregarAlCarroMessage = async (json) => {
+    let mensaje;
+    
+    if(json[0] == undefined)
+    {
+    let libroAlCarro = await GetLibros(json.libroid);
+    mensaje = `Se agrego ${libroAlCarro.titulo} a tu carro`;
+    
+    }
+    else{
+        mensaje = json[0];
+       
+    }
+        
+    
+        toastr.info("",mensaje,{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            
+        })
+   
 }
