@@ -1,7 +1,7 @@
 import { CardComponent } from '../components/card-libros.js';
 import { parseJwt } from '../components/nav-var.js';
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
-import { pedirLibros }   from '../services/libros-index.js';
+import { DescargarLibro, pedirLibros }   from '../services/libros-index.js';
 import { pedirPaginas}   from '../services/libros-index.js';
 
 let indexer = 1;
@@ -92,6 +92,13 @@ export const ChargeLibros = () => {
 export const IndexRenderer = () => {
     ChargeLibros();
     ContadorPaginas();
+    $("#descarga").append(
+        `
+        <a href="#" download="frutas_del_mundo.pdf">Download file</a>
+        `);
+        $("#descarga").click(function (e) { 
+            DescargarLibro();
+        });
 }
 const ContadorPaginas = () => {
     paginas = (pedirLibros()/9)+1;

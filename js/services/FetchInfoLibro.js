@@ -3,10 +3,11 @@ import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import {CreateCarro} from "../services/FetchServices.js";
 import {CreateVenta} from "../services/FetchServices.js";
 import {CreateCarroLibro} from "../services/FetchServices.js";
+import {DescargarLibro} from "../services/libros-index.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-// let decoded = parseJwt(token);
+let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const url2 = 'https://localhost:44381/api/CarroLibro';
@@ -212,7 +213,7 @@ export const getInfoLibro = () =>{
         newButtonGC3.addEventListener("click", async function(e){
             //fijarce si el usuario esta logueado y si tiene carro activo
             await CreateCarro(decoded.id,token);
-                
+            
             await CreateVenta(decoded.id,token); 
                           
             await CreateCarroLibro(idLibro,decoded.id,token);
@@ -221,6 +222,8 @@ export const getInfoLibro = () =>{
                 window.location.href = "../view/Carro.html"; 
             }, 200);
         },false);
+
+
 
         let newButtonGC3_2 = document.createElement("button");
         newButtonGC3_2.id = "libroBoton";
