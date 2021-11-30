@@ -20,9 +20,7 @@
 /*MAIN*/
 .mainCarro{
     max-height: max-content;
-
     min-height: 80vh;
-    background-color: rgb(206, 192, 192);
     display: flex;
     flex-flow: column;
     width: 80%;
@@ -66,10 +64,13 @@
 .carrito_Container{
     width: 70%;   
     display: flex;
+    padding:  50px;
     flex-flow: row wrap;
     background-color: rgb(255, 255, 255);
     height: max-content;
     border-radius: 9px;
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
+    border-radius: 6px;
     
 }
 
@@ -93,9 +94,6 @@
    
 }
 /*MAIN*/
-.carrito_SubContainer{
-    width: 80%;
-}
 
 .carrito_Venta{
     width: 20%;
@@ -103,8 +101,9 @@
 .carrito_SubContainer{
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 10px;
     width: 100%;
+    border-radius: 6px;
     height:100%;
 }
 
@@ -145,8 +144,8 @@
     grid-column: 1/5;
 }
 .imagen_Libro_Particular{
-    width: 75px;
-    height: 105px;
+    width: 115px;
+    height: 155px;
     border-radius: 0.3rem;
     background-color: transparent;
     filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 1px 2px);
@@ -156,12 +155,14 @@
     padding: 10px 0px 20px 20px;
 
 }
+
 .autor_Libro_Particular{
     font-style: normal;
     font-weight: normal;
     font-size: 0.93rem;
     letter-spacing: -0.01em;
     text-align: left;
+    padding-left: 2px;
     color: rgb(103, 109, 115);
 }
 .titulo_Libro_Particular{

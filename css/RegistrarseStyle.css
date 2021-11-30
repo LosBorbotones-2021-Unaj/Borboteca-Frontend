@@ -144,7 +144,11 @@ body {
   background: transparent;
   outline: none;
   height: 40px;
+<<<<<<< HEAD
   color: rgb(0, 0, 0);
+=======
+  color: rgb(14, 12, 12);
+>>>>>>> 656cc524ad60586850b1cc80a91c2886f3e3d8f3
   font-size: 16px;
 }
 
