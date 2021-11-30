@@ -6,7 +6,7 @@
     justify-content: space-between;
     height: 70px;
     padding: 10px;
-
+    align-items: center;
   
 }
 .logo2 img{
@@ -80,7 +80,7 @@
 
 .Logged_Menu_Container{
     transition: transform .5s;
-    padding-top: 18px;
+    padding-top: 5px;
     
  }
  
@@ -270,6 +270,9 @@
     } 
    .Carrito_Icon{
        margin-top: 10px;
+   }
+   .Logged_Menu_Container {
+       width: 100%;
    }
    .Logged_Menu_Links{
        width: 100%;
