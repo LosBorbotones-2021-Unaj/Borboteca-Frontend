@@ -22,7 +22,7 @@ export const LibrosDelCarroParticulares = (Titulo,Imagen,Autor,Precio) =>
 export const TotalYBotonComprar = (total)=>
 `
     <hr>
-    <h2 class="TotalCompra">Total:<span>${total}</span></h2>
+    <h2 class="TotalCompra">Total:<span>$${total}</span></h2>
     <button class="BotonCompra">Comprar</button>
 `
 

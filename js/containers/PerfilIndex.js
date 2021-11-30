@@ -22,6 +22,10 @@ const label3 = document.querySelector(".label3");
 
 let ComprasCards = document.querySelector(".Compras_Cards");
 
+
+let red = "red"
+let green = "green";
+
 export const RenderPerfil = (section) => {
     
     GetUsuarioByid(decoded.id,RenderInfoUsuario);
@@ -223,7 +227,13 @@ const RenderComprasCards = async (ResponseCompras) => {
             let div_libro_Info = document.createElement("DIV");
             div_libro_Info.classList.add("divLibroInfo");
             div_libro_Info.innerHTML += libroCompradoInfoGeneral();
-            ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado);
+            
+            if(Compra.estado == "Finalizada")
+                ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado,red);
+            else
+            ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado,green);
+            
+
 
             for (const libroComprado of Compra.librosId) {
                 let libro = await GetLibros(libroComprado);
@@ -232,7 +242,7 @@ const RenderComprasCards = async (ResponseCompras) => {
                 let hrLibros = document.createElement("HR");
                 divSeparadorLibros.appendChild(hrLibros);
                 div_libro_Info.appendChild(divSeparadorLibros);
-                div_libro_Info.innerHTML += libroCompradoInfo(libro.titulo,libro.precio);
+                div_libro_Info.innerHTML += libroCompradoInfo(libro.imagen,libro.titulo,libro.precio);
                 ComprasCards.appendChild(div_libro_Info);
             }
             

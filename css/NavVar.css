@@ -5,7 +5,9 @@
     display: flex;
     justify-content: space-between;
     height: 70px;
+    padding: 10px;
 
+  
 }
 .logo2 img{
     width: 60px;
