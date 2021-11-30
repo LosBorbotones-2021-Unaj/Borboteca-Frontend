@@ -193,7 +193,6 @@ const RenderMisCompras = (Fechas) => {
                 tab3.removeChild(ComprasCards); 
                 ComprasCards = document.createElement("DIV");
                 await ComprasCards.classList.add("Compras_Cards");
-                /*ComprasCards.style.border="1px solid rgb(250, 139, 133)";*/
                 ComprasCards.style.boxShadow ="0px 1px 2px 1px rgb(0 0 0 / 24%)";
                 tab3.appendChild(ComprasCards);
                 GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);

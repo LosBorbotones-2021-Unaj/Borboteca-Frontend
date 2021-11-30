@@ -98,10 +98,13 @@ hr{
     margin-top: 20px;
     
 }
-
+p{
+    margin: 0px;
+}
 .container_Info_Usuario{
     width: 80%;
     padding-top: 10px;
+    border-left: 1px solid rgb(168, 163, 163);
 }
 
 .container_Temas_Usuario{
@@ -302,7 +305,7 @@ hr{
 .fecha_Selection_Container,
 .estado_Selection_Container,
 .Button_Search_Compras{
-    margin: 0px 20px;
+    
    
 }
 
@@ -355,6 +358,10 @@ hr{
     grid-column: 1/5;
     padding: 8px 0px;
     
+}
+
+hr{
+
 }
 .separador hr{
     background-color: rgb(255, 105, 98); 
