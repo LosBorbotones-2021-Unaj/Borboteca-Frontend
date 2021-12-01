@@ -92,16 +92,23 @@ hr{
 .main_Perfil{
     width: 80%;
     margin: 0 auto;
-    background: #e5e5e5;
+    background: #f3f0f0;
+    box-shadow: 1px 1px 5px 2px rgb(0 0 0 /24%);
+    border-radius: 6px;
     display: flex;
     min-height: 70vh;
     margin-top: 20px;
+    margin-bottom: 5px;
     
+}
+p{
+    margin: 0px;
 }
 
 .container_Info_Usuario{
     width: 80%;
     padding-top: 10px;
+    border-left: 1px solid rgb(168, 163, 163);
 }
 
 .container_Temas_Usuario{
@@ -130,14 +137,15 @@ hr{
 
 .label_Tab p{
 
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(79, 98, 118);
     font-weight: normal;
     cursor: pointer;
 }
+
 .label_Tab p:hover{
     color:rgb(235, 98, 98);
-   
+    
 }
 
 
@@ -297,51 +305,75 @@ hr{
     align-items: center;
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
     border-radius: 6px;
+    margin-top: 20px;
     
-}
-.fecha_Selection_Container,
-.estado_Selection_Container,
-.Button_Search_Compras{
-    margin: 0px 20px;
-   
 }
 
 .Button_Search_Compras,
 #estado_Selection,
 #fecha_Selection{
     cursor: pointer;
-    border: 1px solid rgb(255, 105, 98);
+    box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
+    border-radius: 6px;
+    border: none;
+    outline: none;    
 }
 
 .Button_Search_Compras:hover,
 #estado_Selection:hover,
 #fecha_Selection:hover{
     
-    border:1px solid rgb(223, 179, 177);
+    border:1px solid rgb(240, 126, 120);
+    
 }
 
 .Button_Search_Compras{
     height: max-content;
     padding: 0px 4px ;
-    
+   
 }
 
 .Compras_Cards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     padding: 40px 0px 4px 0px;
-    margin: 15px;
+    margin: 15px 0px;
+    border-radius: 2px;
     min-width: 406px;
+    align-items: center;
     
 }
 
 .Compras_Cards p{
     text-align: center;
+    
+}
+
+.Venta_Info_General{
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 20px;
+}
+
+.portada_Libro_Particular_Perfil{
+    width: 75px;
+    height: 90px;
+    border-radius: 0.3rem;
+    filter: drop-shadow(rgba(0, 0, 0, 0.25) 0px 1px 2px);
+    object-fit: cover;
 }
 .titulo_Libro_Particular_Perfil{
     text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    color: #0F1111;
+    font-family: serif;
 }
-
+.precio_Libro_Particular_Perfil{
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
 .precio_Libro_Particular_Perfil,
 .precio_Libro_General_Perfil,
 .titulo_Libro_General_Perfil{
@@ -356,9 +388,10 @@ hr{
     padding: 8px 0px;
     
 }
+
 .separador hr{
-    background-color: rgb(255, 105, 98); 
-    height: 1px; 
+    background-color: rgb(5, 1, 1); 
+    height: 1.5px; 
     border: 0;
     
 }
@@ -370,10 +403,19 @@ hr{
 .divLibroInfo{
     grid-column: 4/5;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 5px;
+}
+
+.Libro_Particular_Perfil{
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 17px;
 }
 .separadorLibros{
-    grid-column: 1/3;
+    grid-column: 1/4;
     padding: 4px 0px;
 }
 
@@ -418,6 +460,16 @@ hr{
     vertical-align: middle;
     text-align: center;
     font-weight: 700;
+}
+
+
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
 }
 /*MIS COMPRAS*/
 

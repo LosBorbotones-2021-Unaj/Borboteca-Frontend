@@ -2,6 +2,7 @@ import { PostUsuario } from "../services/FetchRegister.js"
 
 const CreateUserSusses=()=>{
     console.log("El usuario se creo exitosamente")
+    window.location.href = "Loggin.html"
 }
 const CreateUserFailed=()=>{
     console.log("El usuario no fue creado")

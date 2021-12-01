@@ -121,25 +121,27 @@ export const InfoVentaGeneral = () =>
     <p class="fecha_Info_Venta Venta_Info_General">Fecha</p>
     <p class="comprobante_Info_Venta Venta_Info_General">Comprobante</p>
     <p class="estado_Info_Venta Venta_Info_General">Estado</p>
-    <p class="libros_Comprados">Libros Comprados</p>
+    <p class="libros_Comprados Venta_Info_General">Libros Comprados</p>
     `
 
-export const InfoVentaParticular = (Fecha,Comprobante,Estado) =>
+export const InfoVentaParticular = (Fecha,Comprobante,Estado,ColorEstado) =>
     `
-        <p class="fecha_Venta">${Fecha}</p>
+        <p class="fecha_Venta ">${Fecha}</p>
         <p class="comprobante_Venta">${Comprobante}</p>
-        <p class="estado_Venta">${Estado}</p>
+        <p class="estado_Venta ${ColorEstado}">${Estado}</p>
         
     `
 
 export const libroCompradoInfoGeneral = () =>
     `
-        <p class="titulo_Libro_General_Perfil">Titulo</p>
-        <p class="precio_Libro_General_Perfil">Precio</p>
+        <p class="portada_Libro_General_Perfil Libro_Particular_Perfil">Portada</p>
+        <p class="titulo_Libro_General_Perfil Libro_Particular_Perfil">Titulo</p>
+        <p class="precio_Libro_General_Perfil Libro_Particular_Perfil">Precio</p>
     
     `
-export const libroCompradoInfo = (titulo,precio) =>
+export const libroCompradoInfo = (portada,titulo,precio) =>
     `
+        <img class="portada_Libro_Particular_Perfil" src="${portada}" alt="${titulo}">
         <p class="titulo_Libro_Particular_Perfil">${titulo}</p>
         <p class="precio_Libro_Particular_Perfil">$${precio}</p>
     
