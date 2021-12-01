@@ -66,6 +66,8 @@ const AgregarAfavoritos=()=>{
     if(verificarSeccion){
        var usuario= parseJwt(localStorage.getItem("token"))
          AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
+    }else{
+        window.location.href = "Loggin.html"
     }
 }
 export const AgregadoEliminadoExitoso=async (statusCode,libroId)=>{
@@ -118,7 +120,7 @@ export const AgregadoEliminadoExitoso=async (statusCode,libroId)=>{
     
 }
 
-const verificarSeccion=()=>{
+export const verificarSeccion=()=>{
     if (localStorage.getItem("token")==undefined){
         return false;
     }
