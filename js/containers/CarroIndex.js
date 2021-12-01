@@ -5,7 +5,7 @@ import { GetLibros,CerrarCarroActual,DeleteVenta } from '../services/FetchServic
 import {parseJwt} from '../components/nav-var.js'
 
 let token = localStorage.getItem("token");
-let Usuario = parseJwt(token);
+// let Usuario = parseJwt(token);
 let CarritoContainer = document.querySelector(".carrito_SubContainer");
 let div = document.createElement("DIV");
 let hr = document.createElement("HR");

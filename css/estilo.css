@@ -2,18 +2,22 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: #CEC0C0;
+    background-color: #FFFFFF;
 }
 
 .content__main_grid{
     display: grid;
-    grid-template-rows: 560px 380px 1fr;
+    grid-template-rows: 520px 380px 1fr;
     grid-template-columns: 300px 1fr;
     background: #E5E5E5;
     width: 80%;
     margin: 20px 0 30px 0;
-    border-radius: 10px;
+    border-radius: 12px;
     min-width: 700px;
+}
+
+.content__main_grid div{
+    border-radius: 12px;
 }
 
 /* gridChild */
@@ -32,7 +36,7 @@
     width: 100%;
     height: 100%;
     justify-self: center;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
 }
 
@@ -129,7 +133,7 @@
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 1.7vw;
     font-family: sans-serif;
 }
 
@@ -155,11 +159,23 @@ hr {
 }
 
 #libroAutor {
-    font-size: 15px;
-    font-family: Verdana;
-    background: #E5E5E5;
+    font-size: 1.8vw;
     padding-bottom: 12px;
     margin: 0;
+    font-weight:bold;
+    font-family: sans-serif;
+}
+
+#fichaT {
+    font-size: 2vw;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 5px;
+}
+
+#hrFT {
+    width: 38vw;
+    margin: 8px 0;
 }
 
 #libroEditorial {
@@ -199,7 +215,7 @@ hr {
     flex-direction: column;
     margin: 12px;
     border: grey solid .5px;
-    border-radius: 10px;
+    border-radius: 12px;
     justify-items: center;
     align-items: center;
 }
@@ -216,22 +232,37 @@ hr {
 
 #cuotas{
     font-size: 16px;
-    font-family: Verdana;
     margin: 10px;
     padding: 0 10px 20px 10px;
-    font-weight: normal;
+}
+
+#libroMP {
+    font-size: 22px;
+}
+
+#DivMP {
+    display: flex;
+    align-items: center;
+}
+
+#DivMP img{
+    width: 50%;
 }
 
 #libroBoton {
     font-size:20px;
     background: #FF6962;
     color: #FFFFFF;
-    width: 220px;
+    width: 280px;
     height: 40px;
     border: 0;
     border-radius: 20px;
     align-self: center;
     margin: 8px;
+}
+
+.content__main_grid #gridChild3 #gc3Compra #libroBoton :hover{
+    background: red;
 }
 
 /* gridChild5 */
@@ -251,6 +282,7 @@ hr {
     margin: 0;
     font-size: 15px;
     font-family: sans-serif;
+    color: #EF6314;
 }
 
 #contenedorLibrosAutor {
@@ -264,19 +296,15 @@ hr {
     margin: 0 20px 80px 20px;
 }
 
-#contenedorLibrosAutor :hover{
+/* #contenedorLibrosAutor :hover{
     transform: scale(1.01);
-}
-
-#contenedorLibrosAutor :hover{
-    transform: scale(1.01);
-}
+} */
 
 #tituloLibroRecomendado {
     padding-top: 10px;
 }
 
-#nombreAutorLista {
+#gridChild5 #nombreAutorLista {
     color: green;
 }
 
@@ -285,7 +313,7 @@ hr {
         display: grid;
         justify-items: center;
         align-items: center;
-        background-color: #CEC0C0;
+        background-color: #FFFFFF;
     }
 
     .button_Volver_Menu{
@@ -298,16 +326,16 @@ hr {
 
     .content__main_grid {
         display: grid;
-        grid-template-columns: 300px 1fr 300px;
+        grid-template-columns: 280px 1fr 320px;
         grid-template-rows: 700px 1fr;
         background: #E5E5E5;
         width: 80%;
         margin: 20px 0 30px 0;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .content__main_grid div{
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     /* gridChild */
@@ -318,15 +346,13 @@ hr {
         height: 80%;
         justify-content: center;
         justify-items: center;
-        padding: 6%;
-        padding-right: 2%;
     }
     
     #libroImagen {
         width: 100%;
         height: 100%;
         justify-self: center;
-        border-radius: 10px;
+        border-radius: 12px;
         cursor: pointer;
     }
 
@@ -403,25 +429,9 @@ hr {
     }
 
     #RedesSociales #favoritoBtn {
-        background-color: #FFFFFF;
-        color: #FF6962;
+        background-color: #EB6262;
+        color: #FFFFFF;
         cursor: pointer;
-    }
-
-    .alert {
-        background: #D1E7DD;
-        padding: 20px 40px;
-        min-width: 420px;
-        position: absolute;
-        right: 0;
-        top: 80px;
-        border-radius: 4px;
-        border-left: 8px solid green;
-        overflow: hidden;
-    }
-
-    .alert-dismissible{
-        font-size: 20px;
     }
 
     .btn-close2 {
@@ -444,7 +454,7 @@ hr {
     #gridChild2 {
         display: flex;
         flex-direction: column;
-        padding: 0 2% 0 2%;
+        padding: 0 2% 0 1%;
         min-width: 300px;
         height: 80%;
     }
@@ -463,43 +473,47 @@ hr {
     }
 
     #libroAutor {
-        font-size: 1.1vw;
-        font-family: Verdana;
-        background: #E5E5E5;
+        font-size: 1.15vw;
         padding-bottom: 12px;
         margin: 0;
+        font-weight:bold;
+        font-family: sans-serif;
     }
 
-    #libroReseña {
+    #libroResenia {
         font-size: 1.2vw;
-        font-family: Verdana;
-        background: #E5E5E5;
-        padding-bottom: 10px;
     }
 
-    #libroFicha {
-        font-size: 1.4vw;
-        font-family: Verdana;
+    #fichaT {
+        font-size: 1.35vw;
+        font-weight: bold;
+        margin: 0;
+        padding-top: 5px;
+    }
+
+    #hrFT {
+        width: 30vw;
+        margin: 8px 0;
     }
 
     #libroEditorial {
-        font-size: 1.3vw;
+        font-size: 1vw;
         font-family: Verdana;
         background: #E5E5E5;
     }
 
     #fechaPublicacionLibro {
-        font-size: 1.3vw;
+        font-size: 1vw;
         font-family: Verdana;
         background: #E5E5E5;
     }
 
     #generoLibro {
-        font-size: 1.3vw;
+        font-size: 1vw;
     }
 
     #isbnLibro {
-        font-size: 1.3vw;
+        font-size: 1vw;
     }
 
     /* gridChild3 */
@@ -519,9 +533,7 @@ hr {
         flex-direction: column;
         margin: 12px;
         border: grey solid .5px;
-        border-radius: 10px;
-        justify-items: center;
-        align-items: center;
+        border-radius: 12px;
     }
 
     #libroPrecio {
@@ -535,11 +547,29 @@ hr {
     }
 
     #cuotas{
-        font-size: 1.1vw;
-        font-family: Verdana;
+        font-size: 1vw;
         margin: 10px;
         padding: 0 10px 20px 10px;
         font-weight: normal;
+    }
+
+    #libroMP {
+        font-size: 1.1vw;
+    }
+
+    #DivMP {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #DivMP img{
+        width: 90%;
+    }
+
+    #DivMP #paypal{
+        width: 50%;
+        padding-bottom: 30%;
     }
 
     #libroBoton {
@@ -564,12 +594,14 @@ hr {
 
     #gridChild5 h1 {
         font-family: sans-serif;
+        font-size: 25px;
     }
 
     #gridChild5 p {
         margin: 0;
         font-size: 15px;
         font-family: sans-serif;
+        color: #EF6314;
     }
 
     #contenedorLibrosAutor {
@@ -583,19 +615,15 @@ hr {
         margin: 0 20px 80px 20px;
     }
 
-    #contenedorLibrosAutor :hover{
+    /* #contenedorLibrosAutor :hover{
         transform: scale(1.01);
-    }
-
-    #contenedorLibrosAutor :hover{
-        transform: scale(1.01);
-    }
+    } */
 
     #tituloLibroRecomendado {
         padding-top: 10px;
     }
 
-    #nombreAutorLista {
+    #gridChild5 #nombreAutorLista {
         color: green;
     }
     
