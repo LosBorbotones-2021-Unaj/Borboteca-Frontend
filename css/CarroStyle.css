@@ -238,7 +238,12 @@
     height: 200px;
 }
 
-
+@media screen and (max-width:1190px){
+    .titulo_Libro_General,
+    .imagen_Autor_Libro_General{
+        text-align: center;
+    }
+}
 @media screen and (max-width:860px){
     .mainCarro{
         background-color: transparent;
