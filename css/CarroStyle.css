@@ -119,24 +119,24 @@
 }
 .Libro_Info_General{
     padding-bottom: 20px;
-    color: black;
-    font-size: 23px; 
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 20px;
     font-family: 'Anton', sans-serif;
 }
 
 .imagen_Autor_Libro_General{
-    font-family: sans-serif;
+    
     color: black;
     padding-left:20px;
 }
 .titulo_Libro_General{
-    font-family: sans-serif;
+    
     color: black;
     padding-left: 5px;
 }
 .precio_Libro_General{
     padding-left: 20px;
-    font-family: sans-serif;
     color: black;
     grid-column: 3/5;
 }
@@ -153,13 +153,13 @@
 }
 .Libro_Imagen_Autor{
     padding: 10px 0px 20px 20px;
-
+   
 }
 
 .autor_Libro_Particular{
     font-style: normal;
     font-weight: normal;
-    font-size: 0.93rem;
+    font-size: 0.99rem;
     letter-spacing: -0.01em;
     text-align: left;
     padding-left: 2px;
@@ -169,7 +169,7 @@
     align-self: center;
     color: #414141;
     padding-left: 5px;
-    font-size: 18px;
+    font-size: 20px;
     font-family: "Work Sans", sans-serif;
 }
 .precio_Libro_Particular{
@@ -177,7 +177,7 @@
     padding-left: 20px;
     color: #0e0d0d;
     line-height: 36px;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: bold;
 }
 .btn_Delete_Libro{
@@ -186,6 +186,7 @@
  height: max-content;
  width: max-content; 
  align-self: center;
+ font-size: 19px;
 }
 .fa-trash{
     width:max-content;
@@ -237,7 +238,12 @@
     height: 200px;
 }
 
-
+@media screen and (max-width:1190px){
+    .titulo_Libro_General,
+    .imagen_Autor_Libro_General{
+        text-align: center;
+    }
+}
 @media screen and (max-width:860px){
     .mainCarro{
         background-color: transparent;
