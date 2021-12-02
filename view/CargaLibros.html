@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/PostLibros.css">
+    <link rel="stylesheet" href="../css/NavVar.css">
+	<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <title>Cargar Libros</title>
+    <link rel="shortcut icon"  href="../img/Logo.png">
+</head>
+<body>
+    <div class="web_Container">
+        <nav id="index-nav" class="nav_flex_Container"></nav>
+        <div id="carga" class="container2">
+            <div>
+                <form action="">
+                    <div class="omrs-input-group">
+                        <label class="omrs-input-underlined" for="">
+                            <input id="titulo-libro" required>
+                            <span class="omrs-input-lavel">Nombre del libro</span>
+                            <span class="omrs-input-helper">EJ: El principito</span>
+                        </label>
+                        <label  class="omrs-input-underlined" for="">
+                            <input id="reseña-libro" required>
+                            <span class="omrs-input-lavel">Reseña</span>
+                            <span class="omrs-input-helper">EJ: Es un libro de fantasia comedia y accion con suspenso</span>
+                        </label>
+                        <label  class="omrs-input-underlined" for="">
+                            <input id="editorial-libro" required>
+                            <span class="omrs-input-lavel">Editorial</span>
+                            <span class="omrs-input-helper">EJ: BookEdits</span>
+                        </label>
+                        <label  class="omrs-input-underlined" for="">
+                            <input id="fecha-libro" required>
+                            <span class="omrs-input-lavel">Fecha de publicacion</span>
+                            <span class="omrs-input-helper">EJ: AAAA-MM-DD</span>
+                        </label>
+                        <label  class="omrs-input-underlined" for="">
+                            <input id="imagen-libro" required>
+                            <span class="omrs-input-lavel">Url de imagen</span>
+                            <span class="omrs-input-helper">EJ: google.com/imagen-x</span>
+                        </label>
+                        <label  class="omrs-input-underlined" for="">
+                            <input id="url-libro" required>
+                            <span class="omrs-input-lavel">Url del libro</span>
+                            <span class="omrs-input-helper">EJ: C:/Borboteca/el_Principito.pdf</span>
+                        </label>
+                        <label class="omrs-input-underlined" for="">
+                            <input id="precio-libro" required type="number">
+                            <span class="omrs-input-lavel">Precio</span>
+                            <span class="omrs-input-helper">EJ: 4000</span>
+                        </label>
+                        <form id="autor-libro" name="seleccionar-autor" action="">
+                            <select id="seleccionar-autor" name="cosa">
+
+                            </select>
+                        </form>
+                        <label id="genero-libro" class="omrs-input-underlined" for="">
+                            <span class="omrs-input-lavel">Seleccione un genero</span>
+                            <div id="genero-id" class="custom-select">
+                                
+                            </div>
+                        </label>
+                        <button id="BtnSubirLibro" type="button" class="btn btn-primary">Primary</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/a501f3f174.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/components/info-CargaLibros.js"></script>
+</body>
+</html>

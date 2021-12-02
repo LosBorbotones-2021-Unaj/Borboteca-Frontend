@@ -77,7 +77,7 @@ export const getInfoLibro = () =>{
 
         let volver = document.getElementById("botonVolver");
         volver.addEventListener("click", function(e){
-            window.location.href = "../view/Index.html";
+            window.location.href = "Index.html";
         },false);
         
         newDivButtons.appendChild(newDivSN);
@@ -103,42 +103,34 @@ export const getInfoLibro = () =>{
         
         let resenia = document.createElement("h1");
         resenia.id = "libroResenia";
-        let hrResenia = document.createElement("hr");
         let newContentResenia = document.createTextNode(libro.resenia);
         if(libro.resenia.length > 800){
             resenia.id = "libroResenia2";
         }
         resenia.appendChild(newContentResenia);
-        resenia.appendChild(hrResenia);
+
 
         let fichaTecnica = document.createElement("h1");
         fichaTecnica.id = "fichaT";
-        let hrFT2 = document.createElement("hr");
-        hrFT2.id = "hrFT";
-        fichaTecnica.appendChild(document.createTextNode("Ficha Técnica"));
-        fichaTecnica.appendChild(hrFT2);
+        fichaTecnica.appendChild(document.createTextNode("Detalles del libro"));
 
-        let editorial = document.createElement("h1");
+        let editorial = document.createElement("h4");
         editorial.id = "libroEditorial";
-        let hrEditorial = document.createElement("hr");
-        hrEditorial.id = "hrFT";
+        
         let editorialText = document.createElement("b");
         editorialText.appendChild(document.createTextNode("Editorial: "));
         let editorialText2 = document.createTextNode(libro.editorial);
         editorial.appendChild(editorialText);
         editorial.appendChild(editorialText2);
-        editorial.appendChild(hrEditorial);
+        // editorial.appendChild(hrEditorial);
 
         let fechaPublicacion = document.createElement("h1");
-        fechaPublicacion.id = "fechaPublicacionLibro";
-        let hrFechaPublicacion = document.createElement("hr");
-        hrFechaPublicacion.id = "hrFT";
+        fechaPublicacion.id = "fechaPublicacionLibro";;
         let fechaPublicacionText = document.createElement("b");
         fechaPublicacionText.appendChild(document.createTextNode("Fecha de publicación: "));
         let fechaPublicacionText2 = document.createTextNode(libro.fechaDePublicacion);
         fechaPublicacion.appendChild(fechaPublicacionText);
         fechaPublicacion.appendChild(fechaPublicacionText2);
-        fechaPublicacion.appendChild(hrFechaPublicacion);
 
         let genero = document.createElement("h1");
         genero.id = "generoLibro";
@@ -146,14 +138,11 @@ export const getInfoLibro = () =>{
 
         let isbn = document.createElement("h1");
         isbn.id = "isbnLibro";
-        let hrIsbn = document.createElement("hr");
-        hrIsbn.id = "hrFT";
         let isbnText = document.createElement("b");
         isbnText.appendChild(document.createTextNode("ISBN: "));
         let isbnText2 = document.createTextNode(idLibro);
         isbn.appendChild(isbnText);
         isbn.appendChild(isbnText2);
-        isbn.appendChild(hrIsbn);
 
         let currentDiv2 = document.getElementById("gridChild2");
         currentDiv2.appendChild(title);
@@ -206,13 +195,11 @@ export const getInfoLibro = () =>{
         newButtonGC3.addEventListener("click", async function(e){
             if(verificarSeccion){
                 await CreateCarro(decoded.id,token);
-                
-                await CreateVenta(decoded.id,token); 
-                          
+                await CreateVenta(decoded.id,token);   
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
                 setTimeout(function(){
-                    window.location.href = "../view/Carro.html"; 
+                    window.location.href = "Carro.html"; 
                 }, 200);
             }
             else{
@@ -220,6 +207,8 @@ export const getInfoLibro = () =>{
             }
             
         },false);
+
+
 
         let newButtonGC3_2 = document.createElement("button");
         newButtonGC3_2.id = "libroBoton";
@@ -324,14 +313,13 @@ function traerGenero(genero){
     fetch(urlLibroGenero + idLibro)
         .then(response => response.json())
         .then(response => {
-            let hrGenero = document.createElement("hr");
-            hrGenero.id = "hrFT";
+
             let generoText = document.createElement("b");
             generoText.appendChild(document.createTextNode("Género: "));
             let generoText2 = document.createTextNode(response.descripcion);
             genero.appendChild(generoText);
             genero.appendChild(generoText2);
-            genero.appendChild(hrGenero);
+
 
             traerLibrosGenero(response.descripcion);
         })

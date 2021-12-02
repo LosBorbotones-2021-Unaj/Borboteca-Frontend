@@ -179,11 +179,15 @@ body {
   text-decoration: none;
   font-size: 12px;
   line-height: 20px;
-  color: rgb(255, 255, 255);
+<<<<<<< HEAD
+=======
+  color: rgb(216, 161, 161);
+>>>>>>> main
 }
 
 .login-box a:hover {
   color: rgb(255, 0, 0);
+  scale: 1.5;
 }
 
 #informacion{

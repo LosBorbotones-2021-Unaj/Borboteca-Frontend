@@ -1,3 +1,4 @@
+import { FiltradorBoton, FiltradorInNav } from "../services/filtro-libros.js";
 
 var div = document.querySelector("#index-nav");
 var divlogg;
@@ -5,7 +6,6 @@ var divlogg;
 export const genericNavVar = () => {
     div.innerHTML = 
     `
-        
             <a href="index.html" style="text-decoration: none;" class="logo2">
                 <img src="../img/Logo.png" alt="Borboteca">
                 <p class="logo flex_item">Borboteca</p>
@@ -18,22 +18,40 @@ export const genericNavVar = () => {
                         </path>
                     </svg>
                 </button>
+                <div class="contenedor">
+                    <form action="">
+                        <div class="selectbox">
+                            <div class="opciones"></div>
+                        </div>
+                        <input type="hidden" name="pais" id="inputSelect" value="">
+                    </form>
+                </div>
+                
+                
             </section>
             <section id ="seccion-loggeo" class="Logged_Menu_Container ">
             </section>
             <section class="Carrito_Icon">
                 <a href="Carro.html"><i class="fas fa-cart-arrow-down"></i></a>
             </section>
-        
     `;
+
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
-        
         renderLoggeo(decoded);
     }
     else{
-
+        divlogg.innerHTML = 
+        `
+        <div class="Logged_Menu_Item">
+            <div class="Logged_User_Container">
+                <a href="Loggin.html" class="Logged_Menu_User">
+                    <p class="nombre_Usuario">Log-in</p>
+                </a>
+            </div>
+        </div>
+        `
     }
 }
 
@@ -47,8 +65,8 @@ export function parseJwt (token) {
     return JSON.parse(jsonPayload);
 };
 
-
 const renderLoggeo = (tokensito) => {
+    
     divlogg.innerHTML = 
         `
             <div class="Logged_Menu_Item">
@@ -110,8 +128,34 @@ const renderLoggeo = (tokensito) => {
                             </p>
                         </a>
                     </li>
+                </ul>
+            </div>
+        `;
+        const logged_Menu = document.querySelector(".Logged_Menu_Links");
+        if(tokensito.roll == '2' ){
+            $(".Logged_Menu_Links").append(
+                `
                     <li class="Logged_Menu_Item">
-                        <a href="#" class="Logged_Menu_CerrarSesion particular_Links">
+                        <a href="#" class="Logged_Menu_Admin particular_Links">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 296.999 296.999" style="enable-background:new 0 0 296.999 296.999;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M222.312,58.625c-4.286,0-8.566,0.371-12.793,1.107c-15.427-23.63-41.682-38.013-70.246-38.013    c-35.722,0-67.176,22.489-79.004,55.563C26.591,79.937,0,108.191,0,142.539c0,36.096,29.366,65.462,65.461,65.462h39.6v57.177    c0,5.579,4.523,10.102,10.102,10.102h66.673c5.579,0,10.102-4.523,10.102-10.102v-57.177h30.373    c41.184,0,74.688-33.504,74.688-74.688S263.496,58.625,222.312,58.625z M181.838,155.066c-5.58,0-10.103,4.524-10.103,10.102    v89.908h-46.469v-89.908c0-5.579-4.523-10.102-10.102-10.102h-8.948l42.285-42.285l42.285,42.285H181.838z M222.312,187.797    h-30.373V175.27h23.235c4.086,0,7.77-2.461,9.334-6.236c1.563-3.775,0.698-8.12-2.19-11.01l-66.673-66.673    c-3.946-3.944-10.341-3.944-14.287,0l-66.673,66.673c-2.889,2.89-3.753,7.234-2.19,11.01c1.564,3.774,5.247,6.236,9.334,6.236    h23.235v12.527h-39.6c-24.955,0-45.257-20.303-45.257-45.258s20.302-45.257,45.257-45.257c0.636,0,1.267,0.024,1.898,0.049    c4.78,0.217,9.014-2.965,10.2-7.583c7.222-28.158,32.601-47.825,61.714-47.825c23.685,0,45.282,13.032,56.364,34.011    c2.23,4.222,7.11,6.303,11.702,4.997c4.889-1.395,9.926-2.101,14.973-2.101c30.043,0,54.484,24.441,54.484,54.484    C276.799,163.357,252.355,187.797,222.312,187.797z"/>
+                            </g>
+                        </g>
+                        </svg>
+                            <p class="Use_Logged_Menu">
+                                Subir Libro
+                            </p>
+                        </a>
+                    </li>
+                `);
+        }
+
+        logged_Menu.innerHTML += 
+        `
+                    <li class="Logged_Menu_Item">
+                        <a  id="cerrar-secion" href="/view/Loggin.html" class="Logged_Menu_CerrarSesion particular_Links">
                             <svg width="20" height="15"  class="LogoutIcon">
                                 <path d="M6.25 5.977v3.046c0 .157.04.313.156.43.117.156.274.195.469.195H12.5v3.672c0 .157.04.235.195.274.117.078.235.039.352-.078l5.508-5.586c.117-.078.195-.235.195-.43a.627.627 0 00-.195-.43l-5.508-5.586c-.117-.078-.235-.117-.352-.078-.156.078-.195.157-.195.274v3.672H6.875a.647.647 0 00-.469.195.65.65 0 00-.156.43zm-1.25 0c0-.508.156-.938.547-1.329a1.795 1.795 0 011.328-.546h4.375V1.68c0-.43.156-.782.469-1.094.312-.273.664-.43 1.094-.43.39 0 .78.117 1.093.43l5.547 5.586c.352.39.547.82.547 1.328 0 .547-.195.977-.547 1.328l-5.547 5.586a1.542 1.542 0 01-1.094.469c-.43 0-.78-.156-1.093-.469-.313-.273-.469-.625-.469-1.094v-2.422H6.875c-.547 0-.977-.156-1.328-.546C5.157 10 5 9.57 5 9.023V5.977zM0 1.875C0 1.367.156.937.547.547A1.795 1.795 0 011.875 0h5.156c.117 0 .235.078.313.156.078.078.156.196.156.313V.78a.495.495 0 01-.156.352.444.444 0 01-.313.117H1.875a.647.647 0 00-.469.195.587.587 0 00-.156.43v11.25c0 .195.04.352.156.469.117.117.274.156.469.156h5.156c.117 0 .235.078.313.156.078.078.156.196.156.313v.312a.495.495 0 01-.156.352.444.444 0 01-.313.117H1.875c-.547 0-.977-.156-1.328-.547-.39-.351-.547-.781-.547-1.328V1.875z" fill="#4F6276">
                                 </path>
@@ -121,14 +165,28 @@ const renderLoggeo = (tokensito) => {
                             </p>
                         </a>
                     </li>
-                </ul>
-            </div>
         `;
 
+        const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin")
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
         const UserMenuDownIconPath = document.querySelector(".userMenuDownIconPath");
+        const CloseSession = document.querySelector(".Logged_Menu_CerrarSesion");
+        const SearchLibros = document.querySelector(".search_Input");
+        const SearchLibrosButton = document.querySelector(".search_Button");
+        
+        if(tokensito.roll == '2'){
+            const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin");
+            BotonAdminLibros.addEventListener("click", function(e){
+                window.location.href = "CargaLibros.html"
+            })
+        }
+
+        CloseSession.addEventListener("click",(e)=>{
+            localStorage.removeItem("token");
+            window.location.href = "../view/Loggin.html"; 
+        })
         
         LoggedMenuUl.addEventListener("mousemove",(e)=>
         {
@@ -141,5 +199,13 @@ const renderLoggeo = (tokensito) => {
             UserIconPath.classList.remove("change_icons_Logged_User");
             UserMenuDownIconPath.classList.remove("change_icons_Logged_User");
         })
+
+        SearchLibros.addEventListener("keyup", function(e){
+            FiltradorInNav(SearchLibros.value);
+        })
+        SearchLibrosButton.addEventListener("click", function(e){
+            FiltradorBoton(SearchLibros.value);
+        })
 }
+
 

@@ -146,7 +146,6 @@ h1 {
 
 #titulo {
     font-size: 23px;
-    background: #E5E5E5;
     padding: 12px 0 5px 0;
     margin: 0;
 }
@@ -226,7 +225,6 @@ hr {
 #libroPrecio {
     font-size:25px;
     font-family: cursive;
-    background: #E5E5E5;
     padding: 30px;
     margin: 0;
     padding: 20px 10px 10px 10px;
