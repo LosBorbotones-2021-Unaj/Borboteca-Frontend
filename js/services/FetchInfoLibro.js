@@ -7,7 +7,7 @@ import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-let decoded = parseJwt(token);
+// let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros/autor?busqueda=';
@@ -19,10 +19,8 @@ export const getInfoLibro = () =>{
     fetch(url + idLibro)
     .then(response => response.json())
     .then(libro => {
-        console.log(libro);
 
         //gridChild
-
         let newDiv = document.createElement("div");
         newDiv.id = "content";
 
@@ -43,13 +41,6 @@ export const getInfoLibro = () =>{
 
         let newDivButtons = document.createElement("div");
         newDivButtons.id = "contentButtons";
-
-        let newButton3 = document.createElement("button");
-        let newContentButton3 = document.createTextNode("Marcar como leído");
-        newButton3.appendChild(newContentButton3);
-        newButton3.addEventListener("click", function(e){
-            clickedRead(this);
-        },false);
 
         let newDivSN = document.createElement("div");
         newDivSN.id = "RedesSociales";
@@ -80,18 +71,15 @@ export const getInfoLibro = () =>{
         let fav = document.createElement("i");
         fav.className = "fas fa-heart";
         favorito.appendChild(fav);
-        // favorito.addEventListener("click", function(e){
-        //     AgregarAfavoritos();
-        // },false);
-        agregadoFavorito(favorito);
+        favorito.addEventListener("click", function(e){
+            AgregarAfavoritos();
+        },false);
 
-        //VolverBtn
         let volver = document.getElementById("botonVolver");
         volver.addEventListener("click", function(e){
             window.location.href = "../view/Index.html";
         },false);
         
-        newDivButtons.appendChild(newButton3);
         newDivButtons.appendChild(newDivSN);
         newDivSN.appendChild(facebook);
         newDivSN.appendChild(twitter);
@@ -103,24 +91,22 @@ export const getInfoLibro = () =>{
         currentDiv.appendChild(newDivButtons);
 
         //gridChild2
-
-        //Título
         let title = document.createElement("h1");
         title.id = "titulo";
         let newContentTitle = document.createTextNode(libro.titulo);
         title.appendChild(newContentTitle);
         title.appendChild(document.createElement("hr"));
 
-        //Autor
         let autor = document.createElement("h1");
         autor.id = "libroAutor";
         autor.appendChild(document.createTextNode("Autor: " + libro.nombreAutor));
 
-        //Reseña
         let resenia = document.createElement("h1");
-        resenia.id = "resenia";
+        resenia.id = "libroResenia";
+        let hrResenia = document.createElement("hr");
         let newContentResenia = document.createTextNode(libro.resenia);
         resenia.appendChild(newContentResenia);
+        resenia.appendChild(hrResenia);
 
         // let newDiv2 = document.createElement("div");
         // newDiv2.id = "content";
@@ -152,41 +138,61 @@ export const getInfoLibro = () =>{
         // newDiv2.appendChild(spanText);
         // newDiv2.appendChild(newButtonSee);
 
-        //hr
-        let fichaT = document.createElement("hr");
+        let fichaTecnica = document.createElement("h1");
+        fichaTecnica.id = "fichaT";
+        let hrFT2 = document.createElement("hr");
+        hrFT2.id = "hrFT";
+        fichaTecnica.appendChild(document.createTextNode("Ficha Técnica"));
+        fichaTecnica.appendChild(hrFT2);
 
-        //Editorial
         let editorial = document.createElement("h1");
         editorial.id = "libroEditorial";
-        editorial.appendChild(document.createTextNode("Editorial: " + libro.editorial));
+        let hrEditorial = document.createElement("hr");
+        hrEditorial.id = "hrFT";
+        let editorialText = document.createElement("b");
+        editorialText.appendChild(document.createTextNode("Editorial: "));
+        let editorialText2 = document.createTextNode(libro.editorial);
+        editorial.appendChild(editorialText);
+        editorial.appendChild(editorialText2);
+        editorial.appendChild(hrEditorial);
 
-        //Fecha Publicación
         let fechaPublicacion = document.createElement("h1");
         fechaPublicacion.id = "fechaPublicacionLibro";
-        fechaPublicacion.appendChild(document.createTextNode("Fecha de publicación: " + libro.fechaDePublicacion));
+        let hrFechaPublicacion = document.createElement("hr");
+        hrFechaPublicacion.id = "hrFT";
+        let fechaPublicacionText = document.createElement("b");
+        fechaPublicacionText.appendChild(document.createTextNode("Fecha de publicación: "));
+        let fechaPublicacionText2 = document.createTextNode(libro.fechaDePublicacion);
+        fechaPublicacion.appendChild(fechaPublicacionText);
+        fechaPublicacion.appendChild(fechaPublicacionText2);
+        fechaPublicacion.appendChild(hrFechaPublicacion);
 
-        //Género
         let genero = document.createElement("h1");
         genero.id = "generoLibro";
         traerGenero(genero);
 
-        //ISBN
         let isbn = document.createElement("h1");
         isbn.id = "isbnLibro";
-        isbn.appendChild(document.createTextNode("ISBN: " + localStorage.getItem('idLibro')));
+        let hrIsbn = document.createElement("hr");
+        hrIsbn.id = "hrFT";
+        let isbnText = document.createElement("b");
+        isbnText.appendChild(document.createTextNode("ISBN: "));
+        let isbnText2 = document.createTextNode(idLibro);
+        isbn.appendChild(isbnText);
+        isbn.appendChild(isbnText2);
+        isbn.appendChild(hrIsbn);
 
         let currentDiv2 = document.getElementById("gridChild2");
         currentDiv2.appendChild(title);
         currentDiv2.appendChild(autor);
         currentDiv2.appendChild(resenia);
-        currentDiv2.appendChild(fichaT);
+        currentDiv2.appendChild(fichaTecnica);
         currentDiv2.appendChild(editorial);
         currentDiv2.appendChild(fechaPublicacion);
         currentDiv2.appendChild(genero);
         currentDiv2.appendChild(isbn);
 
         //gridChild3
-
         let newDiv3 = document.createElement("div");
         newDiv3.id = "gc3Compra";
 
@@ -197,8 +203,28 @@ export const getInfoLibro = () =>{
 
         let cuotas = document.createElement("h1");
         cuotas.id = "cuotas";
-        let cuotasContent = document.createTextNode(("6 cuotas sin interés de $" + parseFloat(libro.precio/6)).substring(0, 31));
-        cuotas.appendChild(cuotasContent);
+        let cuotasText = document.createTextNode("Hasta ");
+        let cuotasText2 = document.createElement("b");
+        cuotasText2.appendChild(document.createTextNode(("6 cuotas sin interés de $" + parseFloat(libro.precio/6)).substring(0, 31)));
+        cuotas.appendChild(document.createTextNode(cuotasText.nodeValue));
+        cuotas.appendChild(cuotasText2);
+
+        let mediosPago =  document.createElement("h1");
+        mediosPago.id = "libroMP";
+        mediosPago.appendChild(document.createTextNode("Medios de pago:"));
+
+        let mediosPagoDiv =  document.createElement("div");
+        mediosPagoDiv.id = "DivMP";
+
+        let MP =  document.createElement("img");
+        MP.src = "../img/mediosPago.png";
+
+        let PP =  document.createElement("img");
+        PP.id = "paypal";
+        PP.src = "../img/mediosPago2.png";
+
+        mediosPagoDiv.appendChild(MP);
+        mediosPagoDiv.appendChild(PP);
 
         let newButtonGC3 = document.createElement("button");
         newButtonGC3.id = "libroBoton";
@@ -224,7 +250,7 @@ export const getInfoLibro = () =>{
 
         let newButtonGC3_2 = document.createElement("button");
         newButtonGC3_2.id = "libroBoton";
-        let newContentButtonGC3_2 = document.createTextNode("Agregar al carrito");
+        let newContentButtonGC3_2 = document.createTextNode("Agregar al Carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
             if(verificarSeccion){
@@ -243,6 +269,8 @@ export const getInfoLibro = () =>{
 
         newDiv3.appendChild(precio);
         newDiv3.appendChild(cuotas);
+        newDiv3.appendChild(mediosPago);
+        newDiv3.appendChild(mediosPagoDiv);
         newDiv3.appendChild(newButtonGC3);
         newDiv3.appendChild(newButtonGC3_2);
 
@@ -264,7 +292,6 @@ const AgregarAfavoritos=()=>{
 
 const AgregadoExitoso=()=>{
     alert("Se agregó el libro a favoritos");
-    // agregadoFavorito(document.getElementById("favoritoBtn"));
 }
 
 const verificarSeccion=()=>{
@@ -273,23 +300,6 @@ const verificarSeccion=()=>{
     }
     else{
         return true;
-    }
-}
-
-function agregadoFavorito(boton){
-    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
-    function alert(message, type) {
-    var wrapper = document.createElement('div')
-    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-
-    alertPlaceholder.append(wrapper)
-    }
-
-    if (boton) {
-        boton.addEventListener('click', function () {
-        alert('Se agregó el libro a favoritos')
-    })
     }
 }
 
@@ -308,9 +318,8 @@ function traerLibrosAutor(nombreAutor){
                 gc5.appendChild(newDiv);
 
                 response.forEach(libro => {
-                    console.log(response);
-
                     const newDiv2 = document.createElement("div");
+                    newDiv2.id = "divLibros";
                     const newImage = document.createElement("img");
                     newImage.src = libro.imagen;
                     newImage.id = "libroImagen";
@@ -342,7 +351,15 @@ function traerGenero(genero){
     fetch(urlLibroGenero + idLibro)
         .then(response => response.json())
         .then(response => {
-            genero.appendChild(document.createTextNode("Género: " + response.descripcion));
+            let hrGenero = document.createElement("hr");
+            hrGenero.id = "hrFT";
+            let generoText = document.createElement("b");
+            generoText.appendChild(document.createTextNode("Género: "));
+            let generoText2 = document.createTextNode(response.descripcion);
+            genero.appendChild(generoText);
+            genero.appendChild(generoText2);
+            genero.appendChild(hrGenero);
+
             traerLibrosGenero(response.descripcion);
         })
         .catch(err => console.log(err));
@@ -363,8 +380,8 @@ function traerLibrosGenero(generoId){
             gc5.appendChild(newDiv);
 
             response.forEach(libro => {
-                console.log(libro);
                 const newDiv2 = document.createElement("div");
+                newDiv2.id = "divLibros";
                 const newImage = document.createElement("img");
                 newImage.src = libro.imagen;
                 newImage.id = "libroImagen";
@@ -403,17 +420,6 @@ function toggleText(hideText, hideText_btn){
     }
     else
         hideText_btn.innerHTML = 'Leer mas';
-}
-
-function clickedRead(object){
-    if(object.textContent == 'Marcar como leído'){
-        object.innerHTML = `Desmarcar como leído`;
-        alert('Se marcó el libro como leído');
-    }
-    else{
-        object.innerHTML = `Marcar como leído`;
-        alert('Se desmarcó el libro como leído');
-    }
 }
 
 function guardarLocalStorageLibro(libroId){

@@ -22,6 +22,10 @@ const label3 = document.querySelector(".label3");
 
 let ComprasCards = document.querySelector(".Compras_Cards");
 
+
+let red = "red"
+let green = "green";
+
 export const RenderPerfil = (section) => {
     
     GetUsuarioByid(decoded.id,RenderInfoUsuario);
@@ -193,7 +197,6 @@ const RenderMisCompras = (Fechas) => {
                 tab3.removeChild(ComprasCards); 
                 ComprasCards = document.createElement("DIV");
                 await ComprasCards.classList.add("Compras_Cards");
-                /*ComprasCards.style.border="1px solid rgb(250, 139, 133)";*/
                 ComprasCards.style.boxShadow ="0px 1px 2px 1px rgb(0 0 0 / 24%)";
                 tab3.appendChild(ComprasCards);
                 GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);
@@ -224,7 +227,13 @@ const RenderComprasCards = async (ResponseCompras) => {
             let div_libro_Info = document.createElement("DIV");
             div_libro_Info.classList.add("divLibroInfo");
             div_libro_Info.innerHTML += libroCompradoInfoGeneral();
-            ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado);
+            
+            if(Compra.estado == "Finalizada")
+                ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado,red);
+            else
+            ComprasCards.innerHTML += InfoVentaParticular(Compra.fecha,Compra.comprobante,Compra.estado,green);
+            
+
 
             for (const libroComprado of Compra.librosId) {
                 let libro = await GetLibros(libroComprado);
@@ -233,7 +242,7 @@ const RenderComprasCards = async (ResponseCompras) => {
                 let hrLibros = document.createElement("HR");
                 divSeparadorLibros.appendChild(hrLibros);
                 div_libro_Info.appendChild(divSeparadorLibros);
-                div_libro_Info.innerHTML += libroCompradoInfo(libro.titulo,libro.precio);
+                div_libro_Info.innerHTML += libroCompradoInfo(libro.imagen,libro.titulo,libro.precio);
                 ComprasCards.appendChild(div_libro_Info);
             }
             
