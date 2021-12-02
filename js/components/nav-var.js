@@ -1,3 +1,4 @@
+import { FiltradorBoton, FiltradorInNav } from "../services/filtro-libros.js";
 
 var div = document.querySelector("#index-nav");
 var divlogg;
@@ -5,8 +6,7 @@ var divlogg;
 export const genericNavVar = () => {
     div.innerHTML = 
     `
-        
-            <a href="/view/index.html" style="text-decoration: none;" class="logo2">
+            <a href="index.html" style="text-decoration: none;" class="logo2">
                 <img src="../img/Logo.png" alt="Borboteca">
                 <p class="logo flex_item">Borboteca</p>
             </a>  
@@ -18,18 +18,28 @@ export const genericNavVar = () => {
                         </path>
                     </svg>
                 </button>
+                <div class="contenedor">
+                    <form action="">
+                        <div class="selectbox">
+                            <div class="opciones"></div>
+                        </div>
+                        <input type="hidden" name="pais" id="inputSelect" value="">
+                    </form>
+                </div>
+                
+                
             </section>
             <section id ="seccion-loggeo" class="Logged_Menu_Container ">
             </section>
             <section class="Carrito_Icon">
-                <a href="/view/Carro.html"><i class="fas fa-cart-arrow-down"></i></a>
+                <a href="Carro.html"><i class="fas fa-cart-arrow-down"></i></a>
             </section>
-        
     `;
 
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
+<<<<<<< HEAD
         if(decoded.roll == 2){
             $("#boton1").append(
                 `
@@ -37,6 +47,8 @@ export const genericNavVar = () => {
                 `);
             console.log(decoded);
         }
+=======
+>>>>>>> main
         renderLoggeo(decoded);
     }
     else{
@@ -44,7 +56,7 @@ export const genericNavVar = () => {
         `
         <div class="Logged_Menu_Item">
             <div class="Logged_User_Container">
-                <a href="#" class="Logged_Menu_User">
+                <a href="Loggin.html" class="Logged_Menu_User">
                     <p class="nombre_Usuario">Log-in</p>
                 </a>
             </div>
@@ -62,7 +74,6 @@ export function parseJwt (token) {
 
     return JSON.parse(jsonPayload);
 };
-
 
 const renderLoggeo = (tokensito) => {
     
@@ -84,7 +95,7 @@ const renderLoggeo = (tokensito) => {
                 </div>
                 <ul class="Logged_Menu_Links"> 
                     <li class="Logged_Menu_Item">
-                        <a href="/view/Perfil.html?section=perfil" class="Logged_Menu_Perfil particular_Links">        
+                        <a href="Perfil.html?section=perfil" class="Logged_Menu_Perfil particular_Links">        
                             <svg width="18" height="20"  class="MyProfileIcon">                       
                                 <path d="M9 10.977c3.012 0 5.498-2.443 5.498-5.488A5.5 5.5 0 009 0C5.987 0 3.502 2.444 3.502 5.489A5.5 5.5 0 009 10.977zm0-9.624a4.127 4.127 0 014.142 4.136A4.127 4.127 0 019 9.624 4.127 4.127 0 014.858 5.49 4.127 4.127 0 019 1.353zM13.18 12.67H4.82A4.801 4.801 0 000 17.48v2.557h1.356V17.48a3.452 3.452 0 013.464-3.458h8.36a3.452 3.452 0 013.464 3.458v2.557H18V17.48c0-2.669-2.184-4.812-4.82-4.812z" fill="#4F6276">
                                 </path>
@@ -95,7 +106,7 @@ const renderLoggeo = (tokensito) => {
                         </a>    
                     </li>
                     <li class="Logged_Menu_Item"> 
-                        <a href="/view/Perfil.html?section=libros" class="Logged_Menu_Books particular_Links">
+                        <a href="Perfil.html?section=libros" class="Logged_Menu_Books particular_Links">
                             <svg width="15" height="21"  class="MyBooksIcon">
                                 <path d="M13.125.5c.508 0 .938.195 1.328.547.352.39.547.82.547 1.328V20.5l-7.5-4.375L0 20.5V2.375c0-.508.156-.938.547-1.328A1.795 1.795 0 011.875.5h11.25zm.625 17.813V2.374a.627.627 0 00-.195-.43.627.627 0 00-.43-.195H1.875a.647.647 0 00-.469.195.587.587 0 00-.156.43v15.938L7.5 14.68l6.25 3.633z" fill="#4F6276">
                                 </path>
@@ -106,7 +117,7 @@ const renderLoggeo = (tokensito) => {
                         </a>   
                     </li>
                     <li class="Logged_Menu_Item">
-                        <a href="/view/Perfil.html?section=favoritos" class="Logged_Menu_Favoritos particular_Links">
+                        <a href="Perfil.html?section=favoritos" class="Logged_Menu_Favoritos particular_Links">
                             <svg width="20" height="17" class="FavoritesIcon">
                                 <path d="M17.102 1.5a5.744 5.744 0 011.722 2.602 5.449 5.449 0 010 2.812c-.281.95-.703 1.758-1.336 2.39l-6.152 6.258a1.836 1.836 0 01-1.336.563c-.527 0-.984-.176-1.336-.563L2.512 9.306c-.633-.633-1.09-1.442-1.336-2.39-.281-.95-.246-1.9.035-2.813.281-.985.844-1.864 1.687-2.602C3.531.937 4.305.586 5.184.445A5.335 5.335 0 017.75.656 5.721 5.721 0 0110 2.027a5.594 5.594 0 012.215-1.37 5.444 5.444 0 012.601-.212c.844.14 1.618.492 2.286 1.055zm-.809 6.61c.422-.422.703-.985.879-1.618a3.61 3.61 0 000-1.933 3.862 3.862 0 00-1.16-1.758c-.703-.563-1.512-.809-2.426-.739a3.562 3.562 0 00-2.356 1.126L10 4.418l-1.23-1.23c-.668-.668-1.477-1.055-2.391-1.126-.914-.07-1.723.176-2.39.739-.598.492-.985 1.09-1.16 1.758-.212.632-.212 1.3-.036 1.933s.492 1.196.914 1.617l6.188 6.258c.07.106.14.106.21 0l6.188-6.258z" fill="#4F6276">
                                 </path>
@@ -117,7 +128,7 @@ const renderLoggeo = (tokensito) => {
                         </a>
                     </li>
                     <li class="Logged_Menu_Item">
-                        <a href="/view/Perfil.html?section=compras" class="Logged_Menu_Compras particular_Links">
+                        <a href="Perfil.html?section=compras" class="Logged_Menu_Compras particular_Links">
                             <svg width="21" height="18" class="MyPurchasesIcon">
                                 <path d="M20.532 4.184L18.316.527C18.11.211 17.77 0 17.396 0H3.62c-.375 0-.75.21-.955.527L.483 4.184C-.54 5.836.142 8.086 1.779 8.789v7.98c0 .704.477 1.231 1.09 1.231h15.276c.58 0 1.091-.527 1.091-1.23V8.79c1.637-.704 2.285-2.954 1.296-4.606zM18.145 16.77c0 .07-.034.105-.034.105l-15.207.035c-.034 0-.034-.07-.034-.14v-4.395h15.275v4.395zM2.87 11.25V9h.068c1.023 0 1.91-.457 2.523-1.16.614.703 1.5 1.16 2.523 1.16.99 0 1.876-.457 2.49-1.16A3.38 3.38 0 0012.996 9c1.023 0 1.91-.457 2.523-1.16.614.703 1.5 1.16 2.523 1.16h.068v2.25H2.87zm16.844-4.43c-.273.598-.75.95-1.364 1.055h-.307a2.293 2.293 0 01-1.705-.773l-.818-.95-.818.95c-.444.527-1.023.808-1.705.808a2.209 2.209 0 01-1.705-.808l-.784-.95-.819.95a2.209 2.209 0 01-1.705.808c-.682 0-1.261-.281-1.705-.808l-.818-.95-.818.95a2.209 2.209 0 01-1.705.808c-.102 0-.205-.035-.307-.035-.614-.07-1.091-.457-1.364-1.055-.273-.633-.239-1.441.137-2.039L3.62 1.125h13.775l2.183 3.656c.375.598.409 1.371.136 2.04z" fill="#4F6276">
                                 </path>
@@ -127,6 +138,32 @@ const renderLoggeo = (tokensito) => {
                             </p>
                         </a>
                     </li>
+                </ul>
+            </div>
+        `;
+        const logged_Menu = document.querySelector(".Logged_Menu_Links");
+        if(tokensito.roll == '2' ){
+            $(".Logged_Menu_Links").append(
+                `
+                    <li class="Logged_Menu_Item">
+                        <a href="#" class="Logged_Menu_Admin particular_Links">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 296.999 296.999" style="enable-background:new 0 0 296.999 296.999;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M222.312,58.625c-4.286,0-8.566,0.371-12.793,1.107c-15.427-23.63-41.682-38.013-70.246-38.013    c-35.722,0-67.176,22.489-79.004,55.563C26.591,79.937,0,108.191,0,142.539c0,36.096,29.366,65.462,65.461,65.462h39.6v57.177    c0,5.579,4.523,10.102,10.102,10.102h66.673c5.579,0,10.102-4.523,10.102-10.102v-57.177h30.373    c41.184,0,74.688-33.504,74.688-74.688S263.496,58.625,222.312,58.625z M181.838,155.066c-5.58,0-10.103,4.524-10.103,10.102    v89.908h-46.469v-89.908c0-5.579-4.523-10.102-10.102-10.102h-8.948l42.285-42.285l42.285,42.285H181.838z M222.312,187.797    h-30.373V175.27h23.235c4.086,0,7.77-2.461,9.334-6.236c1.563-3.775,0.698-8.12-2.19-11.01l-66.673-66.673    c-3.946-3.944-10.341-3.944-14.287,0l-66.673,66.673c-2.889,2.89-3.753,7.234-2.19,11.01c1.564,3.774,5.247,6.236,9.334,6.236    h23.235v12.527h-39.6c-24.955,0-45.257-20.303-45.257-45.258s20.302-45.257,45.257-45.257c0.636,0,1.267,0.024,1.898,0.049    c4.78,0.217,9.014-2.965,10.2-7.583c7.222-28.158,32.601-47.825,61.714-47.825c23.685,0,45.282,13.032,56.364,34.011    c2.23,4.222,7.11,6.303,11.702,4.997c4.889-1.395,9.926-2.101,14.973-2.101c30.043,0,54.484,24.441,54.484,54.484    C276.799,163.357,252.355,187.797,222.312,187.797z"/>
+                            </g>
+                        </g>
+                        </svg>
+                            <p class="Use_Logged_Menu">
+                                Subir Libro
+                            </p>
+                        </a>
+                    </li>
+                `);
+        }
+
+        logged_Menu.innerHTML += 
+        `
                     <li class="Logged_Menu_Item">
                         <a  id="cerrar-secion" href="/view/Loggin.html" class="Logged_Menu_CerrarSesion particular_Links">
                             <svg width="20" height="15"  class="LogoutIcon">
@@ -138,15 +175,32 @@ const renderLoggeo = (tokensito) => {
                             </p>
                         </a>
                     </li>
-                </ul>
-            </div>
         `;
+<<<<<<< HEAD
  
         var boton = document.getElementById("cerrar-secion").onclick= CerrarSecion;
+=======
+
+        const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin")
+>>>>>>> main
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
         const UserMenuDownIconPath = document.querySelector(".userMenuDownIconPath");
+        const CloseSession = document.querySelector(".Logged_Menu_CerrarSesion");
+        const SearchLibros = document.querySelector(".search_Input");
+        const SearchLibrosButton = document.querySelector(".search_Button");
+        
+        if(tokensito.roll == '2'){
+            BotonAdminLibros.addEventListener("click", function(e){
+                console.log("hola")
+            })
+        }
+
+        CloseSession.addEventListener("click",(e)=>{
+            localStorage.removeItem("token");
+            window.location.href = "../view/Loggin.html"; 
+        })
         
         LoggedMenuUl.addEventListener("mousemove",(e)=>
         {
@@ -159,9 +213,19 @@ const renderLoggeo = (tokensito) => {
             UserIconPath.classList.remove("change_icons_Logged_User");
             UserMenuDownIconPath.classList.remove("change_icons_Logged_User");
         })
+
+        SearchLibros.addEventListener("keyup", function(e){
+            FiltradorInNav(SearchLibros.value);
+        })
+        SearchLibrosButton.addEventListener("click", function(e){
+            FiltradorBoton(SearchLibros.value);
+        })
 }
 
+<<<<<<< HEAD
 const CerrarSecion = () =>{
     localStorage.removeItem("token");
 }
+=======
+>>>>>>> main
 

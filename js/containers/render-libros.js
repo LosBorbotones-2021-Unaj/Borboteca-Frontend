@@ -1,12 +1,17 @@
 import { CardComponent } from '../components/card-libros.js';
 import { parseJwt } from '../components/nav-var.js';
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
+<<<<<<< HEAD
 import { DescargarLibro, pedirLibros }   from '../services/libros-index.js';
+=======
+import { GetLibros } from '../services/FetchServices.js';
+import { pedirLibros }   from '../services/libros-index.js';
+>>>>>>> main
 import { pedirPaginas}   from '../services/libros-index.js';
 
 let indexer = 1;
-let paginas = 1;
 export const RenderLibros = (json) =>{
+    $("#root").empty();
     json.forEach(element => {
         let name = element.titulo;
         let resenia = element.resenia;
@@ -14,38 +19,37 @@ export const RenderLibros = (json) =>{
         let precio=element.precio;
         $("#root").append(
             `
-    
-    <div class="wrapper">
-            <div class="container">
-            <a href="vistaInfoLibro.html" class="link_InfoLibro">      
-                    <img class="top" id="libroId-${element.id}" src="${img}" alt="">
-                    <div class="bottom">
-                        <div class="left">
-                            <div class="details">
-                                <h2 class="txt_products">${name}</h2>
-                                        
+            <div class="wrapper">
+                    <div class="container">
+                    <a href="/view/vistaInfoLibro.html" class="link_InfoLibro">      
+                            <img class="top" id="libroId-${element.id}" src="${img}" alt="">
+                            <div class="bottom">
+                                <div class="left">
+                                    <div class="details">
+                                        <h2 class="txt_products">${name}</h2>
+                                                
+                                    </div>
+                                    <div class="libroId-${element.id} buy">
+                                        <a href="#">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                    </div>
+                                                
+                                </div>
                             </div>
-                            <div class="libroId-${element.id} buy">
-                                <a href="#">
-                                    <i class="fas fa-heart"></i>
-                                </a>
-                            </div>
-                                        
+                    </a>
+                        <div class="inside">
+                        <div class="icon">
+                            <i class="far fa-eye"></i>
                         </div>
+                        <div class="contents">
+                            <h1>${name}</h1>
+                            <p>${resenia}</p>
+                            <p> $${precio}</p>
+                        </div>
+                        
                     </div>
-            </a>
-                <div class="inside">
-                <div class="icon">
-                    <i class="far fa-eye"></i>
-                </div>
-                <div class="contents">
-                    <h1>${name}</h1>
-                    <p>${resenia}</p>
-                    <p> $${precio}</p>
-                </div>
-                
             </div>
-   </div>
             `
     )
         
@@ -64,14 +68,62 @@ export const RenderLibros = (json) =>{
 const AgregarAfavoritos=()=>{
     if(verificarSeccion){
        var usuario= parseJwt(localStorage.getItem("token"))
-         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoExitoso)
+         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
+    }else{
+        window.location.href = "Loggin.html"
     }
 }
-const AgregadoExitoso=()=>{
-    alert("Se agrego")
+export const AgregadoEliminadoExitoso=async (statusCode,libroId)=>{
+    
+
+    let libroFavorito = await GetLibros(libroId);
+    
+    if(statusCode == 200)
+    {
+        toastr.info("",`Se agrego ${libroFavorito.titulo} de tus Favoritos`,{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            
+        })
+    }
+    else
+    {
+            toastr.info("",`Se quito ${libroFavorito.titulo} de tus Favoritos`,{
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+                
+            })
+    }
+    
 }
 
-const verificarSeccion=()=>{
+export const verificarSeccion=()=>{
     if (localStorage.getItem("token")==undefined){
         return false;
     }
@@ -120,4 +172,4 @@ $("#anterior").click(function (e) {
 export const CambiarColor=()=>{
     const favorito = document.getElementById("linkFavorito")
     favorito.style.color="red";
-}
+} 
