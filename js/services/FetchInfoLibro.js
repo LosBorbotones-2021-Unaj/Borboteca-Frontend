@@ -7,7 +7,7 @@ import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
-let decoded = parseJwt(token);
+// let decoded = parseJwt(token);
 
 const url = 'https://localhost:44331/api/Libro/PedirLibroId?id=';
 const urlLibrosAutor = 'https://localhost:44331/api/Libro/FiltroLibros/autor?busqueda=';
@@ -19,10 +19,8 @@ export const getInfoLibro = () =>{
     fetch(url + idLibro)
     .then(response => response.json())
     .then(libro => {
-        console.log(libro);
 
         //gridChild
-
         let newDiv = document.createElement("div");
         newDiv.id = "content";
 
@@ -77,7 +75,6 @@ export const getInfoLibro = () =>{
             AgregarAfavoritos();
         },false);
 
-        //VolverBtn
         let volver = document.getElementById("botonVolver");
         volver.addEventListener("click", function(e){
             window.location.href = "../view/Index.html";
@@ -94,20 +91,16 @@ export const getInfoLibro = () =>{
         currentDiv.appendChild(newDivButtons);
 
         //gridChild2
-
-        //Título
         let title = document.createElement("h1");
         title.id = "titulo";
         let newContentTitle = document.createTextNode(libro.titulo);
         title.appendChild(newContentTitle);
         title.appendChild(document.createElement("hr"));
 
-        //Autor
         let autor = document.createElement("h1");
         autor.id = "libroAutor";
         autor.appendChild(document.createTextNode("Autor: " + libro.nombreAutor));
 
-        //Reseña
         let resenia = document.createElement("h1");
         resenia.id = "libroResenia";
         let hrResenia = document.createElement("hr");
@@ -145,7 +138,6 @@ export const getInfoLibro = () =>{
         // newDiv2.appendChild(spanText);
         // newDiv2.appendChild(newButtonSee);
 
-        //Ficha técnica
         let fichaTecnica = document.createElement("h1");
         fichaTecnica.id = "fichaT";
         let hrFT2 = document.createElement("hr");
@@ -153,7 +145,6 @@ export const getInfoLibro = () =>{
         fichaTecnica.appendChild(document.createTextNode("Ficha Técnica"));
         fichaTecnica.appendChild(hrFT2);
 
-        //Editorial
         let editorial = document.createElement("h1");
         editorial.id = "libroEditorial";
         let hrEditorial = document.createElement("hr");
@@ -165,7 +156,6 @@ export const getInfoLibro = () =>{
         editorial.appendChild(editorialText2);
         editorial.appendChild(hrEditorial);
 
-        //Fecha Publicación
         let fechaPublicacion = document.createElement("h1");
         fechaPublicacion.id = "fechaPublicacionLibro";
         let hrFechaPublicacion = document.createElement("hr");
@@ -177,12 +167,10 @@ export const getInfoLibro = () =>{
         fechaPublicacion.appendChild(fechaPublicacionText2);
         fechaPublicacion.appendChild(hrFechaPublicacion);
 
-        //Género
         let genero = document.createElement("h1");
         genero.id = "generoLibro";
         traerGenero(genero);
 
-        //ISBN
         let isbn = document.createElement("h1");
         isbn.id = "isbnLibro";
         let hrIsbn = document.createElement("hr");
@@ -205,7 +193,6 @@ export const getInfoLibro = () =>{
         currentDiv2.appendChild(isbn);
 
         //gridChild3
-
         let newDiv3 = document.createElement("div");
         newDiv3.id = "gc3Compra";
 
@@ -331,9 +318,8 @@ function traerLibrosAutor(nombreAutor){
                 gc5.appendChild(newDiv);
 
                 response.forEach(libro => {
-                    console.log(response);
-
                     const newDiv2 = document.createElement("div");
+                    newDiv2.id = "divLibros";
                     const newImage = document.createElement("img");
                     newImage.src = libro.imagen;
                     newImage.id = "libroImagen";
@@ -394,8 +380,8 @@ function traerLibrosGenero(generoId){
             gc5.appendChild(newDiv);
 
             response.forEach(libro => {
-                console.log(libro);
                 const newDiv2 = document.createElement("div");
+                newDiv2.id = "divLibros";
                 const newImage = document.createElement("img");
                 newImage.src = libro.imagen;
                 newImage.id = "libroImagen";
