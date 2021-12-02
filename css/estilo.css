@@ -7,13 +7,12 @@
 
 .content__main_grid{
     display: grid;
-    grid-template-rows: 520px 380px 1fr;
-    grid-template-columns: 300px 1fr;
+    grid-template-rows: 500px 1fr;
+    grid-template-columns: 1fr;
     background: #E5E5E5;
     width: 80%;
     margin: 20px 0 30px 0;
     border-radius: 12px;
-    min-width: 700px;
 }
 
 .content__main_grid div{
@@ -28,8 +27,7 @@
     height: 100%;
     justify-content: center;
     justify-items: center;
-    padding: 6%;
-    padding-right: 2%;
+    padding: 3%;
 }
 
 .btn-close {
@@ -53,11 +51,6 @@
     justify-self: center;
     border-radius: 12px;
     cursor: pointer;
-}
-
-.btn-close {
-    margin: 15px;
-    font-size: 32px;
 }
 
 #modalId {
@@ -139,7 +132,7 @@
 /* gridChild2 */
 
 h1 {
-    font-size: 1.7vw;
+    font-size: 1.3vw;
     font-family: sans-serif;
 }
 
@@ -165,49 +158,55 @@ hr {
 }
 
 #libroAutor {
-    font-size: 1.8vw;
+    font-size: 18px;
     padding-bottom: 12px;
     margin: 0;
     font-weight:bold;
     font-family: sans-serif;
 }
 
+#libroResenia {
+    font-size: 15px;
+}
+
+#libroResenia2 {
+    font-size: 15px;
+}
+
 #fichaT {
-    font-size: 2vw;
+    font-size: 17px;
     font-weight: bold;
     margin: 0;
     padding-top: 5px;
 }
 
 #hrFT {
-    width: 33vw;
+    width: 90%;
     margin: 8px 0;
 }
 
 #libroEditorial {
-    font-size: 18px;
+    font-size: 16px;
     background: #E5E5E5;
 }
 
 #fechaPublicacionLibro {
-    font-size: 18px;
+    font-size: 16px;
     background: #E5E5E5;
 }
 
 #generoLibro {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #isbnLibro {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* gridChild3 */
 
 #gridChild3 {
     display: grid;
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     border-radius: 10px;
@@ -265,15 +264,9 @@ hr {
     margin: 8px;
 }
 
-.content__main_grid #gridChild3 #gc3Compra #libroBoton :hover{
-    background: red;
-}
-
 /* gridChild5 */
 
 #gridChild5 {
-    grid-column: 1 / 3;
-    grid-row: 3 / 4;
     margin: 10px;
 }
 
@@ -302,7 +295,7 @@ hr {
 
 #divLibros {
     display: grid;
-    grid-template-rows: 1fr 60px;
+    grid-template-rows: 1fr 52px;
 }
 
 #tituloLibroRecomendado {
@@ -332,160 +325,259 @@ hr {
    padding: 10px 15px;
 }
 
-@media screen and (min-width: 1315px){
-    .button_Volver_Menu{
-        display: flex;
-        justify-self: flex-start;
-        margin-left: 10%;
-        margin-top: 1%;
-        padding: 0;
-    }
+@media screen and (min-width: 900px){
 
-    .content__main_grid {
+    .content__main_grid{
         display: grid;
-        grid-template-columns: 280px 1fr 320px;
-        grid-template-rows: 700px 1fr;
+        grid-template-rows: 520px 380px 1fr;
+        grid-template-columns: 300px 1fr;
         background: #E5E5E5;
         width: 80%;
         margin: 20px 0 30px 0;
         border-radius: 12px;
+        min-width: 700px;
     }
-
+    
     /* gridChild */
-
+    
     #gridChild {
         display: grid;
         grid-template-rows: 65% 35%;
-        height: 80%;
+        height: 100%;
         justify-content: center;
         justify-items: center;
+        padding: 6%;
+        padding-right: 2%;
     }
-
-    #modalId {
-        padding: 10px;
-    }
-
+    
     /* gridChild2 */
 
-    h1 {
-        font-size: 1.3vw;
-        font-family: sans-serif;
-    }
-
-    #titulo {
-        font-size: 1.7vw;
-        background: #E5E5E5;
-        padding: 12px 0 5px 0;
-        margin: 0;
-    }
-
     #libroAutor {
-        font-size: 1.15vw;
+        font-size: 1.5vw;
         padding-bottom: 12px;
         margin: 0;
         font-weight:bold;
         font-family: sans-serif;
     }
-
+    
     #libroResenia {
+        font-size: 1.5vw;
+    }
+    
+    #libroResenia2 {
         font-size: 1.2vw;
     }
-
+    
     #fichaT {
-        font-size: 1.35vw;
+        font-size: 1.5vw;
         font-weight: bold;
         margin: 0;
         padding-top: 5px;
     }
-
+    
+    #hrFT {
+        width: 33vw;
+        margin: 8px 0;
+    }
+    
     #libroEditorial {
-        font-size: 1vw;
+        font-size: 1.3vw;
+        background: #E5E5E5;
     }
-
+    
     #fechaPublicacionLibro {
-        font-size: 1vw;
+        font-size: 1.3vw;
+        background: #E5E5E5;
     }
-
+    
     #generoLibro {
-        font-size: 1vw;
+        font-size: 1.3vw;
     }
-
+    
     #isbnLibro {
-        font-size: 1vw;
+        font-size: 1.3vw;
     }
-
+    
     /* gridChild3 */
-
+    
     #gridChild3 {
         display: grid;
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         border-radius: 10px;
         height: 80%;
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
     }
-
-    #libroPrecio {
-        font-size:1.5vw;
-        font-family: cursive;
-        background: #E5E5E5;
-        padding: 30px;
-        margin: 0;
-        padding: 20px 10px 10px 10px;
-        color: #EB6262;
-    }
-
-    #cuotas{
-        font-size: 1vw;
-        margin: 10px;
-        padding: 0 10px 20px 10px;
-        font-weight: normal;
-    }
-
-    #libroMP {
-        font-size: 1.1vw;
-    }
-
-    #DivMP {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #DivMP img{
-        width: 90%;
-    }
-
-    #DivMP #paypal{
-        width: 50%;
-        padding-bottom: 30%;
-    }
-
-    #libroBoton {
-        width: 220px;
-    }
-
+    
     /* gridChild5 */
-
+    
     #gridChild5 {
-        grid-column: 1 / 4;
-        grid-row: 2 / 2;
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
         margin: 10px;
     }
+    
+    @media screen and (min-width: 1315px){
+        .button_Volver_Menu{
+            display: flex;
+            justify-self: flex-start;
+            margin-left: 10%;
+            margin-top: 1%;
+            padding: 0;
+        }
+    
+        .content__main_grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            grid-template-rows: 700px 1fr;
+            background: #E5E5E5;
+            width: 80%;
+            margin: 20px 0 30px 0;
+            border-radius: 12px;
+        }
+    
+        /* gridChild */
+    
+        #gridChild {
+            display: grid;
+            grid-template-rows: 65% 35%;
+            height: 80%;
+            justify-content: center;
+            justify-items: center;
+        }
+    
+        #modalId {
+            padding: 10px;
+        }
+    
+        /* gridChild2 */
+    
+        h1 {
+            font-size: 1.3vw;
+            font-family: sans-serif;
+        }
+    
+        #titulo {
+            font-size: 1.7vw;
+            background: #E5E5E5;
+            padding: 12px 0 5px 0;
+            margin: 0;
+        }
+    
+        #libroAutor {
+            font-size: 1.15vw;
+            padding-bottom: 12px;
+            margin: 0;
+            font-weight:bold;
+            font-family: sans-serif;
+        }
+    
+        #libroResenia {
+            font-size: 1.2vw;
+        }
+    
+        #libroResenia2 {
+            font-size: 1.1vw;
+        }
+    
+        #fichaT {
+            font-size: 1.2vw;
+            font-weight: bold;
+            margin: 0;
+            padding-top: 5px;
+        }
+    
+        #libroEditorial {
+            font-size: .9vw;
+        }
+    
+        #fechaPublicacionLibro {
+            font-size: .9vw;
+        }
+    
+        #generoLibro {
+            font-size: .9vw;
+        }
+    
+        #isbnLibro {
+            font-size: .9vw;
+        }
+    
+        /* gridChild3 */
+    
+        #gridChild3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            border-radius: 10px;
+            height: 80%;
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+    
+        #libroPrecio {
+            font-size:1.5vw;
+            font-family: cursive;
+            background: #E5E5E5;
+            padding: 30px;
+            margin: 0;
+            padding: 20px 10px 10px 10px;
+            color: #EB6262;
+        }
+    
+        #cuotas{
+            font-size: 1vw;
+            margin: 10px;
+            padding: 0 10px 20px 10px;
+            font-weight: normal;
+        }
+    
+        #libroMP {
+            font-size: 1.1vw;
+        }
+    
+        #DivMP {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        #DivMP img{
+            width: 90%;
+        }
+    
+        #DivMP #paypal{
+            width: 50%;
+            padding-bottom: 30%;
+        }
+    
+        #libroBoton {
+            width: 220px;
+        }
+    
+        /* gridChild5 */
+    
+        #gridChild5 {
+            grid-column: 1 / 4;
+            grid-row: 2 / 2;
+            margin: 10px;
+        }
+    
+        #gridChild5 h1 {
+            font-size: 25px;
+        }
+    
+        #contenedorLibrosAutor {
+            display: grid;
+            grid-gap: 30px;
+            padding: 10px 20px 30px 20px;
+            border-radius: 5px;
+            transition: all 300ms;
+            margin: 0 20px 80px 20px;
+        }
+}
 
-    #gridChild5 h1 {
-        font-size: 25px;
-    }
-
-    #contenedorLibrosAutor {
-        display: grid;
-        grid-gap: 30px;
-        padding: 10px 20px 30px 20px;
-        border-radius: 5px;
-        transition: all 300ms;
-        margin: 0 20px 80px 20px;
-    }
 
 }
 
