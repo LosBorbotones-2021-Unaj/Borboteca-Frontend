@@ -32,6 +32,21 @@
     padding-right: 2%;
 }
 
+.btn-close {
+    margin: 15px;
+    font-size: 32px;
+}
+
+.modal-content{
+    border-radius: 12px;
+}
+
+#libroImagenModal {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #000000;
+}
+
 #libroImagen {
     width: 100%;
     height: 100%;
@@ -40,21 +55,12 @@
     cursor: pointer;
 }
 
-#libroImagenModal {
-    width: 100%;
-}
-
 .btn-close {
-    display: flex;
-    background-color: red;
-    align-self: flex-end;
-    font-size: 25px;
-    margin: 5px;
+    margin: 15px;
+    font-size: 32px;
 }
 
 #modalId {
-    display: flex;
-    justify-content: center;
     padding: 5px;
 }
 
@@ -123,14 +129,14 @@
     justify-self: flex-start;
 }
 
-/* gridChild2 */
-
-#gridChild2 {
+#botonVolver{
     display: flex;
-    padding: 0 2% 0 2%;
-    min-width: 300px;
-    height: 80%;
+    padding: 0;
+    margin-left: 10%;
+    justify-self: flex-start;
 }
+
+/* gridChild2 */
 
 h1 {
     font-size: 1.7vw;
@@ -174,19 +180,17 @@ hr {
 }
 
 #hrFT {
-    width: 38vw;
+    width: 33vw;
     margin: 8px 0;
 }
 
 #libroEditorial {
     font-size: 18px;
-    font-family: Verdana;
     background: #E5E5E5;
 }
 
 #fechaPublicacionLibro {
     font-size: 18px;
-    font-family: Verdana;
     background: #E5E5E5;
 }
 
@@ -287,8 +291,8 @@ hr {
 
 #contenedorLibrosAutor {
     display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
     grid-template-columns: repeat(auto-fill, 150px);
-    grid-template-rows: repeat(auto-fill, 200px);
     grid-gap: 30px;
     padding: 10px 20px 30px 20px;
     border-radius: 5px;
@@ -296,9 +300,10 @@ hr {
     margin: 0 20px 80px 20px;
 }
 
-/* #contenedorLibrosAutor :hover{
-    transform: scale(1.01);
-} */
+#divLibros {
+    display: grid;
+    grid-template-rows: 1fr 60px;
+}
 
 #tituloLibroRecomendado {
     padding-top: 10px;
@@ -308,14 +313,26 @@ hr {
     color: green;
 }
 
-@media screen and (min-width: 1315px){
-    #root {
-        display: grid;
-        justify-items: center;
-        align-items: center;
-        background-color: #FFFFFF;
-    }
+.footer{
+    background: rgb(240, 240, 243);
+    border-top: 1px solid #eee;
+    line-height: 1;
+    font-size: 13px;
+    height: 90px;
+    font-weight: 400;
+}
 
+.footer__ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.footer__li{
+   padding: 10px 15px;
+}
+
+@media screen and (min-width: 1315px){
     .button_Volver_Menu{
         display: flex;
         justify-self: flex-start;
@@ -334,10 +351,6 @@ hr {
         border-radius: 12px;
     }
 
-    .content__main_grid div{
-        border-radius: 12px;
-    }
-
     /* gridChild */
 
     #gridChild {
@@ -347,101 +360,9 @@ hr {
         justify-content: center;
         justify-items: center;
     }
-    
-    #libroImagen {
-        width: 100%;
-        height: 100%;
-        justify-self: center;
-        border-radius: 12px;
-        cursor: pointer;
-    }
-
-    #libroImagenModal {
-        width: 100%;
-    }
-
-    .btn-close {
-        display: flex;
-        background-color: red;
-        align-self: flex-end;
-        font-size: 25px;
-        margin: 5px;
-    }
 
     #modalId {
-        display: flex;
-        justify-content: center;
-        padding: 5px;
-    }
-
-    #contentButtons{
-        display: flex;
-        flex-direction: column;
         padding: 10px;
-    }
-
-    #contentButtons button{
-        font-size:20px;
-        background: #FFFFFF;
-        width: 250px;
-        height: 40px;
-        margin: 5px;
-        border-radius: 20px;
-        border: #000000 solid 1px;
-    }
-
-    #RedesSociales {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 10px;
-    }
-
-    #RedesSociales a {
-        display: inline-flex;
-        color: #FFFFFF;
-        width: 48px;
-        height: 48px;
-        background-color: #000000;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        border-radius: 50%;
-        margin: 0 6px;
-        font-size: 20px;
-    }
-
-    #RedesSociales a :hover {
-        transform: scale(1.3);
-    }
-
-    #RedesSociales #facebookBtn {
-        transition: all 300px;
-        position: relative;
-        background-color: #3c70a4;
-    }
-
-    #RedesSociales #twitterBtn {
-        background-color: #5bd1d7;
-    }
-
-    #RedesSociales #instagramBtn {
-        background-color: #bb7171;
-    }
-
-    #RedesSociales #favoritoBtn {
-        background-color: #EB6262;
-        color: #FFFFFF;
-        cursor: pointer;
-    }
-
-    .btn-close2 {
-        margin: 10px;
-        font-size: 25px;
-    }
-
-    #contentVolver {
-        display: inline;
-        justify-self: flex-start;
     }
 
     /* gridChild2 */
@@ -451,25 +372,11 @@ hr {
         font-family: sans-serif;
     }
 
-    #gridChild2 {
-        display: flex;
-        flex-direction: column;
-        padding: 0 2% 0 1%;
-        min-width: 300px;
-        height: 80%;
-    }
-
     #titulo {
         font-size: 1.7vw;
         background: #E5E5E5;
         padding: 12px 0 5px 0;
         margin: 0;
-    }
-
-    hr {
-        width: 100%;
-        height: 80px;
-        margin: 10px 0 10px 0;
     }
 
     #libroAutor {
@@ -491,21 +398,12 @@ hr {
         padding-top: 5px;
     }
 
-    #hrFT {
-        width: 30vw;
-        margin: 8px 0;
-    }
-
     #libroEditorial {
         font-size: 1vw;
-        font-family: Verdana;
-        background: #E5E5E5;
     }
 
     #fechaPublicacionLibro {
         font-size: 1vw;
-        font-family: Verdana;
-        background: #E5E5E5;
     }
 
     #generoLibro {
@@ -526,14 +424,6 @@ hr {
         height: 80%;
         grid-column: 3 / 4;
         grid-row: 1 / 2;
-    }
-
-    #gc3Compra {
-        display: flex;
-        flex-direction: column;
-        margin: 12px;
-        border: grey solid .5px;
-        border-radius: 12px;
     }
 
     #libroPrecio {
@@ -573,15 +463,7 @@ hr {
     }
 
     #libroBoton {
-        font-size:20px;
-        background: #FF6962;
-        color: #FFFFFF;
         width: 220px;
-        height: 40px;
-        border: 0;
-        border-radius: 20px;
-        align-self: center;
-        margin: 8px;
     }
 
     /* gridChild5 */
@@ -593,59 +475,17 @@ hr {
     }
 
     #gridChild5 h1 {
-        font-family: sans-serif;
         font-size: 25px;
-    }
-
-    #gridChild5 p {
-        margin: 0;
-        font-size: 15px;
-        font-family: sans-serif;
-        color: #EF6314;
     }
 
     #contenedorLibrosAutor {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 150px);
-        grid-template-rows: 200px;
         grid-gap: 30px;
         padding: 10px 20px 30px 20px;
         border-radius: 5px;
         transition: all 300ms;
         margin: 0 20px 80px 20px;
     }
-
-    /* #contenedorLibrosAutor :hover{
-        transform: scale(1.01);
-    } */
-
-    #tituloLibroRecomendado {
-        padding-top: 10px;
-    }
-
-    #gridChild5 #nombreAutorLista {
-        color: green;
-    }
-    
-    .footer{
-        background: rgb(240, 240, 243);
-        border-top: 1px solid #eee;
-        line-height: 1;
-        font-size: 13px;
-        height: 90px;
-        font-weight: 400;
-    }
-    
-    .footer__ul{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-    }
-    .footer__li{
-       padding: 10px 15px;
-    }
-
 
 }
 
