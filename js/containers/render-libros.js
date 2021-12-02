@@ -6,8 +6,8 @@ import { pedirLibros }   from '../services/libros-index.js';
 import { pedirPaginas}   from '../services/libros-index.js';
 
 let indexer = 1;
-let paginas = 1;
 export const RenderLibros = (json) =>{
+    $("#root").empty();
     json.forEach(element => {
         let name = element.titulo;
         let resenia = element.resenia;
@@ -15,38 +15,37 @@ export const RenderLibros = (json) =>{
         let precio=element.precio;
         $("#root").append(
             `
-    
-    <div class="wrapper">
-            <div class="container">
-            <a href="/view/vistaInfoLibro.html" class="link_InfoLibro">      
-                    <img class="top" id="libroId-${element.id}" src="${img}" alt="">
-                    <div class="bottom">
-                        <div class="left">
-                            <div class="details">
-                                <h2 class="txt_products">${name}</h2>
-                                        
+            <div class="wrapper">
+                    <div class="container">
+                    <a href="/view/vistaInfoLibro.html" class="link_InfoLibro">      
+                            <img class="top" id="libroId-${element.id}" src="${img}" alt="">
+                            <div class="bottom">
+                                <div class="left">
+                                    <div class="details">
+                                        <h2 class="txt_products">${name}</h2>
+                                                
+                                    </div>
+                                    <div class="libroId-${element.id} buy">
+                                        <a href="#">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                    </div>
+                                                
+                                </div>
                             </div>
-                            <div class="libroId-${element.id} buy">
-                                <a href="#">
-                                    <i class="fas fa-heart"></i>
-                                </a>
-                            </div>
-                                        
+                    </a>
+                        <div class="inside">
+                        <div class="icon">
+                            <i class="far fa-eye"></i>
                         </div>
+                        <div class="contents">
+                            <h1>${name}</h1>
+                            <p>${resenia}</p>
+                            <p> $${precio}</p>
+                        </div>
+                        
                     </div>
-            </a>
-                <div class="inside">
-                <div class="icon">
-                    <i class="far fa-eye"></i>
-                </div>
-                <div class="contents">
-                    <h1>${name}</h1>
-                    <p>${resenia}</p>
-                    <p> $${precio}</p>
-                </div>
-                
             </div>
-   </div>
             `
     )
         
@@ -162,4 +161,4 @@ $("#anterior").click(function (e) {
 export const CambiarColor=()=>{
     const favorito = document.getElementById("linkFavorito")
     favorito.style.color="red";
-}
+} 

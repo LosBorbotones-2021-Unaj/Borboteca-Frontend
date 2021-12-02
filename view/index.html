@@ -25,29 +25,9 @@
     </script>
     <title>Borboteca-libros</title>
 </head>
-<script>
-    
-    var fileDownload = require('js-file-download');
-    const DescargarLibro = () => {
-    fetch ("https://localhost:44331/api/Libro?Guid_Id=2550e1b1-9e48-43b4-875f-14634d4c07f1",{
-        responseType : 'blob',
-        method: 'GET',
-        headers: new Headers({
-          'Authorization': `Bearer ${token}`, 
-          'Content-Type': 'application/json'
-        })
-    })
-    .then((httpResponse) => {
-        return httpResponse.blob();
-    })
-    .then((data) =>{
-        fileDownload(data, 'filename.pdf');
-    });
-}
-</script>
 <body>
     <div class="web_Container">
-        <input type="button" onclick="DescargarLibro" value="Descargar" />  
+        
         <nav id="index-nav" class="nav_flex_Container  Grid_Item"></nav>
         <main class="main Grid_Item">
             <div class="grid-container">
@@ -73,13 +53,10 @@
             </footer>
         </main>
     </div>
-    
     <script src="https://kit.fontawesome.com/a501f3f174.js" crossorigin="anonymous"></script>
     <script type="module" src="../js/services/libros-index.js"></script>
     <script type="module" src="../js/index.js"></script>
-    <script type="module" src="../js/services/filtro-libros.js"></script>
-    <script type="module" src="../node_modules/jwt-decode/build/jwt-decode.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     
 </body>
 </html>

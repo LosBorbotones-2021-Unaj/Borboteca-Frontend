@@ -1,9 +1,7 @@
-import fileDownload from 'js-file-download';
-
 const urlBase = "https://localhost:44331/api/Libro/";
 const urlBase2 = "https://localhost:44331/api/Libro";
+// https://localhost:44331/api/Libro/Busqueda?busqueda=La
 export const pedirLibros = (indice,callback) => {
-
     fetch(urlBase + `PedirLibros/${indice}`)
     .then((httpResponse) => {
         if(httpResponse.ok)
@@ -18,6 +16,18 @@ export const pedirPaginas = () => {
     .then((httpResponse) => {
         if(httpResponse.ok)
             return httpResponse.json();
+    })
+}
+
+export const buscarLibros = (letra) =>{
+    fetch(urlBase + "Busqueda?busqueda="+ letra)
+    .then((httpResponse) => {
+        if (httpResponse.ok){
+            return httpResponse.json();
+        }
+    })
+    .then(body => {
+        localStorage.setItem("libros",JSON.stringify(body));
     })
 }
 
