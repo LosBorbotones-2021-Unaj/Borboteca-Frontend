@@ -177,8 +177,9 @@ const renderLoggeo = (tokensito) => {
         const SearchLibrosButton = document.querySelector(".search_Button");
         
         if(tokensito.roll == '2'){
+            const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin");
             BotonAdminLibros.addEventListener("click", function(e){
-                console.log("hola")
+                window.location.href = "CargaLibros.html"
             })
         }
 

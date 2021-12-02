@@ -222,9 +222,7 @@ export const getInfoLibro = () =>{
         newButtonGC3.addEventListener("click", async function(e){
             if(verificarSeccion){
                 await CreateCarro(decoded.id,token);
-                
-                await CreateVenta(decoded.id,token); 
-                          
+                await CreateVenta(decoded.id,token);   
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 
                 setTimeout(function(){

@@ -2,8 +2,8 @@ import { CardComponent } from '../components/card-libros.js';
 import { parseJwt } from '../components/nav-var.js';
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import { GetLibros } from '../services/FetchServices.js';
-import { pedirLibros }   from '../services/libros-index.js';
 import { pedirPaginas}   from '../services/libros-index.js';
+import { DescargarLibro, pedirLibros }   from '../services/libros-index.js';
 
 let indexer = 1;
 export const RenderLibros = (json) =>{
@@ -61,6 +61,8 @@ export const RenderLibros = (json) =>{
         })
     });
 }
+
+
 const AgregarAfavoritos=()=>{
     if(verificarSeccion){
        var usuario= parseJwt(localStorage.getItem("token"))
@@ -148,7 +150,13 @@ export const IndexRenderer = () => {
             DescargarLibro();
         });
 }
+<<<<<<< HEAD
 
+=======
+const ContadorPaginas = () => {
+   let paginas = (pedirLibros()/9)+1;
+}
+>>>>>>> 247f87204f4d5a70932eca3b3b3b7bcdbb628302
 
 $("#siguiente").click(function (e) { 
     indexer += 1;

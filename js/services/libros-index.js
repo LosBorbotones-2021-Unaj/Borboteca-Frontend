@@ -31,13 +31,13 @@ export const buscarLibros = (letra) =>{
     })
 }
 
-export const DescargarLibro = () => {
+export const DescargarLibro = (callback) => {
     fetch ("https://localhost:44331/api/Libro?Guid_Id=2550e1b1-9e48-43b4-875f-14634d4c07f1",{
         responseType : 'blob',
         method: 'GET',
         headers: new Headers({
-          'Authorization': `Bearer ${token}`, 
-          'Content-Type': 'application/json'
+          'Authorization': `Bearer ${localStorage.getItem("token")}`, 
+          'Content-Type': 'application/pdf'
         })
     })
     .then((httpResponse) => {
