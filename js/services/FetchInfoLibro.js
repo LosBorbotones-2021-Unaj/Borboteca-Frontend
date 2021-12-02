@@ -3,11 +3,7 @@ import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
 import {CreateCarro} from "../services/FetchServices.js";
 import {CreateVenta} from "../services/FetchServices.js";
 import {CreateCarroLibro} from "../services/FetchServices.js";
-<<<<<<< HEAD
-import {DescargarLibro} from "../services/libros-index.js";
-=======
 import {AgregarAlCarroMessage} from "../containers/CarroIndex.js";
->>>>>>> main
 
 let token = localStorage.getItem('token');
 let idLibro = localStorage.getItem("idLibro");
@@ -224,17 +220,10 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3 = document.createTextNode("Comprar");
         newButtonGC3.appendChild(newContentButtonGC3);
         newButtonGC3.addEventListener("click", async function(e){
-<<<<<<< HEAD
-            //fijarce si el usuario esta logueado y si tiene carro activo
-            await CreateCarro(decoded.id,token);
-            
-            await CreateVenta(decoded.id,token); 
-=======
             if(verificarSeccion){
                 await CreateCarro(decoded.id,token);
                 
                 await CreateVenta(decoded.id,token); 
->>>>>>> main
                           
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
 

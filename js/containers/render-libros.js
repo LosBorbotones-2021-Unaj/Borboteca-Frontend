@@ -1,12 +1,8 @@
 import { CardComponent } from '../components/card-libros.js';
 import { parseJwt } from '../components/nav-var.js';
 import { AgregarQuitarFav } from '../services/FetchFavoritos.js';
-<<<<<<< HEAD
-import { DescargarLibro, pedirLibros }   from '../services/libros-index.js';
-=======
 import { GetLibros } from '../services/FetchServices.js';
 import { pedirLibros }   from '../services/libros-index.js';
->>>>>>> main
 import { pedirPaginas}   from '../services/libros-index.js';
 
 let indexer = 1;
@@ -153,7 +149,7 @@ export const IndexRenderer = () => {
         });
 }
 const ContadorPaginas = () => {
-    paginas = (pedirLibros()/9)+1;
+   let paginas = (pedirLibros()/9)+1;
 }
 
 $("#siguiente").click(function (e) { 
