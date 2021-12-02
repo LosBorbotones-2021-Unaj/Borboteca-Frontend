@@ -150,13 +150,9 @@ export const IndexRenderer = () => {
             DescargarLibro();
         });
 }
-<<<<<<< HEAD
-
-=======
 const ContadorPaginas = () => {
    let paginas = (pedirLibros()/9)+1;
 }
->>>>>>> 247f87204f4d5a70932eca3b3b3b7bcdbb628302
 
 $("#siguiente").click(function (e) { 
     indexer += 1;
