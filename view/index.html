@@ -26,6 +26,37 @@
     <title>Borboteca-libros</title>
 </head>
 <body>
+    <input type="button" value="Download PDF File" onclick="DownloadFile('Sample.pdf')" />
+    <script type="text/javascript">
+        function DownloadFile(fileName) {
+            var url = "https://localhost:44331/api/Libro?Guid_Id=2550e1b1-9e48-43b4-875f-14634d4c07f1";
+            var req = new XMLHttpRequest();
+            req.open("GET", url, true);
+            req.setRequestHeader("Authorization",`Bearer ${localStorage.getItem("token")}`);
+            req.responseType = "blob";
+            req.onload = function () {
+                var blob = new Blob([req.response], 
+                { 
+                    type: "application/octetstream",
+                });
+                var isIE = false || !!document.documentMode;
+                if (isIE) {
+                    window.navigator.msSaveBlob(blob, fileName);
+                } else {
+                    var url = window.URL || window.webkitURL;
+                    link = url.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.setAttribute("download", fileName);
+                    a.setAttribute("href", link);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            };
+            req.send();
+        };
+    </script>
+    
     <div id="boton1"></div>
     <div class="web_Container">
         <div id="descarga"></div>
@@ -54,7 +85,7 @@
             </footer>
         </main>
     </div>
-    
+
     <script src="https://kit.fontawesome.com/a501f3f174.js" crossorigin="anonymous"></script>
     <script type="module" src="../js/services/libros-index.js"></script>
     <script type="module" src="../js/index.js"></script>
