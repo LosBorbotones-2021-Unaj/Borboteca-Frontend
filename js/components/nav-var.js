@@ -166,7 +166,8 @@ const renderLoggeo = (tokensito) => {
                         </a>
                     </li>
         `;
-        
+
+        const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin")
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
@@ -178,7 +179,7 @@ const renderLoggeo = (tokensito) => {
         if(tokensito.roll == '2'){
             const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin");
             BotonAdminLibros.addEventListener("click", function(e){
-                console.log("hola")
+                window.location.href = "CargaLibros.html"
             })
         }
 
@@ -207,7 +208,4 @@ const renderLoggeo = (tokensito) => {
         })
 }
 
-const CerrarSecion = () =>{
-    localStorage.removeItem("token");
-}
 

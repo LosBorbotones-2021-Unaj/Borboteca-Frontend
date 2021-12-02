@@ -151,7 +151,7 @@ export const IndexRenderer = () => {
         });
 }
 const ContadorPaginas = () => {
-    paginas = (pedirLibros()/9)+1;
+   let paginas = (pedirLibros()/9)+1;
 }
 
 $("#siguiente").click(function (e) { 
