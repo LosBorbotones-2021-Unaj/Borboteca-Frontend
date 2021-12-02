@@ -1,4 +1,4 @@
-import { LibrosDelCarro,TotalYBotonComprar } from '../components/LibrosDelCarro.js'
+import { LibrosDelCarro,MetodosDePago,TotalYBotonComprar } from '../components/LibrosDelCarro.js'
 import { LibrosDelCarroParticulares,SinLibros } from '../components/LibrosDelCarro.js'
 import { GetLibrosDelCarro,CompraFinalizada, DeleteLibroFromCarro } from '../services/FetchServices.js'
 import { GetLibros,CerrarCarroActual,DeleteVenta } from '../services/FetchServices.js'
@@ -6,7 +6,8 @@ import {parseJwt} from '../components/nav-var.js'
 
 let token = localStorage.getItem("token");
 let Usuario = parseJwt(token);
-let CarritoContainer = document.querySelector(".carrito_SubContainer");
+let CarritoContainer = document.querySelector(".carrito_Container");
+let CarritoSubContainer = document.querySelector(".carrito_SubContainer");
 let div = document.createElement("DIV");
 let hr = document.createElement("HR");
 div.classList.add("container_Info_Libro");
@@ -17,8 +18,8 @@ const RenderLibros = async (json) => {
     if(json.librosIds != undefined && json.librosIds != null && json.librosIds.length != 0)
     {
         div.innerHTML = LibrosDelCarro();
-        CarritoContainer.appendChild(div);
-        CarritoContainer.appendChild(hr);
+        CarritoSubContainer.appendChild(div);
+        CarritoSubContainer.appendChild(hr);
         for(let libro of json.librosIds)
         {
             div = document.createElement("DIV");
@@ -27,15 +28,14 @@ const RenderLibros = async (json) => {
             total += respuesta.precio;
             div.innerHTML += LibrosDelCarroParticulares(respuesta.titulo,respuesta.imagen,respuesta.nombreAutor,respuesta.precio);
             div.classList.add(`${respuesta.id}`);
-            CarritoContainer.appendChild(div);
+            CarritoSubContainer.appendChild(div);
                     
             
         }
-
-        let ContainerComprar = document.createElement("DIV");
-        ContainerComprar.classList.add("container_TotalCompra");
-        ContainerComprar.innerHTML = TotalYBotonComprar(total);
-        CarritoContainer.appendChild(ContainerComprar);
+        
+        let ContainerComprar = document.querySelector(".carrito_Venta");
+        ContainerComprar.innerHTML += MetodosDePago();
+        ContainerComprar.innerHTML += TotalYBotonComprar(total);
         let btn = document.querySelector(".BotonCompra");
         
             btn.addEventListener('click', ()=>{
@@ -58,7 +58,10 @@ const RenderLibros = async (json) => {
                     "hideMethod": "fadeOut"
                     
                 })
-                 CarritoContainer.innerHTML = SinLibros();
+                CarritoContainer.innerHTML = SinLibros();
+                CarritoContainer.style.justifyContent = "center";
+                CarritoContainer.style.boxShadow = "0px 1px 2px 1px rgb(0 0 0 / 24%)";
+                CarritoContainer.style.borderRadius = "6px";
                  CompraFinalizada(Usuario.id,token);
                  CerrarCarroActual(Usuario.id,token);
                  
@@ -76,19 +79,23 @@ const RenderLibros = async (json) => {
 
                     DeleteLibroFromCarro(JSON.stringify(datos),token);    
                         
-                    CarritoContainer.removeChild(divList[i]);
+                    CarritoSubContainer.removeChild(divList[i]);
 
 
 
-                    if(CarritoContainer.childElementCount <= 3)
+                    if(CarritoSubContainer.childElementCount <= 2)
                     {
                         CarritoContainer.innerHTML = SinLibros();
+                        CarritoContainer.style.justifyContent = "center";
+                        CarritoContainer.style.boxShadow = "0px 1px 2px 1px rgb(0 0 0 / 24%)";
+                        CarritoContainer.style.borderRadius = "6px";
                         DeleteVenta(Usuario.id,token);
                     }
                     else
                     {
                         total = 0 ;
-                        total = PromiseToLibro(divList,total,ContainerComprar);
+                        let divlist2 = document.querySelectorAll(".container_Libro");
+                        total = PromiseToLibro(divlist2,total,ContainerComprar);
                         
                     }
                     
@@ -102,7 +109,10 @@ const RenderLibros = async (json) => {
     }
     else 
     {
-        CarritoContainer.innerHTML += SinLibros();
+        CarritoContainer.innerHTML = SinLibros();
+        CarritoContainer.style.justifyContent = "center";
+        CarritoContainer.style.boxShadow = "0px 1px 2px 1px rgb(0 0 0 / 24%)";
+        CarritoContainer.style.borderRadius = "6px";
     }
 }
 export const IndexRender = () => {
@@ -111,15 +121,16 @@ export const IndexRender = () => {
 }
 
 
-const PromiseToLibro = async (divList,total,ContainerComprar) => {
+const PromiseToLibro = async (divlist2,total,ContainerComprar) => {
 
-    for (let div of divList) {
+    for (let div of divlist2) {
         let libro = await GetLibros(div.classList.item(1));
         total += libro.precio;              
-                            
+        console.log(total);              
     }
-
-    ContainerComprar.innerHTML = TotalYBotonComprar(total);
+    
+    ContainerComprar.innerHTML = MetodosDePago();
+    ContainerComprar.innerHTML += TotalYBotonComprar(total);
     let btn = document.querySelector(".BotonCompra");
         
             btn.addEventListener('click',()=>{
@@ -143,6 +154,9 @@ const PromiseToLibro = async (divList,total,ContainerComprar) => {
                     
                 })
                  CarritoContainer.innerHTML = SinLibros();
+                 CarritoContainer.style.justifyContent = "center";
+                 CarritoContainer.style.boxShadow = "0px 1px 2px 1px rgb(0 0 0 / 24%)";
+                 CarritoContainer.style.borderRadius = "6px";
                  CompraFinalizada(Usuario.id,token);
                  CerrarCarroActual(Usuario.id,token);
                  

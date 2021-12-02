@@ -21,9 +21,10 @@ export const LibrosDelCarroParticulares = (Titulo,Imagen,Autor,Precio) =>
 `
 export const TotalYBotonComprar = (total)=>
 `
-    <hr>
-    <h2 class="TotalCompra">Total:<span>$${total}</span></h2>
-    <button class="BotonCompra">Comprar</button>
+    <div class="container_Button_Compras">
+        <h2 class="TotalCompra">Total:<span>$${total}</span></h2>
+        <button class="BotonCompra">Comprar</button>
+    </div>
 `
 
 export const SinLibros = ()=> 
@@ -31,3 +32,10 @@ export const SinLibros = ()=>
         <p>EL CARRITO AUN ESTA VACIO</p>
         <img src="../img/carrito.png" alt="">
     </div>`
+
+
+export const MetodosDePago = () =>
+        `<div id="DivMP">
+            <img src="../img/mediosPago.png">
+            <img id="paypal" src="../img/mediosPago2.png">
+        </div>`
