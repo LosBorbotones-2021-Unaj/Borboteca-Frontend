@@ -39,16 +39,6 @@ export const genericNavVar = () => {
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
-<<<<<<< HEAD
-        if(decoded.roll == 2){
-            $("#boton1").append(
-                `
-                    <a href="/view/CargaLibros.html" class="btn-flotante">Cargar Libros</a>
-                `);
-            console.log(decoded);
-        }
-=======
->>>>>>> main
         renderLoggeo(decoded);
     }
     else{
@@ -176,13 +166,8 @@ const renderLoggeo = (tokensito) => {
                         </a>
                     </li>
         `;
-<<<<<<< HEAD
- 
-        var boton = document.getElementById("cerrar-secion").onclick= CerrarSecion;
-=======
 
         const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin")
->>>>>>> main
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
@@ -222,10 +207,4 @@ const renderLoggeo = (tokensito) => {
         })
 }
 
-<<<<<<< HEAD
-const CerrarSecion = () =>{
-    localStorage.removeItem("token");
-}
-=======
->>>>>>> main
 
