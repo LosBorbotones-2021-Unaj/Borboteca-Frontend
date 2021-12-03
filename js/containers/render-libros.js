@@ -171,3 +171,33 @@ export const CambiarColor=()=>{
     const favorito = document.getElementById("linkFavorito")
     favorito.style.color="red";
 } 
+
+
+export const DownloadFile = (fileName,idLibro) => {
+    var url = "https://localhost:44331/api/Libro?Guid_Id=" + idLibro;
+    var req = new XMLHttpRequest();
+    req.open("GET", url, true);
+    req.setRequestHeader("Authorization",`Bearer ${localStorage.getItem("token")}`);
+    req.responseType = "blob";
+    req.onload = function () {
+        var blob = new Blob([req.response], 
+        { 
+            type: "application/octetstream",
+        });
+        var isIE = false || !!document.documentMode;
+        if (isIE) {
+            window.navigator.msSaveBlob(blob, fileName);
+        } else {
+            var url = window.URL || window.webkitURL;
+            let link = url.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.setAttribute("download", fileName);
+            a.setAttribute("href", link);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    };
+    req.send();
+};
+    

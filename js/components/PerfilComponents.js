@@ -65,15 +65,16 @@ export const SinFavoritos = () =>
 </div>`
 
 
-export const MiLibroParticular = (Titulo,Imagen) => 
+export const MiLibroParticular = (Titulo,Imagen,IdLibro) => 
     	`
-        <button class="button_MiLibro">
+        <button id="${IdLibro}" class="button_MiLibro" value="${IdLibro}">
             <div class="Libro_Imagen_MiLibro">
                 <img class="imagen_MiLibro_Particular" src="${Imagen}" alt="${Titulo}">
             </div>
             <p class="titulo_MiLibro_Particular">${Titulo}</p>
         </button>
-        `
+        `;
+
 
 
 export const InfoUsuario = (nombre,apellido,email) =>
