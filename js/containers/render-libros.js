@@ -170,7 +170,7 @@ $("#anterior").click(function (e) {
 export const CambiarColor=()=>{
     const favorito = document.getElementById("linkFavorito")
     favorito.style.color="red";
-}
+} 
 
 
 export const DownloadFile = (fileName,idLibro) => {
