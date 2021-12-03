@@ -163,3 +163,4 @@ export const CompraNoEncontrada = () =>
         <h1 class ="h1_Compra_Fail">No se han encontrado resultados para la búsqueda.</h1>
       </div>
      `
+

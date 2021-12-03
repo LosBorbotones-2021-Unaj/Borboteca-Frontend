@@ -209,6 +209,12 @@
     color: rgb(235, 98, 98);
 }
 
+
+.Carrito_Icon a:hover{
+    color: rgb(235, 98, 98)!important;
+    
+}
+
 .fa-cart-arrow-down{
     transition: all .2s;
     transition: transform .1 ease-in-out;
