@@ -2,7 +2,7 @@ import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.j
 import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
 import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada } from "../components/PerfilComponents.js";
-import { AgregadoEliminadoExitoso } from "./render-libros.js";
+import { AgregadoEliminadoExitoso, DownloadFile } from "./render-libros.js";
 import { AgregarAlCarroMessage } from "./CarroIndex.js";
 
 var decoded = parseJwt(localStorage.getItem("token"));
@@ -152,9 +152,15 @@ const RenderMisLibros = async (MisLibros) => {
             let container_MiLibro = document.createElement("DIV");
             container_MiLibro.classList.add("container_MiLibro");
             let libro = await GetLibros(miLibro);
-            container_MiLibro.innerHTML += MiLibroParticular(libro.titulo,libro.imagen);
+            container_MiLibro.innerHTML += MiLibroParticular(libro.titulo,libro.imagen,libro.id);
             tab1.appendChild(container_MiLibro);
+            $(`#${libro.id}`).click(function (e) { 
+                const valorLibro= document.getElementById(`${libro.id}`);
+                let tituloLibro = libro.titulo + ".pdf";
+                DownloadFile(tituloLibro,valorLibro.value);
+            });
         }
+        
     }
     else
     {
