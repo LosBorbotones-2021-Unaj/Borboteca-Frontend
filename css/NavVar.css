@@ -446,6 +446,7 @@
   }
   
   .flex-rw {
+    margin-top: 10px;
     display: flex;
     flex-flow: row wrap;
   }
@@ -469,11 +470,11 @@
   .footer-list-header {
     padding: 10px 0 5px 0;
     color: #fff;
-    font: 2.3vw "Oswald", sans-serif;
+    font: 1.8vw "Oswald", sans-serif;
   }
   
   .footer-list-anchor {
-    font: 1.3em "Open Sans", sans-serif;
+    font: 1.2rem "Open Sans", sans-serif;
   }
   
   .footer-social-section {
@@ -504,7 +505,7 @@
   .footer-social-connect {
     display: flex;
     align-items: center;
-    font: 3.5em "Oswald", sans-serif;
+    font: 2.5em "Oswald", sans-serif;
     color: #fff;
   }
   

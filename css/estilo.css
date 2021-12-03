@@ -9,7 +9,7 @@
     display: grid;
     grid-template-rows: 500px 1fr;
     grid-template-columns: 1fr;
-    background: #E5E5E5;
+    background: #ffffff;
     width: 80%;
     margin: 20px 0 30px 0;
     border-radius: 12px;
@@ -186,12 +186,12 @@ hr {
 
 #libroEditorial {
     font-size: 16px;
-    background: #E5E5E5;
+    background: #ffffff;
 }
 
 #fechaPublicacionLibro {
     font-size: 16px;
-    background: #E5E5E5;
+    background: #ffffff;
 }
 
 #generoLibro {
@@ -329,7 +329,7 @@ hr {
         display: grid;
         grid-template-rows: 520px 380px 1fr;
         grid-template-columns: 300px 1fr;
-        background: #E5E5E5;
+        background: #ffffff;
         width: 80%;
         margin: 20px 0 30px 0;
         border-radius: 12px;
@@ -380,12 +380,12 @@ hr {
     
     #libroEditorial {
         font-size: 1.3vw;
-        background: #E5E5E5;
+        background: #ffffff;
     }
     
     #fechaPublicacionLibro {
         font-size: 1.3vw;
-        background: #E5E5E5;
+        background: #ffffff;
     }
     
     #generoLibro {
@@ -429,7 +429,7 @@ hr {
             display: grid;
             grid-template-columns: 280px 1fr 320px;
             grid-template-rows: 700px 1fr;
-            background: #E5E5E5;
+            background: #ffffff;
             width: 80%;
             margin: 20px 0 30px 0;
             border-radius: 12px;
@@ -458,7 +458,7 @@ hr {
     
         #titulo {
             font-size: 1.7vw;
-            background: #E5E5E5;
+            background: #ffffff;
             padding: 12px 0 5px 0;
             margin: 0;
         }
@@ -517,7 +517,7 @@ hr {
         #libroPrecio {
             font-size:1.5vw;
             font-family: cursive;
-            background: #E5E5E5;
+            background: #ffffff;
             padding: 30px;
             margin: 0;
             padding: 20px 10px 10px 10px;
