@@ -9,10 +9,11 @@
     display: grid;
     grid-template-rows: 500px 1fr;
     grid-template-columns: 1fr;
-    background: #E5E5E5;
+    background: #FFFFFF;
     width: 80%;
     margin: 20px 0 30px 0;
-    border-radius: 12px;
+    box-shadow: 0px 0px 9px 1px rgb(0 0 0 / 24%);
+    border-radius: 6px;
 }
 
 .content__main_grid div{
@@ -115,6 +116,7 @@
     background-color: #FFFFFF;
     color: #FF6962;
     cursor: pointer;
+    background: #d9d9d9;
 }
 
 #contentVolver {
@@ -141,7 +143,7 @@ h1 {
     flex-direction: column;
     padding: 0 2% 0 2%;
     min-width: 300px;
-    height: 80%;
+    /* height: 80%; */
 }
 
 #titulo {
@@ -187,12 +189,10 @@ hr {
 
 #libroEditorial {
     font-size: 16px;
-    background: #E5E5E5;
 }
 
 #fechaPublicacionLibro {
     font-size: 16px;
-    background: #E5E5E5;
 }
 
 #generoLibro {
@@ -217,10 +217,11 @@ hr {
     display: flex;
     flex-direction: column;
     margin: 12px;
-    border: grey solid .5px;
+    box-shadow: 0px 0px 9px 4px rgb(0 0 0 / 24%);
     border-radius: 12px;
     justify-items: center;
     align-items: center;
+    margin-right: 20px;
 }
 
 #libroPrecio {
@@ -305,6 +306,10 @@ hr {
     color: green;
 }
 
+#libroImagen {
+    box-shadow: 5px 5px 5px #000000;
+}
+
 .footer{
     background: rgb(240, 240, 243);
     border-top: 1px solid #eee;
@@ -330,9 +335,10 @@ hr {
         display: grid;
         grid-template-rows: 520px 380px 1fr;
         grid-template-columns: 300px 1fr;
-        background: #E5E5E5;
+        background: #FFFFFF;
         width: 80%;
         margin: 20px 0 30px 0;
+        box-shadow: 0px 0px 9px 1px rgb(0 0 0 / 24%);
         border-radius: 12px;
         min-width: 700px;
     }
@@ -381,12 +387,10 @@ hr {
     
     #libroEditorial {
         font-size: 1.4vw;
-        background: #E5E5E5;
     }
     
     #fechaPublicacionLibro {
         font-size: 1.4vw;
-        background: #E5E5E5;
     }
     
     #generoLibro {
@@ -429,9 +433,12 @@ hr {
         .content__main_grid {
             display: grid;
             grid-template-columns: 280px 1fr 320px;
-            grid-template-rows: 700px 1fr;
-            background: #E5E5E5;
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            /* grid-template-rows: 700px 1fr; */
+            grid-template-rows: 1fr;
+            background: #FFFFFF;
             width: 80%;
+            box-shadow: 0px 0px 9px 1px rgb(0 0 0 / 24%);
             margin: 20px 0 30px 0;
             border-radius: 12px;
         }
@@ -440,8 +447,7 @@ hr {
     
         #gridChild {
             display: grid;
-            grid-template-rows: 65% 35%;
-            height: 80%;
+            grid-template-rows: 65% 25%;
             justify-content: center;
             justify-items: center;
         }
@@ -459,7 +465,6 @@ hr {
     
         #titulo {
             font-size: 1.7vw;
-            background: #E5E5E5;
             padding: 12px 0 5px 0;
             margin: 0;
         }
@@ -518,7 +523,6 @@ hr {
         #libroPrecio {
             font-size:1.5vw;
             font-family: cursive;
-            background: #E5E5E5;
             padding: 30px;
             margin: 0;
             padding: 20px 10px 10px 10px;
@@ -553,6 +557,7 @@ hr {
     
         #libroBoton {
             width: 220px;
+            margin-bottom: 10px;
         }
     
         /* gridChild5 */
@@ -573,7 +578,7 @@ hr {
             padding: 10px 20px 30px 20px;
             border-radius: 5px;
             transition: all 300ms;
-            margin: 0 20px 80px 20px;
+            margin: 0 20px 25px 20px;
         }
 }
 

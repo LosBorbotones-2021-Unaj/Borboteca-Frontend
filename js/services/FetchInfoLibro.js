@@ -144,6 +144,23 @@ export const getInfoLibro = () =>{
         isbn.appendChild(isbnText);
         isbn.appendChild(isbnText2);
 
+        let idioma = document.createElement("h1");
+        idioma.id = "isbnLibro";
+        let idiomaText = document.createElement("b");
+        idiomaText.appendChild(document.createTextNode("Idioma: "));
+        let idiomaText2 = document.createTextNode("Español");
+        idioma.appendChild(idiomaText);
+        idioma.appendChild(idiomaText2);
+
+        let cantHojas = document.createElement("h1");
+        cantHojas.id = "isbnLibro";
+        let cantHojasText = document.createElement("b");
+        cantHojasText.appendChild(document.createTextNode("Cantidad de hojas: "));
+        let cantHojasText2 = document.createTextNode(getRandomInt(250));
+        cantHojas.appendChild(cantHojasText);
+        cantHojas.appendChild(cantHojasText2);
+
+
         let currentDiv2 = document.getElementById("gridChild2");
         currentDiv2.appendChild(title);
         currentDiv2.appendChild(autor);
@@ -153,6 +170,8 @@ export const getInfoLibro = () =>{
         currentDiv2.appendChild(fechaPublicacion);
         currentDiv2.appendChild(genero);
         currentDiv2.appendChild(isbn);
+        currentDiv2.appendChild(idioma);
+        currentDiv2.appendChild(cantHojas);
 
         //gridChild3
         let newDiv3 = document.createElement("div");
@@ -203,7 +222,24 @@ export const getInfoLibro = () =>{
                 }, 200);
             }
             else{
-                alert("El usuario no está logueado");
+                toastr["error"]("El usuario no está logueado", "Error",{
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    
+                })
             }
             
         },false);
@@ -221,11 +257,26 @@ export const getInfoLibro = () =>{
                 await CreateVenta(decoded.id,token); 
                           
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
-
-                alert("Se agrego el libro al carrito");
             }
             else{
-                alert("El usuario no está logueado");
+                toastr["error"]("El usuario no está logueado", "Error",{
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    
+                })
             }
         },false);
 
@@ -263,6 +314,10 @@ const verificarSeccion=()=>{
     else{
         return true;
     }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
 function traerLibrosAutor(nombreAutor){
@@ -363,6 +418,7 @@ function traerLibrosGenero(generoId){
                 },false);
 
                 const newTxt = document.createElement("p");
+                newTxt.id = "tituloLibroRecomendado";
                 newTxt.appendChild(document.createTextNode(libro.titulo));
                 const newTxt2 = document.createElement("b");
                 newTxt2.appendChild(document.createTextNode("$ " + libro.precio));
