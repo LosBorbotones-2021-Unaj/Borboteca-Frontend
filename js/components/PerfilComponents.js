@@ -72,6 +72,7 @@ export const MiLibroParticular = (Titulo,Imagen,IdLibro) =>
                 <img class="imagen_MiLibro_Particular" src="${Imagen}" alt="${Titulo}">
             </div>
             <p class="titulo_MiLibro_Particular">${Titulo}</p>
+            <h2 class="h2_descargar">Descargar</h2>
         </button>
         `;
 
@@ -163,3 +164,7 @@ export const CompraNoEncontrada = () =>
         <h1 class ="h1_Compra_Fail">No se han encontrado resultados para la búsqueda.</h1>
       </div>
      `
+
+
+export const H2Descargar = () => 
+    `<h2 class="h2_descargar">Descargar</h2>`

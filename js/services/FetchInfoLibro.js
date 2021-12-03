@@ -368,7 +368,7 @@ function traerGenero(genero){
     fetch(urlLibroGenero + idLibro)
         .then(response => response.json())
         .then(response => {
-
+        
             let generoText = document.createElement("b");
             generoText.appendChild(document.createTextNode("Género: "));
             let cadena = document.createElement("h1");
@@ -384,7 +384,7 @@ function traerGenero(genero){
             let generoText2 = document.createTextNode(cadena.textContent);
             genero.appendChild(generoText);
             genero.appendChild(generoText2);
-
+            console.log(response.descripcion);
 
             traerLibrosGenero(response[0]);
         })

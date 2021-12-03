@@ -1,7 +1,7 @@
 import { AgregarQuitarFav, GetFavoritosById } from "../services/FetchFavoritos.js"
 import { parseJwt } from "../components/nav-var.js";
 import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibrosComprados,GetUsuarioByid, GetAllVentas, GetVentaByFechaEstado } from "../services/FetchServices.js";
-import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada } from "../components/PerfilComponents.js";
+import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada, H2Descargar } from "../components/PerfilComponents.js";
 import { AgregadoEliminadoExitoso, DownloadFile } from "./render-libros.js";
 import { AgregarAlCarroMessage } from "./CarroIndex.js";
 
@@ -161,6 +161,20 @@ const RenderMisLibros = async (MisLibros) => {
             });
         }
         
+        const ButtonMisLibros = document.querySelectorAll(".button_MiLibro");
+        ButtonMisLibros.forEach((cadaButton, i )=>{
+
+            ButtonMisLibros[i].addEventListener("mouseover",()=>{
+                
+                ButtonMisLibros[i].classList.add("descargarLibro");
+            }) 
+            ButtonMisLibros[i].addEventListener("mouseout",()=>{
+
+
+                
+            }) 
+            
+        })
     }
     else
     {
@@ -208,6 +222,8 @@ const RenderMisCompras = (Fechas) => {
                 GetVentaByFechaEstado(decoded.id,FechaSelection.value,EstadoSelection.value,RenderComprasCards);
                 
             });
+
+            
         }
         else{
             content3.style.height = "100%";

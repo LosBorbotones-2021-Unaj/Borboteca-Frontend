@@ -53,6 +53,7 @@ export const genericNavVar = () => {
         </div>
         `
     }
+    GenericFooter();
 }
 
 export function parseJwt (token) {
@@ -137,7 +138,7 @@ const renderLoggeo = (tokensito) => {
                 `
                     <li class="Logged_Menu_Item">
                         <a href="#" class="Logged_Menu_Admin particular_Links">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 296.999 296.999" style="enable-background:new 0 0 296.999 296.999;" xml:space="preserve">
+                        <svg id="Layer_1" width="21" height="21" x="0px" y="0px" viewBox="0 0 296.999 296.999">
                         <g>
                             <g>
                                 <path d="M222.312,58.625c-4.286,0-8.566,0.371-12.793,1.107c-15.427-23.63-41.682-38.013-70.246-38.013    c-35.722,0-67.176,22.489-79.004,55.563C26.591,79.937,0,108.191,0,142.539c0,36.096,29.366,65.462,65.461,65.462h39.6v57.177    c0,5.579,4.523,10.102,10.102,10.102h66.673c5.579,0,10.102-4.523,10.102-10.102v-57.177h30.373    c41.184,0,74.688-33.504,74.688-74.688S263.496,58.625,222.312,58.625z M181.838,155.066c-5.58,0-10.103,4.524-10.103,10.102    v89.908h-46.469v-89.908c0-5.579-4.523-10.102-10.102-10.102h-8.948l42.285-42.285l42.285,42.285H181.838z M222.312,187.797    h-30.373V175.27h23.235c4.086,0,7.77-2.461,9.334-6.236c1.563-3.775,0.698-8.12-2.19-11.01l-66.673-66.673    c-3.946-3.944-10.341-3.944-14.287,0l-66.673,66.673c-2.889,2.89-3.753,7.234-2.19,11.01c1.564,3.774,5.247,6.236,9.334,6.236    h23.235v12.527h-39.6c-24.955,0-45.257-20.303-45.257-45.258s20.302-45.257,45.257-45.257c0.636,0,1.267,0.024,1.898,0.049    c4.78,0.217,9.014-2.965,10.2-7.583c7.222-28.158,32.601-47.825,61.714-47.825c23.685,0,45.282,13.032,56.364,34.011    c2.23,4.222,7.11,6.303,11.702,4.997c4.889-1.395,9.926-2.101,14.973-2.101c30.043,0,54.484,24.441,54.484,54.484    C276.799,163.357,252.355,187.797,222.312,187.797z"/>
@@ -151,7 +152,6 @@ const renderLoggeo = (tokensito) => {
                     </li>
                 `);
         }
-
         logged_Menu.innerHTML += 
         `
                     <li class="Logged_Menu_Item">
@@ -208,4 +208,56 @@ const renderLoggeo = (tokensito) => {
         })
 }
 
-
+const GenericFooter = () =>{
+    const divFooter = document.getElementById("footer");
+    divFooter.innerHTML = 
+    `
+    <footer class="flex-rw">
+  
+    <ul class="footer-list-top">
+      <li>
+        <h4 class="footer-list-header">Acerca de nosotros</h4></li>
+      <li><a href='#' class="generic-anchor footer-list-anchor" itemprop="significantLink">Contacto</a></li>
+      <li><a href='#' class="generic-anchor footer-list-anchor" itemprop="significantLink">Promos</a></li>
+    </ul>
+    <ul class="footer-list-top">
+      <li>
+        <h4 class="footer-list-header">Promociones</h4></li>
+  
+  
+      <li><a href='#' class="generic-anchor footer-list-anchor">Descuentos</a></li>
+      <li><a href='#' class="generic-anchor footer-list-anchor">Combos</a></li>
+    </ul>
+    <ul class="footer-list-top">
+      <li id='help'>
+        <h4 class="footer-list-header">Soporte</h4></li>
+      <li><a href='#' class="generic-anchor footer-list-anchor" itemprop="significantLink">Soporte virtual</a></li>
+      <li><a href='#' class="generic-anchor footer-list-anchor" itemprop="significantLink">0800-987-654</a></li>
+    </ul>
+    <section class="footer-social-section flex-rw">
+        <span class="footer-social-overlap footer-social-connect">
+        BORBOTECA
+        </span>
+        <span class="footer-social-overlap footer-social-icons-wrapper">
+        <a href="https://www.pinterest.com" class="generic-anchor" target="_blank" title="Pinterest" itemprop="significantLink"><i class="fa fa-pinterest"></i></a>
+        <a href="https://www.facebook.com" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+        <a href="https://twitter.com" class="generic-anchor" target="_blank" title="Twitter" itemprop="significantLink"><i class="fa fa-twitter"></i></a>
+        <a href="http://instagram.com" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.youtube.com" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-youtube"></i></a>
+        <a href="https://plus.google.com" class="generic-anchor" target="_blank" title="Google Plus" itemprop="significantLink"><i class="fa fa-google-plus"></i></a>
+        </span>
+    </section>
+    <section class="footer-bottom-section flex-rw">
+  <div class="footer-bottom-wrapper">   
+  <i class="fa fa-copyright" role="copyright">
+   
+  </i> 2021 UNAJ - <address class="footer-address" role="company address">Proyecto Software </address><span class="footer-bottom-rights"> - Derechos Reservados - </span>
+      </div>
+      <div class="footer-bottom-wrapper">
+      <a href='#' class="generic-anchor" rel="nofollow">Terminos</a> | <a href='#' class="generic-anchor" rel="nofollow">Privacidad</a>
+        </div>
+    </section>
+  </footer>
+    `
+    ;
+}

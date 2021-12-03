@@ -143,7 +143,6 @@ h1 {
     flex-direction: column;
     padding: 0 2% 0 2%;
     min-width: 300px;
-    /* height: 80%; */
 }
 
 #titulo {
@@ -433,8 +432,6 @@ hr {
         .content__main_grid {
             display: grid;
             grid-template-columns: 280px 1fr 320px;
-            /* grid-template-columns: 1fr 1fr 1fr; */
-            /* grid-template-rows: 700px 1fr; */
             grid-template-rows: 1fr;
             background: #FFFFFF;
             width: 80%;
