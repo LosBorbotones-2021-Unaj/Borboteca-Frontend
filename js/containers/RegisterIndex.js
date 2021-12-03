@@ -7,7 +7,7 @@ const CreateUserSuccess=()=>{
 
 }
 const CreateUserFailed=()=>{
-    toastr["error"]("Error", "Ha acurrido un error",{
+    toastr["error"]("Ha acurrido un error", "Error",{
         "closeButton": false,
         "debug": false,
         "newestOnTop": true,

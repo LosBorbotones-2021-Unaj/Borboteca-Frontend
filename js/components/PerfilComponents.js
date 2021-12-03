@@ -72,6 +72,7 @@ export const MiLibroParticular = (Titulo,Imagen,IdLibro) =>
                 <img class="imagen_MiLibro_Particular" src="${Imagen}" alt="${Titulo}">
             </div>
             <p class="titulo_MiLibro_Particular">${Titulo}</p>
+            <h2 class="h2_descargar">Descargar</h2>
         </button>
         `;
 
