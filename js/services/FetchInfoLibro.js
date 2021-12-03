@@ -313,13 +313,13 @@ function traerGenero(genero){
     fetch(urlLibroGenero + idLibro)
         .then(response => response.json())
         .then(response => {
-
+        
             let generoText = document.createElement("b");
             generoText.appendChild(document.createTextNode("Género: "));
             let generoText2 = document.createTextNode(response.descripcion);
             genero.appendChild(generoText);
             genero.appendChild(generoText2);
-
+            console.log(response.descripcion);
 
             traerLibrosGenero(response.descripcion);
         })

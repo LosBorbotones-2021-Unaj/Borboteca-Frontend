@@ -164,3 +164,6 @@ export const CompraNoEncontrada = () =>
       </div>
      `
 
+
+export const H2Descargar = () => 
+    `<h2 class="h2_descargar">Descargar</h2>`
