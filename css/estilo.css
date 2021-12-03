@@ -177,6 +177,7 @@ hr {
     font-weight: bold;
     margin: 0;
     padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 #hrFT {
@@ -351,7 +352,7 @@ hr {
     /* gridChild2 */
 
     #libroAutor {
-        font-size: 1.5vw;
+        font-size: 1.6vw;
         padding-bottom: 12px;
         margin: 0;
         font-weight:bold;
@@ -359,7 +360,7 @@ hr {
     }
     
     #libroResenia {
-        font-size: 1.5vw;
+        font-size: 1.6vw;
     }
     
     #libroResenia2 {
@@ -379,21 +380,21 @@ hr {
     }
     
     #libroEditorial {
-        font-size: 1.3vw;
+        font-size: 1.4vw;
         background: #E5E5E5;
     }
     
     #fechaPublicacionLibro {
-        font-size: 1.3vw;
+        font-size: 1.4vw;
         background: #E5E5E5;
     }
     
     #generoLibro {
-        font-size: 1.3vw;
+        font-size: 1.4vw;
     }
     
     #isbnLibro {
-        font-size: 1.3vw;
+        font-size: 1.4vw;
     }
     
     /* gridChild3 */
@@ -472,7 +473,7 @@ hr {
         }
     
         #libroResenia {
-            font-size: 1.2vw;
+            font-size: 1.1vw;
         }
     
         #libroResenia2 {
@@ -487,19 +488,19 @@ hr {
         }
     
         #libroEditorial {
-            font-size: .9vw;
+            font-size: 1vw;
         }
     
         #fechaPublicacionLibro {
-            font-size: .9vw;
+            font-size: 1vw;
         }
     
         #generoLibro {
-            font-size: .9vw;
+            font-size: 1vw;
         }
     
         #isbnLibro {
-            font-size: .9vw;
+            font-size: 1vw;
         }
     
         /* gridChild3 */

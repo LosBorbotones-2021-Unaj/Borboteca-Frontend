@@ -316,12 +316,22 @@ function traerGenero(genero){
 
             let generoText = document.createElement("b");
             generoText.appendChild(document.createTextNode("Género: "));
-            let generoText2 = document.createTextNode(response.descripcion);
+            let cadena = document.createElement("h1");
+
+            let ultimoElem = response[response.length-1];
+            response.forEach(genero => {
+                if(genero == ultimoElem){
+                    cadena.appendChild(document.createTextNode(genero));
+                }
+                else
+                    cadena.appendChild(document.createTextNode(genero + " - "));
+            });
+            let generoText2 = document.createTextNode(cadena.textContent);
             genero.appendChild(generoText);
             genero.appendChild(generoText2);
 
 
-            traerLibrosGenero(response.descripcion);
+            traerLibrosGenero(response[0]);
         })
         .catch(err => console.log(err));
 }
