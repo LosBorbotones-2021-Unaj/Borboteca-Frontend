@@ -141,7 +141,7 @@ export const ChargeLibros = () => {
 }
 export const IndexRenderer = () => {
     ChargeLibros();
-    ContadorPaginas();
+    
     $("#descarga").append(
         `
         <a href="#" download="frutas_del_mundo.pdf">Download file</a>

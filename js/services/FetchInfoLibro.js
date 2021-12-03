@@ -100,42 +100,15 @@ export const getInfoLibro = () =>{
         let autor = document.createElement("h1");
         autor.id = "libroAutor";
         autor.appendChild(document.createTextNode("Autor: " + libro.nombreAutor));
-
+        
         let resenia = document.createElement("h1");
         resenia.id = "libroResenia";
         let newContentResenia = document.createTextNode(libro.resenia);
+        if(libro.resenia.length > 800){
+            resenia.id = "libroResenia2";
+        }
         resenia.appendChild(newContentResenia);
 
-
-        // let newDiv2 = document.createElement("div");
-        // newDiv2.id = "content";
-
-        // let text = document.createElement("h1");
-        // text.id = "libroReseña";
-        // let newContentText = document.createTextNode("Evelyn Hugo, el ícono de Hollywood que se ha recluido en su edad madura, decide al fin contar la verdad sobre su vida llena de glamour y de escándalos. Pero cuando elige para ello a Monique Grant, una periodista desconocida, nadie se sorprende más que la misma Monique. Por qué ella ? Por qué ahora ? Monique no está precisamente en su mejor momento. Su marido la abandonó, y su vida profesional no avanza. Aún ignorando por que Evelyn la ha elegido para escribir su biografía.");
-        // text.appendChild(newContentText);
-
-        // let text2 = document.createElement("h1");
-        // text2.id = "libroReseña";
-        // let newContentText2 = document.createTextNode("Monique esta decidida a aprovechar esa oportunidad para dar impulso a su carrera. Convocada al lujoso apartamento de Evelyn, Monique escucha fascinada mientras la actriz le cuenta su historia. Desde su llegada a Los Angeles en los años 50 hasta su decisión de abandonar su carrera en el espectáculo en los 80 - y desde luego, los siete maridos que tuvo en ese tiempo - Evelyn narra una historia de ambición implacable, amistad inesperada y un gran amor prohibido.");
-        // text2.appendChild(newContentText2);
-
-        // let spanText = document.createElement("span");
-        // spanText.className = "hide";
-        // spanText.id = "hideText";
-        // spanText.appendChild(text2);
-
-        // let newButtonSee = document.createElement("button");
-        // newButtonSee.id = "hideText-btn";
-        // let newContentButtonSee = document.createTextNode("Leer mas");
-        // newButtonSee.appendChild(newContentButtonSee);
-        // newButtonSee.addEventListener("click", function(e){
-        //     toggleText(spanText, this);
-        // },false);
-
-        // newDiv2.appendChild(text);
-        // newDiv2.appendChild(spanText);
-        // newDiv2.appendChild(newButtonSee);
 
         let fichaTecnica = document.createElement("h1");
         fichaTecnica.id = "fichaT";
@@ -230,7 +203,7 @@ export const getInfoLibro = () =>{
                 }, 200);
             }
             else{
-                alert("El usuario No está logueado");
+                alert("El usuario no está logueado");
             }
             
         },false);
@@ -252,7 +225,7 @@ export const getInfoLibro = () =>{
                 alert("Se agrego el libro al carrito");
             }
             else{
-                alert("El usuario No está logueado");
+                alert("El usuario no está logueado");
             }
         },false);
 
@@ -398,16 +371,6 @@ function traerLibrosGenero(generoId){
         
     })
     .catch(err => console.log(err));
-}
-
-function toggleText(hideText, hideText_btn){
-    hideText.classList.toggle('show');
-
-    if(hideText.classList.contains('show')){
-        hideText_btn.innerHTML = 'Leer menos';
-    }
-    else
-        hideText_btn.innerHTML = 'Leer mas';
 }
 
 function guardarLocalStorageLibro(libroId){
