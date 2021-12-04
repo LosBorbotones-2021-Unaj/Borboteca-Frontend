@@ -1,3 +1,4 @@
+import { verificarSeccion } from "../containers/render-libros.js";
 import { FiltradorBoton, FiltradorInNav } from "../services/filtro-libros.js";
 
 var div = document.querySelector("#index-nav");
@@ -31,16 +32,27 @@ export const genericNavVar = () => {
             </section>
             <section id ="seccion-loggeo" class="Logged_Menu_Container ">
             </section>
-            <section class="Carrito_Icon">
-                <a href="Carro.html"><i class="fas fa-cart-arrow-down"></i></a>
+            <section id="verCarrito" class="Carrito_Icon">
+                <a ><i class="fas fa-cart-arrow-down"></i></a>
             </section>
     `;
+    var carrito= document.getElementById("verCarrito")
+    carrito.onclick=
 
+    function IrAcarrito(){
+        if(verificarSeccion()){
+            window.location.href="Carro.html"
+        }else{
+            window.location.href="Loggin.html"
+        }
+    }
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
         renderLoggeo(decoded);
     }
+  
+   
     else{
         divlogg.innerHTML = 
         `
@@ -188,7 +200,7 @@ const renderLoggeo = (tokensito) => {
 
         CloseSession.addEventListener("click",(e)=>{
             localStorage.removeItem("token");
-            window.location.href = "../view/Loggin.html"; 
+            window.location.href = "Loggin.html"; 
         })
         
         LoggedMenuUl.addEventListener("mousemove",(e)=>

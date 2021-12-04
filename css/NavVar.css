@@ -456,7 +456,9 @@
     display: flex;
     flex-flow: row wrap;
   }
-
+#verCarrito{
+  color:#eb6262 ;
+}
   
   footer {
     background: #eb6262;

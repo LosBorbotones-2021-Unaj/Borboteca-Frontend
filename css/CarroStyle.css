@@ -230,6 +230,7 @@
 }
 
 .TotalCompra{
+    font-size: 1.3rem !important;
     font-weight: 300;
     margin: 10px 0px 15px 0px;
     text-align: center;
@@ -256,9 +257,14 @@
 }
 
 .carrito_Vacio{
+    font-size: 13px;
     color: rgb(216, 48, 42);
     font-weight: bold;
     align-self: center;
+    margin-bottom: 10px;
+}
+.carrito_Vacio p{
+    padding-bottom: 10px;
 }
 .carrito_Vacio img{
     width: 200px;
