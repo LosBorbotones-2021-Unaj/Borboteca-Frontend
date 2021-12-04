@@ -259,15 +259,61 @@ export const getInfoLibro = () =>{
 const AgregarAfavoritos=()=>{
     if(verificarSeccion){
        var usuario= parseJwt(localStorage.getItem("token"))
-         AgregarQuitarFav(idLibro,usuario.id,localStorage.getItem("token"),AgregadoExitoso)
+         AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
+    }else{
+        window.location.href = "Loggin.html"
     }
 }
 
-const AgregadoExitoso=()=>{
-    alert("Se agregó el libro a favoritos");
+export const AgregadoEliminadoExitoso=async (statusCode,libroId)=>{
+    
+
+    let libroFavorito = await GetLibros(libroId);
+    
+    if(statusCode == 200)
+    {
+        toastr.info("",`Se agrego ${libroFavorito.titulo} de tus Favoritos`,{
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            
+        })
+    }
+    else
+    {
+            toastr.info("",`Se quito ${libroFavorito.titulo} de tus Favoritos`,{
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+                
+            })
+    }
+    
 }
-
-
 
 function between(min, max) {  
     return Math.floor(
