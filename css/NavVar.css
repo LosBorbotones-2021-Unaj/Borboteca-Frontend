@@ -424,7 +424,7 @@
   }
   
   body {
-    font: 11px "Open Sans", sans-serif;
+    font: 0.2rem "Open Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: auto;
@@ -452,7 +452,7 @@
   }
   
   .flex-rw {
-    margin-top: 10px;
+    margin-top: .5rem;
     display: flex;
     flex-flow: row wrap;
   }
@@ -470,11 +470,11 @@
   
   .footer-list-top > li {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: .1rem;
   }
   
   .footer-list-header {
-    padding: 10px 0 5px 0;
+    padding: .1rem 0 .5rem 0;
     color: #fff;
     font: 1.8vw "Oswald", sans-serif;
   }
@@ -488,7 +488,7 @@
     align-items: center;
     justify-content: space-around;
     position: relative;
-    margin-top: 5px;
+    margin-top: 1rem;
   }
   
   .footer-social-section::after {
@@ -496,8 +496,8 @@
     position: absolute;
     z-index: 1;
     top: 50%;
-    left: 10px;
-    border-top: 1px solid #ccc;
+    left: 1rem;
+    border-top: .1px solid #ccc;
     width: calc(100% - 20px);
   }
   
