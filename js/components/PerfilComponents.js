@@ -86,7 +86,7 @@ export const MiLibroParticular = (Titulo,Imagen,IdLibro) =>
 
 
 
-export const InfoUsuario = (nombre,apellido,email) =>
+export const InfoUsuario = (nombre,apellido,email,cantidadFavoritos,cantidadMisLibros) =>
     `
     
     
@@ -110,7 +110,15 @@ export const InfoUsuario = (nombre,apellido,email) =>
                     <span>${email}</span>       
                 </li>
             </ul>
+            <div class="container_Datos_Varios">
+                <h2 class="h2_Favoritos_Datos">${cantidadFavoritos}</h2>
+                <span class="span_favoritos_Datos">Favoritos</span>
+                <h2 class="h2_MisLibros_Datos">${cantidadMisLibros}</h2>
+                <span class="span_MisLibros_Datos">Mis Libros</span>
+            </div>
         </div>
+        
+        
     </div>`
 
 
@@ -172,3 +180,4 @@ export const CompraNoEncontrada = () =>
         <h1 class ="h1_Compra_Fail">No se han encontrado resultados para la búsqueda.</h1>
       </div>
      `
+

@@ -35,7 +35,6 @@ export const GetFavoritosById  = async (idUsuario,token,callback) => {
             return httpResponse.json()
     })
     .then(body => {
-        console.log(body);
         callback(body);
         
     })

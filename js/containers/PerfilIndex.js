@@ -4,6 +4,9 @@ import { DeleteVenta, GetLibros,CreateCarro,CreateVenta,CreateCarroLibro,GetLibr
 import { FavoritoParticular,InfoUsuario,InfoVentaGeneral,MiLibroParticular,SinFavoritos,UsuarioSinLibros,InfoVentaParticular,libroCompradoInfo,libroCompradoInfoGeneral,SinCompras,CompraNoEncontrada } from "../components/PerfilComponents.js";
 import { AgregadoEliminadoExitoso, DownloadFile } from "./render-libros.js";
 import { AgregarAlCarroMessage } from "./CarroIndex.js";
+import { GetLibrosComprados2 } from "../services/FetchServices.js";
+let cantidadFavoritos = 0;
+
 
 var decoded = parseJwt(localStorage.getItem("token"));
 
@@ -26,12 +29,13 @@ let ComprasCards = document.querySelector(".Compras_Cards");
 let red = "red"
 let green = "green";
 
-export const RenderPerfil = (section) => {
+export const RenderPerfil = async (section) => {
+         
     
-    GetUsuarioByid(decoded.id,RenderInfoUsuario);
-    GetFavoritosById(decoded.id,localStorage.getItem("token"),RenderFavoritos);
-    GetLibrosComprados(decoded.id,RenderMisLibros);
-    GetAllVentas(decoded.id,RenderMisCompras);
+    await GetFavoritosById(decoded.id,localStorage.getItem("token"),RenderFavoritos);
+    await GetLibrosComprados(decoded.id,RenderMisLibros);
+    await GetAllVentas(decoded.id,RenderMisCompras);
+    await GetUsuarioByid(decoded.id,RenderInfoUsuario);
     if(section == "libros")
     {
         tab1.classList.add("activo");
@@ -61,9 +65,16 @@ export const RenderPerfil = (section) => {
     }
 }
 
-const RenderInfoUsuario = (UsuarioActual) => {
+
+
+
+const RenderInfoUsuario = async (UsuarioActual) => {
+    
     const header = document.querySelector(".header");
-    header.innerHTML = InfoUsuario(UsuarioActual.nombre,UsuarioActual.apellido,UsuarioActual.email);
+    let xlibros = await GetLibrosComprados2(UsuarioActual.id); 
+    header.innerHTML = InfoUsuario(UsuarioActual.nombre,UsuarioActual.apellido,UsuarioActual.email,cantidadFavoritos,xlibros.librosIds.length);
+    
+
 }
 
 const RenderFavoritos = async (json) => {
@@ -71,15 +82,15 @@ const RenderFavoritos = async (json) => {
     if(json[0].length != 0)
     {
         for (const favorito of json[0]) {
-            
             let container_Favoritos = document.createElement("DIV");
             container_Favoritos.classList.add("container_Favoritos");
             let libro = await GetLibros(favorito.libro);
             container_Favoritos.innerHTML += FavoritoParticular(libro.titulo,libro.imagen);
             container_Favoritos.classList.add(`${libro.id}`);
             tab2.appendChild(container_Favoritos);
+            cantidadFavoritos++;
         }
-
+    
         var btnDeleteLibros = document.querySelectorAll(".btn_Delete_Libro");
         var divList = document.querySelectorAll(".container_Favoritos");
         var btn_Agregar_Carrito = document.querySelectorAll(".btn_Agregar_Carrito");
@@ -98,6 +109,8 @@ const RenderFavoritos = async (json) => {
                             
                 tab2.removeChild(divList[i]);
 
+                cantidadFavoritos = document.querySelectorAll(".container_Favoritos").length;
+                GetUsuarioByid(decoded.id,RenderInfoUsuario);
 
 
                 if(tab2.childElementCount <= 0)
@@ -118,14 +131,15 @@ const RenderFavoritos = async (json) => {
                 await CreateCarroLibro(divList[i].classList.item(1),Usuario.id,token,AgregarAlCarroMessage);
                 await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);
                 tab2.removeChild(divList[i]);
-
+                cantidadFavoritos = document.querySelectorAll(".container_Favoritos").length;
+                GetUsuarioByid(decoded.id,RenderInfoUsuario);
                 if(tab2.childElementCount <= 0)
                 {
                     
                     tab2.innerHTML = SinFavoritos();
                     content2.style.height = "100%";
                     tab2.style.height= "100%";
-    
+                    
                 }
             })
                 
@@ -146,6 +160,7 @@ const callback = () => {
 const RenderMisLibros = async (MisLibros) => {
     if(MisLibros.librosIds != undefined && MisLibros.librosIds != null && MisLibros.librosIds.length != 0)
     {
+        
         for (let miLibro of MisLibros.librosIds) 
         {
             
@@ -159,8 +174,9 @@ const RenderMisLibros = async (MisLibros) => {
                 let tituloLibro = libro.titulo + ".pdf";
                 DownloadFile(tituloLibro,valorLibro.value);
             });
+            
         }
-        
+       
         const ButtonMisLibros = document.querySelectorAll(".button_MiLibro");
         const ImagenMiLibro = document.querySelectorAll(".imagen_MiLibro_Particular");
         const DivDescargar = document.querySelectorAll(".div_descargarLibro");
@@ -186,7 +202,7 @@ const RenderMisLibros = async (MisLibros) => {
 }
 
 const RenderMisCompras = (Fechas) => {
-    console.log(Fechas);
+    
         if(Fechas[0] != null)
         {
             const FechaSelection = document.querySelector("#fecha_Selection");
