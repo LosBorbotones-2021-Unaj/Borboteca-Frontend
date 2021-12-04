@@ -251,7 +251,9 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3_2 = document.createTextNode("Agregar al Carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
+            
             if(verificarSeccion){
+                
                 await CreateCarro(decoded.id,token);
                 
                 await CreateVenta(decoded.id,token); 
@@ -307,14 +309,7 @@ const AgregadoExitoso=()=>{
     alert("Se agregó el libro a favoritos");
 }
 
-const verificarSeccion=()=>{
-    if (localStorage.getItem("token")==undefined){
-        return false;
-    }
-    else{
-        return true;
-    }
-}
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -441,4 +436,14 @@ function traerLibrosGenero(generoId){
 
 function guardarLocalStorageLibro(libroId){
     localStorage.setItem("idLibro", libroId);
+}
+
+const verificarSeccion=()=>{
+    
+    if (localStorage.getItem("token")==undefined ){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
