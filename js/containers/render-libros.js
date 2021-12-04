@@ -64,7 +64,7 @@ export const RenderLibros = (json) =>{
 
 
 const AgregarAfavoritos=()=>{
-    if(verificarSeccion){
+    if(verificarSeccion()){
        var usuario= parseJwt(localStorage.getItem("token"))
          AgregarQuitarFav(localStorage.getItem("idLibro"),usuario.id,localStorage.getItem("token"),AgregadoEliminadoExitoso)
     }else{

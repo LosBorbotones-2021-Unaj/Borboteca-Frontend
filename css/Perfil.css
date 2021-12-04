@@ -56,6 +56,7 @@
 .ul_Info_Usuario li span{
     color: rgba(0,0,0,.45);
     padding: 0 10px;
+    font-size: 17px;
     text-align: start;
 }
 
@@ -79,6 +80,70 @@
 
 }
 
+.container_Datos_Varios{
+    margin-left: 500px;
+    display: grid;
+    grid-template-columns: repeat(2,100px);
+    grid-template-rows: repeat(2,100px);
+    justify-items: center;
+    align-items: flex-end;
+    height: 100%;
+}
+.container_Datos_Varios h5{
+    font-size: 16px;
+    color: rgba(0,0,0,.8);
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.35;
+    
+}
+.h2_Favoritos_Datos{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 140.4%;
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+.span_favoritos_Datos{
+    grid-row: 2/3;
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140.4%;
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+
+.h2_MisLibros_Datos{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 140.4%;
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+
+.span_MisLibros_Datos{
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140.4%;
+    text-align: center;
+    color: rgb(8, 8, 8);
+}
+@media screen and (max-width:1195px){
+    .container_Datos_Varios{
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width:1318px) and (min-width: 1195px){
+    .container_Datos_Varios{
+        margin-left: 300px;
+    }
+}
 @media screen and (max-width:740px){
     .container_Icon_Info_Usuario{
         flex-direction: column;
@@ -510,6 +575,29 @@ p{
 
 .green{
     color: green;
+}
+
+@media screen and (max-width:1350px){
+
+    .tab3{
+        align-items: center;
+    }
+
+    .container_Search_Compra{
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+        box-shadow: none;
+        border-radius: 0px;
+    }
+
+    .estado_Selection_Container,
+    .Button_Search_Compras,
+    .fecha_Selection_Container,
+    #estado_Selection{
+        width: 100%;
+        margin: 0;
+    }
 }
 /*MIS COMPRAS*/
 
