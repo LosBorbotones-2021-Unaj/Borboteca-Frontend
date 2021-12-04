@@ -75,10 +75,6 @@ export const getInfoLibro = () =>{
             AgregarAfavoritos();
         },false);
 
-        let volver = document.getElementById("botonVolver");
-        volver.addEventListener("click", function(e){
-            window.location.href = "Index.html";
-        },false);
         
         newDivButtons.appendChild(newDivSN);
         newDivSN.appendChild(facebook);
@@ -212,7 +208,7 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3 = document.createTextNode("Comprar");
         newButtonGC3.appendChild(newContentButtonGC3);
         newButtonGC3.addEventListener("click", async function(e){
-            if(verificarSeccion){
+            if(verificarSeccion()){
                 await CreateCarro(decoded.id,token);
                 await CreateVenta(decoded.id,token);   
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
@@ -221,26 +217,8 @@ export const getInfoLibro = () =>{
                     window.location.href = "Carro.html"; 
                 }, 200);
             }
-            else{
-                toastr["error"]("El usuario no está logueado", "Error",{
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": true,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "3000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    
-                })
-            }
+            else  window.location.href="Loggin.html"    
+            
             
         },false);
 
@@ -251,33 +229,16 @@ export const getInfoLibro = () =>{
         let newContentButtonGC3_2 = document.createTextNode("Agregar al Carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
-            if(verificarSeccion){
+            if(verificarSeccion()){
                 await CreateCarro(decoded.id,token);
                 
                 await CreateVenta(decoded.id,token); 
                           
                 await CreateCarroLibro(idLibro,decoded.id,token,AgregarAlCarroMessage);
             }
-            else{
-                toastr["error"]("El usuario no está logueado", "Error",{
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": true,
-                    "progressBar": true,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "3000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    
-                })
-            }
+            else window.location.href="Loggin.html"     
+            
+            
         },false);
 
         newDiv3.appendChild(precio);

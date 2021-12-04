@@ -6,7 +6,10 @@ body{
    box-sizing: border-box;
    line-height: 0;
 }
-
+.carousel{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 .footer{
     background: rgb(240, 240, 243);
     border-top: 1px solid #eee;
