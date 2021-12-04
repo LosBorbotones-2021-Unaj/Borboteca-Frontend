@@ -14,7 +14,10 @@ export const FiltradorInNav = (palabra) =>{
             }
 }
 export const FiltradorBoton = (palabra) =>{
-    console.log("Aca le dio a buscar");
+    buscarLibros(palabra);
+    RenderLibros(JSON.parse(localStorage.getItem("libros")));
+    var indexer = document.getElementById("indexer")
+    indexer.innerHTML = '';
 }
 
 function autocompleteMatch(input) {
