@@ -156,10 +156,9 @@ export const getInfoLibro = () =>{
         cantHojas.id = "isbnLibro";
         let cantHojasText = document.createElement("b");
         cantHojasText.appendChild(document.createTextNode("Cantidad de hojas: "));
-        let cantHojasText2 = document.createTextNode(getRandomInt(250));
+        let cantHojasText2 = document.createTextNode(between(100, 300));
         cantHojas.appendChild(cantHojasText);
         cantHojas.appendChild(cantHojasText2);
-
 
         let currentDiv2 = document.getElementById("gridChild2");
         currentDiv2.appendChild(title);
@@ -316,9 +315,11 @@ const verificarSeccion=()=>{
     }
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+function between(min, max) {  
+    return Math.floor(
+      Math.random() * (max - min) + min
+    )
+  }
 
 function traerLibrosAutor(nombreAutor){
     fetch(urlLibrosAutor + nombreAutor + '&LibroGuid=' + idLibro)
@@ -339,7 +340,7 @@ function traerLibrosAutor(nombreAutor){
                     newDiv2.id = "divLibros";
                     const newImage = document.createElement("img");
                     newImage.src = libro.imagen;
-                    newImage.id = "libroImagen";
+                    newImage.id = "libroImagen2";
                     newImage.title = libro.titulo;
                     newImage.addEventListener("click", function(e){
                         guardarLocalStorageLibro(libro.id);
@@ -410,7 +411,7 @@ function traerLibrosGenero(generoId){
                 newDiv2.id = "divLibros";
                 const newImage = document.createElement("img");
                 newImage.src = libro.imagen;
-                newImage.id = "libroImagen";
+                newImage.id = "libroImagen2";
                 newImage.title = libro.titulo;
                 newImage.addEventListener("click", function(e){
                     guardarLocalStorageLibro(libro.id);
