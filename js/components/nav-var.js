@@ -35,7 +35,14 @@ export const genericNavVar = () => {
                 <a href="Carro.html"><i class="fas fa-cart-arrow-down"></i></a>
             </section>
     `;
-
+    const SearchLibros = document.querySelector(".search_Input");
+    const SearchLibrosButton = document.querySelector(".search_Button");
+    SearchLibros.addEventListener("keyup", function(e){
+        FiltradorInNav(SearchLibros.value);
+    })
+    SearchLibrosButton.addEventListener("click", function(e){
+        FiltradorBoton(SearchLibros.value);
+    })
     divlogg = document.querySelector("#seccion-loggeo");
     if(undefined != localStorage.getItem("token")){
         var decoded = parseJwt(localStorage.getItem("token"));
@@ -135,6 +142,7 @@ const renderLoggeo = (tokensito) => {
                 </ul>
             </div>
         `;
+        
         const logged_Menu = document.querySelector(".Logged_Menu_Links");
         if(tokensito.roll == '2' ){
             $(".Logged_Menu_Links").append(
@@ -170,14 +178,12 @@ const renderLoggeo = (tokensito) => {
                     </li>
         `;
 
-        const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin")
         const LoggedMenuUl = document.querySelector(".Logged_Menu_Links");
         const LoggedUserContainer = document.querySelector(".Logged_User_Container");
         const UserIconPath = document.querySelector(".userIconPath");
         const UserMenuDownIconPath = document.querySelector(".userMenuDownIconPath");
         const CloseSession = document.querySelector(".Logged_Menu_CerrarSesion");
-        const SearchLibros = document.querySelector(".search_Input");
-        const SearchLibrosButton = document.querySelector(".search_Button");
+        
         
         if(tokensito.roll == '2'){
             const BotonAdminLibros = document.querySelector(".Logged_Menu_Admin");
@@ -203,12 +209,7 @@ const renderLoggeo = (tokensito) => {
             UserMenuDownIconPath.classList.remove("change_icons_Logged_User");
         })
 
-        SearchLibros.addEventListener("keyup", function(e){
-            FiltradorInNav(SearchLibros.value);
-        })
-        SearchLibrosButton.addEventListener("click", function(e){
-            FiltradorBoton(SearchLibros.value);
-        })
+        
 }
 
 const GenericFooter = () =>{
