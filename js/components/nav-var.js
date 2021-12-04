@@ -36,6 +36,17 @@ export const genericNavVar = () => {
                 <a ><i class="fas fa-cart-arrow-down"></i></a>
             </section>
     `;
+const carrito = document.getElementById("verCarrito");
+carrito.onclick=verCarrito;
+function verCarrito(){
+    if(verificarSeccion()){
+        window.location.href="Carro.html";
+    }
+    else{
+        window.location.href="Loggin.html"
+    }
+}
+
     const SearchLibros = document.querySelector(".search_Input");
     const SearchLibrosButton = document.querySelector(".search_Button");
     SearchLibros.addEventListener("keyup", function(e){
