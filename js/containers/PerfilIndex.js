@@ -110,7 +110,7 @@ const RenderFavoritos = async (json) => {
                 tab2.removeChild(divList[i]);
 
                 cantidadFavoritos = document.querySelectorAll(".container_Favoritos").length;
-                GetUsuarioByid(decoded.id,RenderInfoUsuario);
+                await GetUsuarioByid(decoded.id,RenderInfoUsuario);
 
 
                 if(tab2.childElementCount <= 0)
@@ -132,7 +132,7 @@ const RenderFavoritos = async (json) => {
                 await AgregarQuitarFav(divList[i].classList.item(1),Usuario.id,localStorage.getItem("token"),callback);
                 tab2.removeChild(divList[i]);
                 cantidadFavoritos = document.querySelectorAll(".container_Favoritos").length;
-                GetUsuarioByid(decoded.id,RenderInfoUsuario);
+                await GetUsuarioByid(decoded.id,RenderInfoUsuario);
                 if(tab2.childElementCount <= 0)
                 {
                     
