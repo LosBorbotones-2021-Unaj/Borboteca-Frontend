@@ -48,7 +48,7 @@
 
 #libroImagen {
     width: 230px;
-    height: 320px;
+    height: 330px;
     object-fit:cover;
     justify-self: center;
     border-radius: 12px;
@@ -57,7 +57,7 @@
 
 #libroImagen2 {
     width: 100%;
-    height: 100%;
+    height: 220px;
     justify-self: center;
     border-radius: 12px;
     cursor: pointer;
@@ -303,7 +303,7 @@ hr {
 
 #divLibros {
     display: grid;
-    grid-template-rows: 250px;
+    grid-template-rows: 1fr;
 }
 
 #tituloLibroRecomendado {
