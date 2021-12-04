@@ -103,6 +103,15 @@
     align-items: center;
     padding: 10px;
 }
+@media screen and (max-width :1120px) {
+    .carrito_Venta {
+        flex-direction: column;
+    }
+    .container_Libro{
+        grid-template-columns: auto;
+        
+    }
+}
 .carrito_SubContainer{
     display: flex;
     flex-direction: column;
@@ -123,6 +132,7 @@
     grid-template-columns: repeat(4,1fr);
     min-width: 450px;
 }
+
 .Libro_Info_General{
     padding-bottom: 20px;
     font-weight: bold;
