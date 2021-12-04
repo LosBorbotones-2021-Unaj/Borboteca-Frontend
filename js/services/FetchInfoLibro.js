@@ -224,7 +224,7 @@ export const getInfoLibro = () =>{
 
 
         let newButtonGC3_2 = document.createElement("button");
-        newButtonGC3_2.id = "libroBoton";
+        newButtonGC3_2.id = "libroBoton2";
         let newContentButtonGC3_2 = document.createTextNode("Agregar al Carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){

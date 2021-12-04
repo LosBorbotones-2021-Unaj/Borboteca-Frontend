@@ -49,7 +49,6 @@
 #libroImagen {
     width: 230px;
     height: 330px;
-    object-fit:cover;
     justify-self: center;
     border-radius: 12px;
     cursor: pointer;
@@ -272,6 +271,18 @@ hr {
     margin: 8px;
 }
 
+#libroBoton2 {
+    font-size:20px;
+    background: #FF6962;
+    color: #FFFFFF;
+    width: 280px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    align-self: center;
+    margin: 8px;
+}
+
 /* gridChild5 */
 
 #gridChild5 {
@@ -307,6 +318,7 @@ hr {
 }
 
 #tituloLibroRecomendado {
+    display: flex;
     padding-top: 10px;
 }
 
@@ -562,12 +574,17 @@ hr {
     
         #DivMP #paypal{
             width: 50%;
-            padding-bottom: 30%;
+            padding-bottom: 20%;
         }
     
         #libroBoton {
             width: 220px;
             margin-bottom: 10px;
+        }
+
+        #libroBoton2 {
+            width: 220px;
+            margin-bottom: 20px;
         }
     
         /* gridChild5 */
