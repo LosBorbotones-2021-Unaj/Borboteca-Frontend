@@ -152,10 +152,9 @@ export const getInfoLibro = () =>{
         cantHojas.id = "isbnLibro";
         let cantHojasText = document.createElement("b");
         cantHojasText.appendChild(document.createTextNode("Cantidad de hojas: "));
-        let cantHojasText2 = document.createTextNode(getRandomInt(250));
+        let cantHojasText2 = document.createTextNode(between(100, 300));
         cantHojas.appendChild(cantHojasText);
         cantHojas.appendChild(cantHojasText2);
-
 
         let currentDiv2 = document.getElementById("gridChild2");
         currentDiv2.appendChild(title);
@@ -225,7 +224,7 @@ export const getInfoLibro = () =>{
 
 
         let newButtonGC3_2 = document.createElement("button");
-        newButtonGC3_2.id = "libroBoton";
+        newButtonGC3_2.id = "libroBoton2";
         let newContentButtonGC3_2 = document.createTextNode("Agregar al Carrito");
         newButtonGC3_2.appendChild(newContentButtonGC3_2);
         newButtonGC3_2.addEventListener("click",async function(e){
@@ -270,9 +269,11 @@ const AgregadoExitoso=()=>{
 
 
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
+function between(min, max) {  
+    return Math.floor(
+      Math.random() * (max - min) + min
+    )
+  }
 
 function traerLibrosAutor(nombreAutor){
     fetch(urlLibrosAutor + nombreAutor + '&LibroGuid=' + idLibro)
@@ -293,7 +294,7 @@ function traerLibrosAutor(nombreAutor){
                     newDiv2.id = "divLibros";
                     const newImage = document.createElement("img");
                     newImage.src = libro.imagen;
-                    newImage.id = "libroImagen";
+                    newImage.id = "libroImagen2";
                     newImage.title = libro.titulo;
                     newImage.addEventListener("click", function(e){
                         guardarLocalStorageLibro(libro.id);
@@ -338,7 +339,6 @@ function traerGenero(genero){
             let generoText2 = document.createTextNode(cadena.textContent);
             genero.appendChild(generoText);
             genero.appendChild(generoText2);
-            console.log(response.descripcion);
 
             traerLibrosGenero(response[0]);
         })
@@ -364,7 +364,7 @@ function traerLibrosGenero(generoId){
                 newDiv2.id = "divLibros";
                 const newImage = document.createElement("img");
                 newImage.src = libro.imagen;
-                newImage.id = "libroImagen";
+                newImage.id = "libroImagen2";
                 newImage.title = libro.titulo;
                 newImage.addEventListener("click", function(e){
                     guardarLocalStorageLibro(libro.id);
