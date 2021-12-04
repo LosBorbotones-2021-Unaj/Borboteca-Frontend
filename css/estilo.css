@@ -24,7 +24,7 @@
 
 #gridChild {
     display: grid;
-    grid-template-rows: 65% 35%;
+    grid-template-rows: 70% 30%;
     height: 100%;
     justify-content: center;
     justify-items: center;
@@ -47,6 +47,15 @@
 }
 
 #libroImagen {
+    width: 230px;
+    height: 320px;
+    object-fit:cover;
+    justify-self: center;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#libroImagen2 {
     width: 100%;
     height: 100%;
     justify-self: center;
@@ -294,7 +303,7 @@ hr {
 
 #divLibros {
     display: grid;
-    grid-template-rows: 1fr 52px;
+    grid-template-rows: 250px;
 }
 
 #tituloLibroRecomendado {
@@ -444,7 +453,7 @@ hr {
     
         #gridChild {
             display: grid;
-            grid-template-rows: 65% 25%;
+            grid-template-rows: 70% 30%;
             justify-content: center;
             justify-items: center;
         }
