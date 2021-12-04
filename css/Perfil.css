@@ -92,7 +92,7 @@ hr{
 .main_Perfil{
     width: 80%;
     margin: 0 auto;
-    background: #f3efef;
+    background: #ffffff;
     box-shadow: 1px 1px 5px 2px rgb(0 0 0 /24%);
     border-radius: 6px;
     display: flex;
@@ -212,7 +212,7 @@ p{
     font-size: 20px;
     text-transform:uppercase ;
     font-weight: bold;
-    color: rgb(245, 142, 142);
+    color: rgb(255, 255, 255);
 
 }
 
@@ -231,7 +231,7 @@ p{
 .div_descargarLibro svg{
     width: 40px;
     height: 60px;
-    fill: rgb(245, 142, 142);
+    fill: rgb(255, 255, 255);
     
 }
 .imagen_MiLibro_Particular{
@@ -341,6 +341,7 @@ p{
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
     border-radius: 6px;
     margin-top: 20px;
+     
     
 }
 
@@ -351,7 +352,9 @@ p{
     box-shadow: 0px 1px 2px 1px rgb(0 0 0 / 24%);
     border-radius: 6px;
     border: none;
-    outline: none;    
+    outline: none; 
+    font-size: 1.3rem;  
+   
 }
 
 .Button_Search_Compras:hover,
@@ -365,6 +368,7 @@ p{
 .Button_Search_Compras{
     height: max-content;
     padding: 0px 4px ;
+    background-color: rgb(255,105,98);
    
 }
 
