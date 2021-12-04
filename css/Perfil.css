@@ -139,6 +139,11 @@
         margin-left: 0px;
     }
 }
+@media screen and (max-width:1318px) and (min-width: 1195px){
+    .container_Datos_Varios{
+        margin-left: 300px;
+    }
+}
 @media screen and (max-width:740px){
     .container_Icon_Info_Usuario{
         flex-direction: column;
