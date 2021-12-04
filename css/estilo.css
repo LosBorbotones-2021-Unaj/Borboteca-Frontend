@@ -318,6 +318,10 @@ hr {
     box-shadow: 5px 5px 5px #000000;
 }
 
+#libroImagen2 {
+    box-shadow: 5px 5px 5px #000000;
+}
+
 .footer{
     background: rgb(240, 240, 243);
     border-top: 1px solid #eee;
