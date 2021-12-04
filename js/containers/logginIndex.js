@@ -6,7 +6,7 @@ const GuardarEnLocalStorage=(json)=>{
 }
 const Usuarioinexistente=()=>{
  const loggin = document.getElementById("informacion")
-  loggin.innerHTML='<h4 id="informacion" class="animate__animated animate__heartBeat">Usuario no encontrado en la base de datos</h4>';
+  loggin.innerHTML='<h4 id="informacion" class="animate__animated animate__heartBeat">Usuario o contraseña incorrecta</h4>';
 }
 
 export const  EnterUser= ()=>{
